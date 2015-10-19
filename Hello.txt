@@ -1,0 +1,19 @@
+hello,SVN Switch
+// delete test text
+
+
+
+add this line in truch on 8/26
+
+2014/8/26 add this line in branch V1.2
+2014/8/26 add one more
+
+luna edit on 8/30
+
+2014/8/30 use Luna to edit, add some
+
+dddd
+mike
+
+
+

@@ -53,16 +53,8 @@ public class AppTest  extends TestCase
     {
         assertTrue( true );
     	
-    }
-    
-    /*
-    ***/
-    
-    public void testAppSix2()
-    {
-        assertTrue( true );
-    	
-    }
+    }  
+
     
 
     

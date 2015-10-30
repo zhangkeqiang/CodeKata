@@ -3,15 +3,18 @@
  */
 package kata;
 
+import java.util.ArrayList;
+
 /**
  * @author zhangmike
  *
  */
-public class BestSellingList {
+public class BestSellingList<SaleItem> extends ArrayList<SaleItem> {
 
-	public boolean add() {
-		return false;
-		
-	}
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1002020222;
+
 
 }

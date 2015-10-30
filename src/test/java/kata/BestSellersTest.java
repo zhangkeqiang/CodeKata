@@ -11,12 +11,16 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.ArrayList; 
 /**
  * @author zhangmike
  *
  */
 public class BestSellersTest {
-
+	private BestSellingList<SaleItem> list;
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -36,6 +40,7 @@ public class BestSellersTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		//list = new BestSellingList<SaleItem>();
 	}
 
 	/**
@@ -47,16 +52,68 @@ public class BestSellersTest {
 
 	@Test
 	public void testNewBestSellingList() {
-		BestSellingList list = new BestSellingList();
-		assertNotNull(list);
+		
+		//assertNotNull(list);
 		
 	}
 	
 	@Test
 	public void testFullBestSellingList() {
-		BestSellingList list = new BestSellingList();
-		assertNotNull(list);
-		assertTrue(list.add());
+		//SaleItem item = new SaleItem("Apple Mac");
+		//assertNotNull(list);
+		//assertTrue(list.add(item));
+		
+	}
+	
+	@Test
+	public void testGenerateBestSellingList() {
+		long sleeptime = 100;
+		BestSellingManager manager = new BestSellingManager();
+		manager.start();		
+		BestSellingList<SaleItem> bestList = manager.getBestList();
+		Logger logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);		
+		manager.changeType(BestSellingManager.HOURLYUPDATE);
+		/*try {
+			BestSellingManager.sleep(sleeptime);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		for (SaleItem item : bestList)
+        {
+			logger.info(item.getName()); 
+        }
+		assertNotNull(bestList);
+		
+		manager.changeType(BestSellingManager.DAILYUPDATE);
+		try {
+			BestSellingManager.sleep(sleeptime);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//bestList = manager.getBestList();
+		for (SaleItem item : bestList)
+        {
+			logger.info(item.getName()); 
+        }
+		assertNotNull(bestList);
+		
+		manager.changeType(BestSellingManager.REALTIMEUPDATE);
+		//manager.generateBestList();
+		try {
+			BestSellingManager.sleep(sleeptime);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//bestList = manager.getBestList();
+		for (SaleItem item : bestList)
+        {
+			logger.info(item.getName()); 
+        }
+		assertNotNull(bestList);
 		
 	}
 

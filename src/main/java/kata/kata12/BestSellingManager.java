@@ -1,4 +1,4 @@
-package kata;
+package kata.kata12;
 
 public class BestSellingManager extends Thread {
 	public static final int LAST24H = 1;

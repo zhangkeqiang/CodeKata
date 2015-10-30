@@ -11,6 +11,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import kata.kata12.BestSellingList;
+import kata.kata12.BestSellingManager;
+import kata.kata12.SaleItem;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -73,12 +77,12 @@ public class BestSellersTest {
 		BestSellingList<SaleItem> bestList = manager.getBestList();
 		Logger logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);		
 		manager.changeType(BestSellingManager.HOURLYUPDATE);
-		/*try {
+		try {
 			BestSellingManager.sleep(sleeptime);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		for (SaleItem item : bestList)
         {
 			logger.info(item.getName()); 

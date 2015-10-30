@@ -1,7 +1,7 @@
 /**
  * 
  */
-package kata;
+package kata.kata12;
 
 import java.util.ArrayList;
 

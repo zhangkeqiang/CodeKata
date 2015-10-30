@@ -56,7 +56,7 @@ public class BestSellersTest {
 	public void testFullBestSellingList() {
 		BestSellingList list = new BestSellingList();
 		assertNotNull(list);
-		list.add();
+		assertTrue(list.add());
 		
 	}
 

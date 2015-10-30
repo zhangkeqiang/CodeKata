@@ -9,4 +9,9 @@ package kata;
  */
 public class BestSellingList {
 
+	public boolean add() {
+		return false;
+		
+	}
+
 }

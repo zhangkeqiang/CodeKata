@@ -11,9 +11,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import kata.kata12.BestSellingList;
-import kata.kata12.BestSellingManager;
-import kata.kata12.SaleItem;
+import kata12.BestSellingManager;
+import kata12.SaleItem;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,7 +23,7 @@ import java.util.ArrayList;
  *
  */
 public class BestSellersTest {
-	private BestSellingList<SaleItem> list;
+	//private ArrayList<SaleItem> list;
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -74,7 +73,7 @@ public class BestSellersTest {
 		long sleeptime = 100;
 		BestSellingManager manager = new BestSellingManager();
 		manager.start();		
-		BestSellingList<SaleItem> bestList = manager.getBestList();
+		ArrayList<SaleItem> bestList = manager.getBestList();
 		Logger logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);		
 		manager.changeType(BestSellingManager.HOURLYUPDATE);
 		try {

@@ -1,4 +1,6 @@
-package kata.kata12;
+package kata12;
+
+import java.util.ArrayList;
 
 public class BestSellingManager extends Thread {
 	public static final int LAST24H = 1;
@@ -7,9 +9,9 @@ public class BestSellingManager extends Thread {
 	public static final int HOURLYUPDATE = 60;
 	public static final int REALTIMEUPDATE = 1;
 	private static int updateType = DAILYUPDATE;
-	private static BestSellingList<SaleItem> bestList = new BestSellingList<SaleItem>();
+	private static ArrayList<SaleItem> bestList = new ArrayList<SaleItem>();
 
-	public BestSellingList<SaleItem> generateBestList() {
+	public ArrayList<SaleItem> generateBestList() {
 		bestList.clear();
 		if (updateType == DAILYUPDATE) {
 			for (int i = 0; i < 10; i++) {
@@ -28,7 +30,7 @@ public class BestSellingManager extends Thread {
 		return bestList;
 	}
 
-	public BestSellingList<SaleItem> getBestList() {
+	public ArrayList<SaleItem> getBestList() {
 		return bestList;
 	}
 

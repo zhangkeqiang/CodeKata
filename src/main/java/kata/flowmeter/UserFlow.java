@@ -11,7 +11,7 @@ public class UserFlow {
 	}
 	public void setFlow(int year, int month, int flow) {
 		  
-		String yearMonth = FlowMeter.getYearMonth(year, month);
+		String yearMonth = FlowManager.getYearMonth(year, month);
 		mapMonthFlow.put(yearMonth,Integer.valueOf(flow));
 		
 	}

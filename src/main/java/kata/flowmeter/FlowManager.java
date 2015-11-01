@@ -1,7 +1,9 @@
 package kata.flowmeter;
 
-public class FlowMeter {
-
+public class FlowManager {
+	public static final int ONEMONTH = 1;
+	public static final int TWOMONTH = 2;
+	private int billMode = TWOMONTH;
 	public static String getYearMonth(int year, int month) {
 		String yearMonth;
 		if(month < 1){
@@ -22,6 +24,15 @@ public class FlowMeter {
 	}
 
 	public int calculateBillingFlow(UserFlow userFlow, int year, int month) {
+		if(this.billMode == TWOMONTH){
+			return calculateBillingFlowInTwoMonthMode(userFlow, year, month);
+		}else if(this.billMode ==ONEMONTH ){
+			return userFlow.getRealFlow(getYearMonth(year, month));
+		}
+		return 0;
+	}
+	
+	private int calculateBillingFlowInTwoMonthMode(UserFlow userFlow, int year, int month) {
 		int billingFlow=0;
 		int last2RealFlow = userFlow.getRealFlow(getYearMonth(year, month - 2));
 		int lastRealFlow = userFlow.getRealFlow(getYearMonth(year, month - 1));
@@ -47,6 +58,10 @@ public class FlowMeter {
 		}
 		if(billingFlow < 0) billingFlow = 0;
 		return billingFlow;
+	}
+
+	public void setMode(int mode) {
+		this.billMode = mode;
 	}
 
 }

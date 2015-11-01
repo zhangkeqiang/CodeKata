@@ -10,8 +10,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class FlowMeterTest {
-
+public class OldFlowMeterTest {
+	FlowManager meter;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -22,6 +22,8 @@ public class FlowMeterTest {
 
 	@Before
 	public void setUp() throws Exception {
+		meter = new FlowManager();
+		meter.setMode(FlowManager.ONEMONTH);
 	}
 
 	@After
@@ -30,15 +32,11 @@ public class FlowMeterTest {
 
 	@Test
 	public void testFlowMeter() {
-		FlowMeter meter = new FlowMeter();
 		assertNotNull(meter);
-		UserFlow flow = new UserFlow();
-		assertNotNull(flow);
 	}
 	
 	@Test
-	public void testcalcFlow1() {
-		FlowMeter meter = new FlowMeter();
+	public void testcalcFlow1() {		
 		assertNotNull(meter);
 		DataPlan plan = new DataPlan(1000,30);
 		UserFlow userFlow = new UserFlow();
@@ -49,13 +47,12 @@ public class FlowMeterTest {
 		userFlow.setFlow(2016,1,1678);
 		int flow = meter.calculateBillingFlow(userFlow,2015,10);
 		assertEquals(800, flow);
-		assertEquals(600, meter.calculateBillingFlow(userFlow,2015,11));
-		assertEquals(400, meter.calculateBillingFlow(userFlow,2015,12));
+		assertEquals(800, meter.calculateBillingFlow(userFlow,2015,11));
+		assertEquals(800, meter.calculateBillingFlow(userFlow,2015,12));
 	}
 
 	@Test
 	public void testcalcFlow2() {
-		FlowMeter meter = new FlowMeter();
 		assertNotNull(meter);
 		DataPlan plan = new DataPlan(1000,30);
 		UserFlow userFlow = new UserFlow();
@@ -66,13 +63,12 @@ public class FlowMeterTest {
 		userFlow.setFlow(2016,1,1678);
 		int flow = meter.calculateBillingFlow(userFlow,2015,10);
 		assertEquals(200, flow);
-		assertEquals(0, meter.calculateBillingFlow(userFlow,2015,11));
-		assertEquals(0, meter.calculateBillingFlow(userFlow,2015,12));
+		assertEquals(200, meter.calculateBillingFlow(userFlow,2015,11));
+		assertEquals(200, meter.calculateBillingFlow(userFlow,2015,12));
 	}
 	
 	@Test
 	public void testcalcFlow3() {
-		FlowMeter meter = new FlowMeter();
 		assertNotNull(meter);
 		DataPlan plan = new DataPlan(1000,30);
 		UserFlow userFlow = new UserFlow();
@@ -83,13 +79,12 @@ public class FlowMeterTest {
 		userFlow.setFlow(2016,1,1678);
 		int flow = meter.calculateBillingFlow(userFlow,2015,10);
 		assertEquals(400, flow);
-		assertEquals(0, meter.calculateBillingFlow(userFlow,2015,11));
-		assertEquals(0, meter.calculateBillingFlow(userFlow,2015,12));
+		assertEquals(400, meter.calculateBillingFlow(userFlow,2015,11));
+		assertEquals(800, meter.calculateBillingFlow(userFlow,2015,12));
 	}
-	
+	/*	
 	@Test
 	public void testcalcFlow4() {
-		FlowMeter meter = new FlowMeter();
 		assertNotNull(meter);
 		DataPlan plan = new DataPlan(1000,30);
 		UserFlow userFlow = new UserFlow();
@@ -107,7 +102,6 @@ public class FlowMeterTest {
 	
 	@Test
 	public void testcalcFlow5() {
-		FlowMeter meter = new FlowMeter();
 		assertNotNull(meter);
 		DataPlan plan = new DataPlan(1000,30);
 		UserFlow userFlow = new UserFlow();
@@ -125,7 +119,6 @@ public class FlowMeterTest {
 	
 	@Test
 	public void testcalcFlow6() {
-		FlowMeter meter = new FlowMeter();
 		assertNotNull(meter);
 		DataPlan plan = new DataPlan(1000,30);
 		UserFlow userFlow = new UserFlow();
@@ -144,7 +137,6 @@ public class FlowMeterTest {
 	
 	@Test
 	public void testcalcFlow7() {
-		FlowMeter meter = new FlowMeter();
 		assertNotNull(meter);
 		DataPlan plan = new DataPlan(1000,30);
 		UserFlow userFlow = new UserFlow();
@@ -159,5 +151,5 @@ public class FlowMeterTest {
 		assertEquals(500, meter.calculateBillingFlow(userFlow,2015,12));
 		assertEquals(0, meter.calculateBillingFlow(userFlow,2016,1));
 		assertEquals(200, meter.calculateBillingFlow(userFlow,2016,2));
-	}
+	}*/
 }

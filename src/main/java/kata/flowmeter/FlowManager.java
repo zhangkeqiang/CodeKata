@@ -2,8 +2,10 @@ package kata.flowmeter;
 
 public class FlowManager {
 	public static final int ONEMONTH = 1;
+	public static final int CURRENTMONTH = ONEMONTH;
 	public static final int TWOMONTH = 2;
 	private int billMode = TWOMONTH;
+	private FlowMeter meter;
 	public static String getYearMonth(int year, int month) {
 		String yearMonth;
 		if(month < 1){
@@ -23,43 +25,26 @@ public class FlowManager {
 		return yearMonth;
 	}
 
+	private FlowMeter getMeter(){
+		if(meter == null){
+			if(this.billMode == CURRENTMONTH) {
+				meter = new CurrentMonthMeter();
+			}else if(this.billMode == TWOMONTH){
+				meter = new TwoMonthMeter();
+			}
+		}
+		return meter;
+	}
 	public int calculateBillingFlow(UserFlow userFlow, int year, int month) {
-		if(this.billMode == TWOMONTH){
+		return getMeter().calculateBillingFlow(userFlow, year, month);
+		/*if(this.billMode == TWOMONTH){
 			return calculateBillingFlowInTwoMonthMode(userFlow, year, month);
 		}else if(this.billMode ==ONEMONTH ){
 			return userFlow.getRealFlow(getYearMonth(year, month));
 		}
-		return 0;
+		return 0;*/
 	}
 	
-	private int calculateBillingFlowInTwoMonthMode(UserFlow userFlow, int year, int month) {
-		int billingFlow=0;
-		int last2RealFlow = userFlow.getRealFlow(getYearMonth(year, month - 2));
-		int lastRealFlow = userFlow.getRealFlow(getYearMonth(year, month - 1));
-		int realFlow = userFlow.getRealFlow(getYearMonth(year, month));
-		if (last2RealFlow < 0 || last2RealFlow > userFlow.getPlanedFlow()) {			
-			if (lastRealFlow < 0 || lastRealFlow > userFlow.getPlanedFlow()) {
-				billingFlow = realFlow;
-			}else{
-				billingFlow = realFlow - (userFlow.getPlanedFlow() - lastRealFlow);
-			}
-		}else{
-			if((lastRealFlow - (userFlow.getPlanedFlow() - last2RealFlow)) > userFlow.getPlanedFlow()){
-				billingFlow = realFlow;
-			}else{
-				if((last2RealFlow + lastRealFlow) > userFlow.getPlanedFlow()){
-					billingFlow = realFlow - 2*userFlow.getPlanedFlow() + last2RealFlow + lastRealFlow;
-				}else{
-					billingFlow = realFlow - userFlow.getPlanedFlow();
-				}
-					
-			}
-			
-		}
-		if(billingFlow < 0) billingFlow = 0;
-		return billingFlow;
-	}
-
 	public void setMode(int mode) {
 		this.billMode = mode;
 	}

@@ -37,12 +37,6 @@ public class FlowManager {
 	}
 	public int calculateBillingFlow(UserFlow userFlow, int year, int month) {
 		return getMeter().calculateBillingFlow(userFlow, year, month);
-		/*if(this.billMode == TWOMONTH){
-			return calculateBillingFlowInTwoMonthMode(userFlow, year, month);
-		}else if(this.billMode ==ONEMONTH ){
-			return userFlow.getRealFlow(getYearMonth(year, month));
-		}
-		return 0;*/
 	}
 	
 	public void setMode(int mode) {

@@ -2,7 +2,6 @@ package kata.flowmeter;
 
 public class TwoMonthMeter implements FlowMeter {
 
-	@Override
 	public int calculateBillingFlow(UserFlow userFlow, int year, int month) {
 		int billingFlow=0;
 		int last2RealFlow = userFlow.getRealFlow(FlowManager.getYearMonth(year, month - 2));

@@ -15,6 +15,7 @@ public class PlanUserTest {
 	public void setUp() throws Exception {
 		user = new PlanUser();
 		plan = new DataPlan(1000,30);
+		user.setPlan(plan);
 	}
 
 	@After
@@ -27,8 +28,7 @@ public class PlanUserTest {
 	}
 	
 	@Test
-	public void testUserSetPlan() {
-		user.setPlan(plan);
+	public void testUserSetPlan() {		
 		assertEquals(user.getPlan(),plan);
 	}
 	
@@ -51,6 +51,8 @@ public class PlanUserTest {
 		user.setFlow(2015,11,400);
 		int f201509Bill = user.calculateBillingFlow(2015,9);
 		assertEquals(400, f201509Bill);
+		assertEquals(400, user.calculateBillingFlow(2015,10));
+		assertEquals(400, user.calculateBillingFlow(2015,11));
 	}
 
 }

@@ -54,5 +54,52 @@ public class PlanUserTest {
 		assertEquals(400, user.calculateBillingFlow(2015,10));
 		assertEquals(400, user.calculateBillingFlow(2015,11));
 	}
+	
+	
+	@Test
+	public void testUserCalculateFlow2() {
+		user.setFlow(2015,9,4000);
+		user.setFlow(2015,10,4000);
+		user.setFlow(2015,11,4000);
+		assertEquals(4000, user.calculateBillingFlow(2015,9));
+		assertEquals(4000, user.calculateBillingFlow(2015,10));
+		assertEquals(4000, user.calculateBillingFlow(2015,11));
+	}
+	
+	@Test
+	public void testcalcFlow1() {			
+		user.setFlow(2015,10,800);
+		user.setFlow(2015,11,800);
+		user.setFlow(2015,12,800);
+		user.setFlow(2016,1,1678);
+		int flow = user.calculateBillingFlow(2015,10);
+		assertEquals(800, flow);
+		assertEquals(800, user.calculateBillingFlow(2015,11));
+		assertEquals(800, user.calculateBillingFlow(2015,12));
+	}
+
+	@Test
+	public void testcalcFlow2() {
+		user.setFlow(2015,10,200);
+		user.setFlow(2015,11,200);
+		user.setFlow(2015,12,200);
+		user.setFlow(2016,1,1678);
+		int flow = user.calculateBillingFlow(2015,10);
+		assertEquals(200, flow);
+		assertEquals(200, user.calculateBillingFlow(2015,11));
+		assertEquals(200, user.calculateBillingFlow(2015,12));
+	}
+	
+	@Test
+	public void testcalcFlow3() {
+		user.setFlow(2015,10,400);
+		user.setFlow(2015,11,400);
+		user.setFlow(2015,12,800);
+		user.setFlow(2016,1,1678);
+		int flow = user.calculateBillingFlow(2015,10);
+		assertEquals(400, flow);
+		assertEquals(400, user.calculateBillingFlow(2015,11));
+		assertEquals(800, user.calculateBillingFlow(2015,12));
+	}
 
 }

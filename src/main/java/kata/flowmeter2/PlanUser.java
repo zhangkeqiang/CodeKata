@@ -32,8 +32,18 @@ public class PlanUser {
 	}
 
 	public int calculateBillingFlow(int year, int month) {
-		return 0;
+		IFlowMeter meter = null;
+		if(dataPlan.getPlanMode()==DataPlan.CURRENTMONTH){
+			meter = new CurrentMonthMeter2(); 
+		}else if(dataPlan.getPlanMode()==DataPlan.TWOMONTH){
+			meter = new TwoMonthMeter2();
+		}
+		return meter.calculateBillingFlow(this, year, month);
 		
+	}
+
+	public int getPlanedFlow() {
+		return dataPlan.getThreshold();
 	}
 
 }

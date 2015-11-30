@@ -7,46 +7,27 @@ import org.junit.BeforeClass;
 import org.junit.AfterClass;
 import org.junit.Test;
 
-public class IncomeTaxTest2{
+public class IncomeTaxTest2 {
 	private IncomeTax tax;
-	private Object parameters[][] = {
-			{100,0},
-			{3500, 0},
-			{4000, 15},
-			{6000, 15},
-			{10000, 15},
-	};
-	protected void setUp() throws Exception {
+	private Object parameters[][] = { 
+			{ 100, 0 }, 
+			{ 3500, 0 }, 
+			{ 4000, 15 }, 
+			{ 6000, 145 }, 
+			{ 10000, 745 }, };
+
+	@Before
+	public void setUp() throws Exception {
 		tax = new IncomeTax();
 	}
-	
-	public void testTax(){
-		assert.assertArrayEquals(expecteds, actuals);  assertEquals(0.0, tax.calculate(100));
+
+	@Test
+	public void testTax() {
+		for (int i = 0; i < 5; i++) {
+			int income = Integer.parseInt(parameters[i][0].toString());
+			double taxresult = Double.parseDouble(parameters[i][1].toString());
+			assertTrue(taxresult == tax.calculate(income));
+		}
 	}
-	
-	public void test3500(){
-		assertEquals(0.0, tax.calculate(3500));
-	}
-	
-	public void test4000(){
-		assertEquals(15.0, tax.calculate(4000));
-	}
-	
-	public void test6000(){
-		assertEquals(145.0, tax.calculate(6000));
-	}
-	
-	public void test10000(){
-		assertEquals(745.0, tax.calculate(10000));
-	}
-	
-	public void test20000(){
-		assertEquals(3120.0, tax.calculate(20000));
-	}
-	
-	public void test50000(){
-		assertEquals(18120.0, tax.calculate(50000));
-	}
-	
-/**/
+
 }

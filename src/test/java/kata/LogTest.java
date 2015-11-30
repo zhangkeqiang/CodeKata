@@ -1,31 +1,27 @@
 package kata;
 
-import junit.framework.TestCase;
 
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
+import org.junit.Before;
+import org.junit.Test;
 
-public class LogTest extends TestCase {
+import static org.junit.Assert.*;
+
+//import org.apache.log4j.Logger;
+//import org.apache.log4j.PropertyConfigurator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public class LogTest{
 
 	private static Logger logger ;
-	public LogTest(String name) {
-		super(name);
-		PropertyConfigurator.configure("log4j.properties");
-		logger = Logger.getLogger(LogTest.class);
-		
 
+	@Before
+	public void setUp() throws Exception {
+		logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
 	}
 
-	protected void setUp() throws Exception {
-		super.setUp();
-	}
 
-	protected void tearDown() throws Exception {
-		super.tearDown();
-	}
-
+	@Test
 	public void testLog1()	{	
 		logger.info("info, World1!");   
         logger.warn("warn, World2!");        

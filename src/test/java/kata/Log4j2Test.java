@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Log2j2Test {
+public class Log4j2Test {
 	static Logger logger;
 	static int i = 0;
 	static int j = 0;

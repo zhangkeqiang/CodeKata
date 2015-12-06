@@ -3,8 +3,8 @@ package kata;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class PrimeFators {
-	private PrimeFators()	{		
+public final class PrimeFactors {
+	private PrimeFactors()	{		
 	}
 	public static List<Integer> generate(int n) {
 		int num = n;

@@ -21,6 +21,9 @@ public class DataPlan {
 	public void setMode(int mode) {
 		this.mode = mode;
 	}
+	public void clear() {		
+		
+	}
 	
 	
 

@@ -46,4 +46,10 @@ public class PlanUser {
 		return dataPlan.getThreshold();
 	}
 
+	public void clear() {
+		mapMonthFlow.clear();
+		setPlan(null);
+		
+	}
+
 }

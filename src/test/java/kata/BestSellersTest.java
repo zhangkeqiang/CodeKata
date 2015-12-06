@@ -17,7 +17,8 @@ import kata12.SaleItem;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList; 
+import java.util.ArrayList;
+import java.util.List; 
 /**
  * @author zhangmike
  *
@@ -73,7 +74,7 @@ public class BestSellersTest {
 		long sleeptime = 100;
 		BestSellingManager manager = new BestSellingManager();
 		manager.start();		
-		ArrayList<SaleItem> bestList = manager.getBestList();
+		List<SaleItem> bestList = manager.getBestList();
 		Logger logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);		
 		manager.changeType(BestSellingManager.HOURLYUPDATE);
 		try {

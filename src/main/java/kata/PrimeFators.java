@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class PrimeFators {
-	private PrimeFators()
-	{}
+	private PrimeFators()	{		
+	}
 	public static List<Integer> generate(int n) {
 		int num = n;
 		List<Integer> primes = new ArrayList<Integer>();

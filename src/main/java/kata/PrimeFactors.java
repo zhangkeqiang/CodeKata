@@ -9,7 +9,7 @@ public final class PrimeFactors {
 	public static List<Integer> generate(int n) {
 		int num = n;
 		List<Integer> primes = new ArrayList<Integer>();
-
+		
 		    for (int candidate = 2; num > 1; candidate++){
 		    	while(num%candidate == 0){
 		    		primes.add(candidate);

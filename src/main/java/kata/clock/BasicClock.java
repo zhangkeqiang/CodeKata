@@ -13,11 +13,10 @@ public class BasicClock {
 
 	public void setTime(String time) {		
 		Date utctime;
-		java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("hh:mm:ss",java.util.Locale.CHINA);
+		java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("HH:mm:ss",java.util.Locale.CHINA);
 		try {
 			this.time = sdf.parse(time);
 		} catch (ParseException e) {			
-			e.printStackTrace();
 			this.time = new Date();
 		}
 		Calendar cal=Calendar.getInstance(); 

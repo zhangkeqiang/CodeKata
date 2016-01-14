@@ -81,7 +81,7 @@ public class ClockTest {
     }
 	
    @Test
-   public void testNewYorkClock_is_19oclock_when_Beijing_is_8() {
+   public void testNewYorkClock_interactive_with_Beijing() {
        Clock newyorkClock = new Clock(-5);
        newyorkClock.setDisplayFormat(Clock.H24NOZERO);
        BasicClock beijingClock = new BasicClock(8);

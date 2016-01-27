@@ -4,23 +4,26 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.AfterClass;
 import org.junit.Test;
+import org.junit.rules.TestName;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Log4j2Test {
-	static Logger logger;
+    @Rule
+    public TestName name = new TestName();
+	private final Logger log = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
 	static int i = 0;
 	static int j = 0;
 	@Before 
 	public void init() {
-		logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
-		logger.info("init time:" + (++i));
+		log.info("init time:" + (++i));
 	}
 	@After
 	public void tearDown() throws Exception {
-		logger.info("after time:" + i);
+		log.info("after time:" + i);
 	}
 
 	@BeforeClass
@@ -34,25 +37,27 @@ public class Log4j2Test {
 	}
 	@Test
 	public void testLog4j2() {
-		assertNotNull(logger);
-        logger.trace("trace message");
-        logger.debug("debug message");
-        logger.info("info message");
-        logger.warn("warn message");
-        logger.error("error message");
-        logger.fatal("fatal message");
+	    log.info(name.getMethodName());
+		assertNotNull(log);
+        log.trace("trace message");
+        log.debug("debug message");
+        log.info("info message");
+        log.warn("warn message");
+        log.error("error message");
+        log.fatal("fatal message");
 	}
 	
 	
 	@Test
-	public void testLog4j2debug() {		
-        logger.debug("debug message");
-        logger.debug("debug message2");
+	public void testLog4j2debug() {	
+	    log.info(name.getMethodName());
+        log.debug("debug message");
+        log.debug("debug message2");
 	}
 	
 	@Test
 	public void testLog4j2fatal() {		
-        logger.fatal("fatal message");
+        log.fatal("fatal message");
 	}
 
 }

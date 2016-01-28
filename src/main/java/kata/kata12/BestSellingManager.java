@@ -1,4 +1,4 @@
-package kata12;
+package kata.kata12;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,21 +18,21 @@ public class BestSellingManager extends Thread {
     public List<SaleItem> generateBestList() {
         bestList.clear();
         if (updateType == DAILYUPDATE) {
-            for (int i = 0; i < 10; i++) {
-                bestList.add(new SaleItem("AA" + i));
-            }
+            addSaleItemIntoBestList("AA");
         } else if (updateType == HOURLYUPDATE) {
-            for (int i = 0; i < 10; i++) {
-                bestList.add(new SaleItem("BB" + i));
-            }
+        	addSaleItemIntoBestList("BB");
         } else if (updateType == REALTIMEUPDATE) {
-            for (int i = 0; i < 10; i++) {
-                bestList.add(new SaleItem("CC" + i));
-            }
+        	addSaleItemIntoBestList("CC");
         }
 
         return bestList;
     }
+
+	private void addSaleItemIntoBestList(String name) {
+		for (int i = 0; i < 10; i++) {
+		    bestList.add(new SaleItem(name + i));
+		}
+	}
 
     public List<SaleItem> getBestList() {
         return bestList;

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package kata;
+package kata.kata12;
 
 import static org.junit.Assert.*;
 
@@ -11,8 +11,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import kata12.BestSellingManager;
-import kata12.SaleItem;
+import kata.kata12.BestSellingManager;
+import kata.kata12.SaleItem;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

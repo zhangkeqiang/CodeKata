@@ -155,11 +155,9 @@ public class BowlingGame2 {
 	}
 
 /*	public int getFrameState() {
-		// TODO Auto-generated method stub
 		return state;
 	}*/
 	public char getFrameStatus(int i) {
-		// TODO Auto-generated method stub
 		return framestatus[i-1];
 	}
 

@@ -80,7 +80,6 @@ public class BestSellersTest {
 		try {
 			BestSellingManager.sleep(sleeptime);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		for (SaleItem item : bestList)
@@ -93,7 +92,6 @@ public class BestSellersTest {
 		try {
 			BestSellingManager.sleep(sleeptime);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		//bestList = manager.getBestList();
@@ -108,7 +106,6 @@ public class BestSellersTest {
 		try {
 			BestSellingManager.sleep(sleeptime);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

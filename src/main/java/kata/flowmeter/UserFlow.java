@@ -22,7 +22,6 @@ public class UserFlow {
 		return mapMonthFlow.get(yearMonth).intValue() ;		
 	}
 	public int getPlanedFlow() {
-		// TODO Auto-generated method stub
 		return dataPlan.getThreshold();
 	}
 

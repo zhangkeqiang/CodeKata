@@ -10,7 +10,12 @@ public class AHandler implements Handler {
     
     protected int analyzeJobStep1(String jobName) {
         
-        return 1003;
+        return 1;
+    }
+
+
+    public int analyzePerson(String personName) {
+        return 0;
     }
 
 }

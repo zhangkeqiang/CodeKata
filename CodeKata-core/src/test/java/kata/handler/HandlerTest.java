@@ -50,7 +50,7 @@ public class HandlerTest {
         Handler B = HandlerCenter.getHandler("BHandler");
         Assert.assertEquals(12, B.analyzeJob("Good Job"));
         Handler A = HandlerCenter.getHandler("AHandler");
-        Assert.assertEquals(1003, A.analyzeJob("Good Job"));
+        Assert.assertEquals(1, A.analyzeJob("Good Job"));
         Handler A1 = HandlerCenter.getHandler("A1Handler");
         Assert.assertEquals(1004, A1.analyzeJob("Good Job"));
         
@@ -59,6 +59,6 @@ public class HandlerTest {
     @Test
     public void protected_methods_of_A1AHandler_could_be_called(){
         A1AHandler a1a = (A1AHandler) HandlerCenter.getHandler("A1AHandler");
-        Assert.assertEquals(1003, a1a.analyzeJobStep1(""));
+        Assert.assertEquals(3, a1a.analyzeJobStep1(""));
     }
 }

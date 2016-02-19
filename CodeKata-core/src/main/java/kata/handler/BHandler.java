@@ -7,4 +7,8 @@ public class BHandler implements Handler {
         return 12;
     }
 
+    public int analyzePerson(String personName) {
+        return 0;
+    }
+
 }

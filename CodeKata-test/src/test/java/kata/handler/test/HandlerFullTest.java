@@ -21,9 +21,10 @@ public class HandlerFullTest {
     }
 
     @Test
-    public void test() {
+    public void testA1AHandlerTO() {
         A1AHandlerTO a1aHandler = new A1AHandlerTO();        
-        Assert.assertEquals(1004, a1aHandler.analyzeJobStep1("ddd"));
+        Assert.assertEquals(3, a1aHandler.analyzeJobStep1("ddd"));
+        Assert.assertEquals(3, a1aHandler.analyzeJobStep2("ddd"));
     }
 
 }

@@ -9,6 +9,6 @@ import kata.handler.A1AHandler;
 public class A1AHandlerPackTest extends A1AHandler {
     @Test
     public void testanalyzeJobStep1(){
-        Assert.assertEquals(1003, analyzeJobStep1("jobName"));
+        Assert.assertEquals(3, analyzeJobStep1("jobName"));
     }
 }

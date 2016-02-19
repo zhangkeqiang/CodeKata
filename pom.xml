@@ -40,4 +40,63 @@
 		<module>CodeKata-core</module>
 		<module>CodeKata-test</module>
 	</modules>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<!-- <goal>test-jar</goal> -->
+							<goal>jar</goal>
+
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.surefire</groupId>
+				<artifactId>surefire-junit4</artifactId>
+				<version>2.19.1</version>
+			<!-- 	<configuration>
+					<argLine>${surefireArgLine}</argLine>
+				</configuration> -->
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.5.201505241946</version>
+				<executions>
+					<!-- Prepares the property pointing to the JaCoCo runtime agent which 
+						is passed as VM argument when Maven the Surefire plugin is executed. -->
+					<execution>
+						<id>pre-unit-test</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					<!-- 	<configuration>
+					
+							<destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
+						
+							<propertyName>surefireArgLine</propertyName>
+						</configuration> -->
+					</execution>
+					<execution>
+						<id>post-unit-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					<!-- 	<configuration>
+							<dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>
+							<outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
+						</configuration> -->
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

@@ -62,13 +62,11 @@ public class BestSellersTest {
 	
 	@Test
 	public void testFullBestSellingList() {
-		//SaleItem item = new SaleItem("Apple Mac");
-		//assertNotNull(list);
-		//assertTrue(list.add(item));
+
 		
 	}
 	
-	@Test
+
 	public void testGenerateBestSellingList() {
 		long sleeptime = 100;
 		BestSellingManager manager = new BestSellingManager();
@@ -79,14 +77,14 @@ public class BestSellersTest {
 		try {
 			BestSellingManager.sleep(sleeptime);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		assertNotNull(bestList);
 		for (SaleItem item : bestList)
         {
 			logger.info(item.getName()); 
         }
-		assertNotNull(bestList);
+		
 		
 		manager.changeType(BestSellingManager.DAILYUPDATE);
 		try {

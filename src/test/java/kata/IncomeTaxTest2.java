@@ -21,7 +21,8 @@ public class IncomeTaxTest2{
 	}
 	
 	public void testTax(){
-		assert.assertArrayEquals(expecteds, actuals);  assertEquals(0.0, tax.calculate(100));
+		//assert.assertArrayEquals(expecteds, actuals);  
+		assertEquals(0.0, tax.calculate(100));
 	}
 	
 	public void test3500(){

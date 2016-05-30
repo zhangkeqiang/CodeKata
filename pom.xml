@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <version>2.0.0</version>
-  <name>CodeKatainMavenProjectName</name>
+  <name>CodeKataBasic</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -36,5 +36,5 @@
         </dependency>
   </dependencies>
   <groupId>katagroupid</groupId>
-  <artifactId>CodeKatainMavenartifactID</artifactId>
+  <artifactId>CodeKataBasic</artifactId>
 </project>

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.TestCase;
-import static kata.PrimeFators.generate;
-import static kata.PrimeFators.calcMinCommonMultiple;
+import static kata.PrimeFactors.generate;
+import static kata.PrimeFactors.calcMinCommonMultiple;
 
 public class PrimeFatortsTest extends TestCase {
 	  private List<Integer> list(int... ints) {

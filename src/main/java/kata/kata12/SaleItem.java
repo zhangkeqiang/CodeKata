@@ -1,4 +1,4 @@
-package kata12;
+package kata.kata12;
 
 
 

@@ -43,7 +43,7 @@ public class Premium {
             throw new KataException(PREMIUM_CHILDREN_CAN_T_BE_BELOW_ZERO);
         }else if(children <=6){
             point -= children * 0.5;
-        }else if(children > 6){
+        }else{
             point -= 3;
         }
         

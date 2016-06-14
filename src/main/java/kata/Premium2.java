@@ -28,7 +28,7 @@ public class Premium2 {
 			throw new PremiumException("Premium:children can't be below zero.");
 		}else if(children <=6){
 			point -= children * 0.5;
-		}else if(children > 6){
+		}else{
 			point -= 3;
 		}
 		

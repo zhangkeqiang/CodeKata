@@ -24,6 +24,8 @@ import java.util.List;
  *
  */
 public class BestSellersTest {
+	
+	Logger logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
 	//private ArrayList<SaleItem> list;
 	/**
 	 * @throws java.lang.Exception
@@ -75,7 +77,7 @@ public class BestSellersTest {
 		BestSellingManager manager = new BestSellingManager();
 		manager.start();		
 		List<SaleItem> bestList = manager.getBestList();
-		Logger logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);		
+				
 		manager.changeType(BestSellingManager.HOURLYUPDATE);
 		try {
 			BestSellingManager.sleep(sleeptime);

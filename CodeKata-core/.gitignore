@@ -1,0 +1,8 @@
+/bin/
+/target/
+/.sonar/
+/.settings/
+.settings
+.project
+.classpath
+/target/

@@ -8,13 +8,16 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
-import org.powermock.api.mockito.PowerMockito;
+import kata.handler.A1AHandler;
 import static org.mockito.Mockito.*;
 
+
+import static org.mockito.Mockito.*;
+import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import kata.handler.A1AHandler;
+
 
 @RunWith(PowerMockRunner.class) 
 @PrepareForTest(A1AHandler.class) 
@@ -28,12 +31,13 @@ public class HandlerTestWithPowerMock {
     public void tearDown() throws Exception {
     }
 
+    
     @Test
     public void testPrivateMethod() throws Exception {
         A1AHandler a1aHandler =(A1AHandler) PowerMockito.spy(new A1AHandler()); 
         /* 
          * Setup the expectation to the private method using the method name 
-         */ 
+         */
         int expected = 3;
         PowerMockito.doReturn(3).when(a1aHandler, "analyzeJobStep2", "jobA");
         int actual = a1aHandler.analyzeJob("jobA");
@@ -49,7 +53,7 @@ public class HandlerTestWithPowerMock {
 //        A1AHandler a1aHandler = mock(A1AHandler.class);
         /* 
          * Setup the expectation to the private method using the method name 
-         */ 
+         */
         int expected = 103;
         Mockito.when(a1aHandler.analyzeJob("JobB")).thenReturn(103);
        

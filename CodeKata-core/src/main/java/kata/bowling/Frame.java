@@ -9,23 +9,9 @@ package kata.bowling;
 public class Frame {
 
 
-	private static final int SLASH_SQARE = -3;
-	/**
-	 * show X for strike, not has next 2 deliver
-	 */
-	private static final int X_STRIKE = -2;
-	/**
-	 * Strike get score 10
-	 */
-	private static final int STRIKE = 10;
-
-	/**
-	 * no score ,show blank
-	 */
-	private static final int BLANK = -1;
 	private int frameNo;
-	private int firstScore = BLANK;
-	private int secondScore = BLANK;
+	private int firstScore = BowlingTerm.BLANK;
+	private int secondScore = BowlingTerm.BLANK;
 
 	/**
 	 * @param frameNo No. of Frame
@@ -65,27 +51,40 @@ public class Frame {
 	 * @date 2016年7月23日 下午6:11:57
 	*/
 	public int getTotalScore() {
-		if(firstScore == STRIKE){
-			return X_STRIKE;
+		if(firstScore == BowlingTerm.STRIKE){
+			return BowlingTerm.X_STRIKE;
 		}
 		if(firstScore < 0 || secondScore < 0){
-			return BLANK;
+			return BowlingTerm.BLANK;
 		}
-		return (firstScore + secondScore) == 10 ? SLASH_SQARE: (firstScore + secondScore);
+		return (firstScore + secondScore) == 10 ? BowlingTerm.SLASH_SQARE: (firstScore + secondScore);
 		
 	}
 
-	/**@method deliver(这里用一句话描述这个方法的作用)
-	 * @return void
-	 * @author Administrator
-	 * @date 2016年7月23日 下午11:04:46
-	*/
 	public void deliver(int sequence, int pins) {
 		if(sequence == 1){
 			this.firstScore = pins;
 		}else if(sequence == 2){
 			this.secondScore = pins;
 		}
+	}
+
+	/**@method setFirstScore(这里用一句话描述这个方法的作用)
+	 * @return void
+	 * @author Administrator
+	 * @date 2016年7月24日 上午12:19:25
+	*/
+	public void setFirstScore(int pins) {
+		this.firstScore = pins;
+	}
+
+	/**@method setSecondScore(这里用一句话描述这个方法的作用)
+	 * @return void
+	 * @author Administrator
+	 * @date 2016年7月24日 上午12:26:41
+	*/
+	public void setSecondScore(int pins) {
+		this.secondScore = pins;
 	}
 
 }

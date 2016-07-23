@@ -101,12 +101,88 @@ public class BowlingGameTest {
 		assertEquals(10, frame5.getFirstScore());
 		assertEquals(BowlingTerm.BLANK, frame5.getSecondScore());
 		assertEquals(30, frame5.getTotalScore());
-		
+		Frame frame9 = game.getFrame(9);
+		assertEquals(10, frame9.getFirstScore());
+		assertEquals(BowlingTerm.BLANK, frame9.getSecondScore());
+		assertEquals(30, frame9.getTotalScore());
 		Frame frame10 = game.getFrame(10);
 		assertEquals(10, frame10.getFirstScore());
 		assertEquals(10, frame10.getSecondScore());
 		assertEquals(10, frame10.getThirdScore());
 		assertEquals(30, frame10.getTotalScore());
 		assertEquals(300, game.getScore());
+	}
+	
+	@Test 
+	public void rallall_5_21_times(){
+		for(int i=0;i<21;i++){
+			game.roll(5);
+		}
+		
+		Frame frame5 = game.getFrame(5);
+		assertEquals(5, frame5.getFirstScore());
+		assertEquals(5, frame5.getSecondScore());
+		assertEquals(15, frame5.getTotalScore());
+		Frame frame9 = game.getFrame(9);
+		assertEquals(5, frame9.getFirstScore());
+		assertEquals(5, frame9.getSecondScore());
+		assertEquals(15, frame9.getTotalScore());
+		
+		Frame frame10 = game.getFrame(10);
+		assertEquals(5, frame10.getFirstScore());
+		assertEquals(5, frame10.getSecondScore());
+		assertEquals(5, frame10.getThirdScore());
+		assertEquals(15, frame10.getTotalScore());
+		assertEquals(150, game.getScore());
+	}
+	
+	@Test 
+	public void rallall_situation1(){
+		for(int i=0;i<10;i++){
+			game.roll(5);
+		}
+		game.roll(10);
+		Frame frame5 = game.getFrame(5);
+		assertEquals(5, frame5.getFirstScore());
+		assertEquals(5, frame5.getSecondScore());
+		assertEquals(20, frame5.getTotalScore());
+		for(int i=0;i<13;i++){
+			game.roll(5);
+		}
+		
+		frame5 = game.getFrame(5);
+		assertEquals(5, frame5.getFirstScore());
+		assertEquals(5, frame5.getSecondScore());
+		assertEquals(20, frame5.getTotalScore());
+		
+		Frame frame10 = game.getFrame(10);
+		assertEquals(5, frame10.getFirstScore());
+		assertEquals(5, frame10.getSecondScore());
+		assertEquals(5, frame10.getThirdScore());
+		assertEquals(15, frame10.getTotalScore());
+		assertEquals(160, game.getScore());
+	}
+	
+	@Test 
+	public void rallall_situation2(){
+		for(int i=0;i<10;i++){
+			game.roll(5);
+		}
+		game.roll(10);
+		for(int i=0;i<13;i++){
+			game.roll(10);
+		}
+		
+		Frame frame5 = game.getFrame(5);
+		assertEquals(5, frame5.getFirstScore());
+		assertEquals(5, frame5.getSecondScore());
+		assertEquals(20, frame5.getTotalScore());
+		
+		Frame frame10 = game.getFrame(10);
+		assertEquals(10, frame10.getFirstScore());
+		assertEquals(10, frame10.getSecondScore());
+		assertEquals(10, frame10.getThirdScore());
+		assertEquals(30, frame10.getTotalScore());
+		assertEquals(230, game.getScore());
 	}
 }

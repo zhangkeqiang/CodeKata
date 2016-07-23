@@ -47,10 +47,8 @@ public class Frame {
 		return this.secondScore;
 	}
 
-	/**@method getTotalScore(这里用一句话描述这个方法的作用)
-	 * @return Object
-	 * @author Administrator
-	 * @date 2016年7月23日 下午6:11:57
+	/**
+	 * @return total score
 	*/
 	public int getTotalScore() {
 		if(totalScore != BowlingTerm.BLANK)
@@ -117,6 +115,15 @@ public class Frame {
 	*/
 	public int getThirdScore() {
 		return thirdScore;
+	}
+
+	/**@method checkScoreIsCalculated(这里用一句话描述这个方法的作用)
+	 * @return boolean
+	 * @author Administrator
+	 * @date 2016年7月24日 上午1:41:10
+	*/
+	public boolean checkScoreIsCalculated() {
+		return totalScore != BowlingTerm.BLANK;
 	}
 
 }

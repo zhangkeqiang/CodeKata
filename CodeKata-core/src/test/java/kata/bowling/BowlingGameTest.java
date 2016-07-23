@@ -35,13 +35,13 @@ public class BowlingGameTest {
 
 	@Test
 	public final void newGame() {		
-		assertEquals(BowlingTerm.BLANK, game.score());
+		assertEquals(BowlingTerm.BLANK, game.getScore());
 	}
 
 	@Test
 	public void firstStrike_Blow(){
 		game.roll(1);
-		assertEquals(BowlingTerm.BLANK, game.score());
+		assertEquals(BowlingTerm.BLANK, game.getScore());
 		Frame firstFrame = game.getFrame(1);
 		assertEquals(1, firstFrame.getFirstScore());
 		assertEquals(BowlingTerm.BLANK, firstFrame.getSecondScore());
@@ -55,7 +55,7 @@ public class BowlingGameTest {
 	@Test
 	public void firstStrike_Strike(){
 		game.roll(10);
-		assertEquals(BowlingTerm.BLANK, game.score());
+		assertEquals(BowlingTerm.BLANK, game.getScore());
 		Frame firstFrame = game.getFrame(1);
 		assertEquals(10, firstFrame.getFirstScore());
 		assertEquals(BowlingTerm.BLANK, firstFrame.getSecondScore());
@@ -66,7 +66,7 @@ public class BowlingGameTest {
 	@Test
 	public void firstStrike_Sqare(){
 		game.roll(0);
-		assertEquals(BowlingTerm.BLANK, game.score());
+		assertEquals(BowlingTerm.BLANK, game.getScore());
 		Frame firstFrame = game.getFrame(1);
 		assertEquals(0, firstFrame.getFirstScore());
 		assertEquals(BowlingTerm.BLANK, firstFrame.getSecondScore());
@@ -88,6 +88,25 @@ public class BowlingGameTest {
 		assertEquals(1, frame.getSecondScore());
 		assertEquals(2, frame.getTotalScore());
 		
-		assertEquals(20, game.score());
+		assertEquals(20, game.getScore());
+	}
+	
+	@Test 
+	public void rallall_10_12_times(){
+		for(int i=0;i<12;i++){
+			game.roll(10);
+		}
+		
+		Frame frame5 = game.getFrame(5);
+		assertEquals(10, frame5.getFirstScore());
+		assertEquals(BowlingTerm.BLANK, frame5.getSecondScore());
+		assertEquals(30, frame5.getTotalScore());
+		
+		Frame frame10 = game.getFrame(10);
+		assertEquals(10, frame10.getFirstScore());
+		assertEquals(10, frame10.getSecondScore());
+		assertEquals(10, frame10.getThirdScore());
+		assertEquals(30, frame10.getTotalScore());
+		assertEquals(300, game.getScore());
 	}
 }

@@ -12,6 +12,8 @@ public class Frame {
 	private int frameNo;
 	private int firstScore = BowlingTerm.BLANK;
 	private int secondScore = BowlingTerm.BLANK;
+	private int thirdScore = BowlingTerm.BLANK;
+	private int totalScore = BowlingTerm.BLANK;
 
 	/**
 	 * @param frameNo No. of Frame
@@ -51,6 +53,8 @@ public class Frame {
 	 * @date 2016年7月23日 下午6:11:57
 	*/
 	public int getTotalScore() {
+		if(totalScore != BowlingTerm.BLANK)
+			return totalScore;
 		if(firstScore == BowlingTerm.STRIKE){
 			return BowlingTerm.X_STRIKE;
 		}
@@ -85,6 +89,34 @@ public class Frame {
 	*/
 	public void setSecondScore(int pins) {
 		this.secondScore = pins;
+	}
+
+	/**@method setThirdScore(这里用一句话描述这个方法的作用)
+	 * @return void
+	 * @author Administrator
+	 * @date 2016年7月24日 上午12:50:04
+	*/
+	public void setThirdScore(int pins) {
+		if(this.frameNo == 10)
+			this.thirdScore = pins;
+	}
+
+	/**@method setTotalScore(这里用一句话描述这个方法的作用)
+	 * @return void
+	 * @author Administrator
+	 * @date 2016年7月24日 上午1:04:29
+	*/
+	public void setTotalScore(int frameScore) {
+		totalScore = frameScore;
+	}
+
+	/**@method getThirdScore(这里用一句话描述这个方法的作用)
+	 * @return int
+	 * @author Administrator
+	 * @date 2016年7月24日 上午1:18:38
+	*/
+	public int getThirdScore() {
+		return thirdScore;
 	}
 
 }

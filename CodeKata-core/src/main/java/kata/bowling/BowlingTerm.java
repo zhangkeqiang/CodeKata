@@ -8,18 +8,27 @@ package kata.bowling;
  */
 public class BowlingTerm {
 
-	static final int SLASH_SQARE = -3;
+	public static final int SLASH_SQARE = -3;
 	/**
 	 * show X for strike, not has next 2 deliver
 	 */
-	static final int X_STRIKE = -2;
+	public static final int X_STRIKE = -2;
 	/**
 	 * Strike get score 10
 	 */
-	static final int STRIKE = 10;
+	public static final int STRIKE = 10;
 	/**
 	 * no score ,show blank
 	 */
-	static final int BLANK = -1;
+	public static final int BLANK = -1;
+	/**
+	 * FRAME_OVER:TODO（用一句话描述这个变量表示什么）
+	 *
+	 * @since 1.0.0
+	 */
+	
+	public static final int FRAME_NORMALOVER = 9;
+	public static final int FRAME_RUNNING = 1;
+	public static final int ABNORMAL = -99;
 
 }

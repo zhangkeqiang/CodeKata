@@ -28,6 +28,12 @@ public class PrimeFatortsTest extends TestCase {
 		    assertEquals(list(3),generate(3));
 	  }
 	  
+	  public void test36() throws Exception {
+		    assertEquals(list(2,2,3,3),generate(36));
+	  }
+	  public void test32() throws Exception {
+		    assertEquals(list(2,2,2,2,2),generate(32));
+	  }
 	  public void testcommonmultiple1and1(){
 		  assertEquals(1, calcMinCommonMultiple(1,1));
 	  }

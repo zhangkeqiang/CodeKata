@@ -38,6 +38,7 @@
 		<module>CodeKata-core</module>
 		<module>CodeKata-test</module>
 		<module>CodeKata-PowerMock</module>
+		<module>Bowling</module>
 	</modules>
 	<build>
 		<plugins>

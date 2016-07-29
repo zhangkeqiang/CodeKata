@@ -21,14 +21,11 @@ public class BowlingTerm {
 	 * no score ,show blank
 	 */
 	public static final int BLANK = -1;
-	/**
-	 * FRAME_OVER:TODO（用一句话描述这个变量表示什么）
-	 *
-	 * @since 1.0.0
-	 */
+	
 	
 	public static final int FRAME_NORMALOVER = 9;
 	public static final int FRAME_RUNNING = 1;
 	public static final int ABNORMAL = -99;
+	public static final int FRAME_INIT = -4;
 
 }

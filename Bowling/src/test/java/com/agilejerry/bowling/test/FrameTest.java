@@ -29,7 +29,7 @@ public class FrameTest {
 
 	@Test
 	public final void newFrame() {
-		BowlingFrame frame = new BowlingFrame();
+		BowlingFrame frame = new BowlingFrame(1);
 		assertNotNull(frame);
 		BowlingFrame nextframe = frame.nextFrame();
 		assertNull(nextframe);
@@ -38,7 +38,7 @@ public class FrameTest {
 	
 	@Test
 	public final void roll_1_ball_1() {
-		BowlingFrame frame = new BowlingFrame();		
+		BowlingFrame frame = new BowlingFrame(1);		
 		BowlingRoll roll = frame.prepare(10);
 		//roll(1);
 		assertNotNull(roll);
@@ -52,7 +52,7 @@ public class FrameTest {
 	@Test
 	public void roll_1_ball_10()
 	{
-		BowlingFrame frame = new BowlingFrame();		
+		BowlingFrame frame = new BowlingFrame(1);		
 		BowlingRoll roll = frame.prepare(10);
 		assertNotNull(roll);
 		assertEquals(10, roll.getMaxPins());
@@ -65,7 +65,7 @@ public class FrameTest {
 	
 	@Test
 	public final void roll_2_ball_Not_Sqare() {
-		BowlingFrame frame = new BowlingFrame();		
+		BowlingFrame frame = new BowlingFrame(1);		
 		BowlingRoll roll1 = frame.prepare(10);
 		assertNotNull(roll1);
 		assertEquals(10, roll1.getMaxPins());
@@ -84,7 +84,7 @@ public class FrameTest {
 
 	@Test
 	public final void roll_2_ball_got_Sqare() {
-		BowlingFrame frame = new BowlingFrame();		
+		BowlingFrame frame = new BowlingFrame(1);		
 		BowlingRoll roll1 = frame.prepare(10);
 		assertNotNull(roll1);
 		assertEquals(10, roll1.getMaxPins());

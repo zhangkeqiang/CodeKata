@@ -30,8 +30,15 @@ public class BowlingFrame {
 	}
 
 	public BowlingRoll roll(int pins) {
+		if(checkExceedMaxPins(pins))
+			return null;
 		rolls[currentRollNo - 1].setPins(pins);
 		int thisRollIndex = currentRollNo - 1;
+		showFrameState(pins);
+		return rolls[thisRollIndex];
+	}
+
+	protected void showFrameState(int pins) {
 		if (currentRollNo == 1 && pins < BowlingTerm.STRIKE) {
 			this.state = BowlingTerm.FRAME_RUNNING;
 			prepare(10 - rolls[0].getPins());
@@ -42,7 +49,6 @@ public class BowlingFrame {
 		} else if ((pins + rolls[0].getPins()) == BowlingTerm.STRIKE) {
 			this.state = BowlingTerm.SLASH_SQARE;
 		}
-		return rolls[thisRollIndex];
 	}
 
 	/**
@@ -65,6 +71,10 @@ public class BowlingFrame {
 	 */
 	public BowlingRoll getRoll(int i) {
 		return rolls[i - 1];
+	}
+	
+	protected boolean checkExceedMaxPins(int pins) {
+		return (pins > rolls[currentRollNo - 1].getMaxPins());
 	}
 
 	/**

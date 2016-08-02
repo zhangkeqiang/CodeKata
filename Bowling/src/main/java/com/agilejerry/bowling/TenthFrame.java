@@ -38,9 +38,7 @@ public class TenthFrame extends BowlingFrame {
 	}
 
 	@Override
-	public BowlingRoll roll(int pins) {
-		rolls[currentRollNo - 1].setPins(pins);
-		int thisRollIndex = currentRollNo - 1;
+	protected void showFrameState(int pins) {
 		if (currentRollNo == 1) {
 			if (pins < BowlingTerm.STRIKE) {
 				this.state = BowlingTerm.FRAME_RUNNING;
@@ -65,6 +63,7 @@ public class TenthFrame extends BowlingFrame {
 		} else {
 			_isOver = true;
 		}
-		return rolls[thisRollIndex];
 	}
+
+
 }

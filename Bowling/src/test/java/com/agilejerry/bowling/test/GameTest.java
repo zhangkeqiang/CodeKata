@@ -172,4 +172,33 @@ public class GameTest {
 		rollBall(1,10);
 		assertEquals(270, frame9.getScore());
 	}
+	
+	@Test
+	public void roll_10_ball_all_10_then_2_6() {
+		game.prepare();
+		rollBall(10, 10);
+		BowlingFrame frame10 = game.getFrame(10);
+		assertEquals(false, frame10.isOver());
+		BowlingFrame frame8 = game.getFrame(8);
+		assertEquals(240, frame8.getScore());
+		BowlingFrame frame9 = game.getFrame(9);
+		assertEquals(BowlingTerm.BLANK, frame9.getScore());
+		assertEquals(BowlingTerm.BLANK, frame10.getScore());
+		rollBall(2,6);
+		assertEquals(266, frame9.getScore());
+		assertEquals(BowlingTerm.BLANK, frame10.getScore());
+		
+	}
+	
+	@Test
+	public void roll_10_ball_all_6() {
+		game.prepare();
+		rollBall(10, 6);
+		BowlingFrame frame1 = game.getFrame(1);
+		BowlingFrame frame3 = game.getFrame(3);
+		assertEquals(false, frame1.isOver());
+		assertEquals(BowlingTerm.BLANK, frame1.getScore());
+		assertEquals(BowlingTerm.BLANK, frame3.getScore());
+		
+	}
 }

@@ -31,7 +31,7 @@ public class FrameTest {
 	public final void newFrame() {
 		BowlingFrame frame = new BowlingFrame(1);
 		assertNotNull(frame);
-		BowlingFrame nextframe = frame.nextFrame();
+		BowlingFrame nextframe = frame.getNextFrame();
 		assertNull(nextframe);
 		
 	}
@@ -39,13 +39,13 @@ public class FrameTest {
 	@Test
 	public final void roll_1_ball_1() {
 		BowlingFrame frame = new BowlingFrame(1);		
-		BowlingRoll roll = frame.prepare(10);
+		BowlingRoll roll = frame.getRoll(1);
 		//roll(1);
 		assertNotNull(roll);
 		assertEquals(10, roll.getMaxPins());
 		roll = frame.roll(1);
 		assertEquals(1, roll.getPins());
-		assertEquals(roll, frame.getPins(1));
+		assertEquals(roll, frame.getRoll(1));
 		assertEquals(BowlingTerm.FRAME_RUNNING, frame.getState());
 	}
 	
@@ -53,12 +53,12 @@ public class FrameTest {
 	public void roll_1_ball_10()
 	{
 		BowlingFrame frame = new BowlingFrame(1);		
-		BowlingRoll roll = frame.prepare(10);
+		BowlingRoll roll = frame.getRoll(1);
 		assertNotNull(roll);
 		assertEquals(10, roll.getMaxPins());
 		roll = frame.roll(10);
 		assertEquals(10, roll.getPins());
-		assertEquals(roll, frame.getPins(1));
+		assertEquals(roll, frame.getRoll(1));
 		assertEquals(BowlingTerm.X_STRIKE, frame.getState());
 		
 	}
@@ -66,38 +66,38 @@ public class FrameTest {
 	@Test
 	public final void roll_2_ball_Not_Sqare() {
 		BowlingFrame frame = new BowlingFrame(1);		
-		BowlingRoll roll1 = frame.prepare(10);
+		BowlingRoll roll1 = frame.getRoll(1);
 		assertNotNull(roll1);
 		assertEquals(10, roll1.getMaxPins());
 		roll1 = frame.roll(1);
 		assertEquals(1, roll1.getPins());
-		assertEquals(roll1, frame.getPins(1));
+		assertEquals(roll1, frame.getRoll(1));
 		assertEquals(BowlingTerm.FRAME_RUNNING, frame.getState());
-		BowlingRoll roll2 = frame.prepare(9);
+		BowlingRoll roll2 = frame.getRoll(2);
 		assertNotNull(roll2);
 		assertEquals(9, roll2.getMaxPins());
 		frame.roll(1);
 		assertEquals(1, roll2.getPins());
-		assertEquals(roll2, frame.getPins(2));
+		assertEquals(roll2, frame.getRoll(2));
 		assertEquals(BowlingTerm.FRAME_NORMALOVER, frame.getState());
 	}
 
 	@Test
 	public final void roll_2_ball_got_Sqare() {
 		BowlingFrame frame = new BowlingFrame(1);		
-		BowlingRoll roll1 = frame.prepare(10);
+		BowlingRoll roll1 = frame.getRoll(1);
 		assertNotNull(roll1);
 		assertEquals(10, roll1.getMaxPins());
 		roll1 = frame.roll(1);
 		assertEquals(1, roll1.getPins());
-		assertEquals(roll1, frame.getPins(1));
+		assertEquals(roll1, frame.getRoll(1));
 		assertEquals(BowlingTerm.FRAME_RUNNING, frame.getState());
-		BowlingRoll roll2 = frame.prepare(9);
+		BowlingRoll roll2 = frame.getRoll(2);
 		assertNotNull(roll2);
 		assertEquals(9, roll2.getMaxPins());
 		frame.roll(9);
 		assertEquals(9, roll2.getPins());
-		assertEquals(roll2, frame.getPins(2));
+		assertEquals(roll2, frame.getRoll(2));
 		assertEquals(BowlingTerm.SLASH_SQARE, frame.getState());
 	}
 

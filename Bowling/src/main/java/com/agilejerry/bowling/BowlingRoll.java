@@ -1,5 +1,7 @@
 package com.agilejerry.bowling;
 
+import kata.bowling.BowlingTerm;
+
 /**@ClassName: BowlingRoll
  * @Description: TODO(这里用一句话描述这个类的作用) 
  * @author Administrator 
@@ -9,7 +11,7 @@ package com.agilejerry.bowling;
 public class BowlingRoll {
 
 	private int maxPins;
-	private int pins;
+	private int pins = BowlingTerm.BLANK;
 
 	/**(这里用一句话描述这个构造函数的作用)
 	 * @param pins

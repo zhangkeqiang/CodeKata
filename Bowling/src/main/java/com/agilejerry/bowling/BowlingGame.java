@@ -20,8 +20,12 @@ public class BowlingGame {
 	 */
 	public void prepare() {
 		for (int i = 0; i < 10; i++) {
-			BowlingFrame frame = new BowlingFrame(i+1);
-			frame.prepare(10);
+			BowlingFrame frame;
+			if (i < 9) {
+				 frame = new BowlingFrame(i + 1);
+			} else {
+				 frame = new TenthFrame(10);
+			}
 			frames[i] = frame;
 			if (i > 0) {
 				frames[i - 1].setNextFrame(frame);
@@ -40,6 +44,16 @@ public class BowlingGame {
 	 */
 	public BowlingFrame getCurrentFrame() {
 		return frames[currentFrameNo - 1];
+	}
+
+	/**
+	 * @method getFrame(这里用一句话描述这个方法的作用)
+	 * @return BowlingFrame
+	 * @author Administrator
+	 * @date 2016年8月2日 下午6:17:37
+	 */
+	public BowlingFrame getFrame(int i) {
+		return frames[i - 1];
 	}
 
 }

@@ -30,7 +30,7 @@ public class BowlingFrame {
 	}
 
 	public BowlingRoll roll(int pins) {
-		if(checkExceedMaxPins(pins))
+		if (checkExceedMaxPins(pins))
 			return null;
 		rolls[currentRollNo - 1].setPins(pins);
 		int thisRollIndex = currentRollNo - 1;
@@ -72,7 +72,7 @@ public class BowlingFrame {
 	public BowlingRoll getRoll(int i) {
 		return rolls[i - 1];
 	}
-	
+
 	protected boolean checkExceedMaxPins(int pins) {
 		return (pins > rolls[currentRollNo - 1].getMaxPins());
 	}
@@ -125,17 +125,11 @@ public class BowlingFrame {
 		case BowlingTerm.FRAME_RUNNING:
 			return BowlingTerm.BLANK;
 		case BowlingTerm.FRAME_NORMALOVER:
-			if (this.frameNo > 1)
-				score = this.previousFrame.getScore() + rolls[0].getPins() + rolls[1].getPins();
-			else
-				score = rolls[0].getPins() + rolls[1].getPins();
+			accumulateScore(rolls[0].getPins() + rolls[1].getPins());
 			break;
 		case BowlingTerm.SLASH_SQARE:
 			if (nextFrame.getState() != BowlingTerm.FRAME_INIT) {
-				if (this.frameNo > 1)
-					score = this.previousFrame.getScore() + 10 + nextFrame.getRoll(1).getPins();
-				else
-					score = 10 + nextFrame.getRoll(1).getPins();
+				accumulateScore(10 + nextFrame.getRoll(1).getPins());
 			}
 			break;
 		case BowlingTerm.X_STRIKE:
@@ -149,11 +143,10 @@ public class BowlingFrame {
 		if (this.frameNo < 9) {
 			if (nextFrame.getState() == BowlingTerm.X_STRIKE) {
 				if (nextFrame.getNextFrame().getState() != BowlingTerm.FRAME_INIT) {
-					if (this.frameNo > 1)
-						score = this.previousFrame.getScore() + 20 + nextFrame.getNextFrame().getRoll(1).getPins();
-					else
-						score = 20 + nextFrame.getNextFrame().getRoll(1).getPins();
+					accumulateScore(20 + nextFrame.getNextFrame().getRoll(1).getPins());
 				}
+			} else if (nextFrame.isOver()) {
+				accumulateScore(10 + nextFrame.getRoll(1).getPins() + nextFrame.getRoll(2).getPins());
 			}
 		} else {
 			if (nextFrame.getRoll(2) != null && nextFrame.getRoll(2).getPins() != BowlingTerm.BLANK) {
@@ -162,6 +155,13 @@ public class BowlingFrame {
 			}
 		}
 
+	}
+
+	protected void accumulateScore(int currentFrameScore) {
+		if (this.frameNo > 1)
+			score = this.previousFrame.getScore() + currentFrameScore;
+		else
+			score = currentFrameScore;
 	}
 
 	/**

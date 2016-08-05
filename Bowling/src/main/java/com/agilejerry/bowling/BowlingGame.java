@@ -6,6 +6,9 @@ public class BowlingGame {
 	private int currentFrameNo;
 
 	public void roll(int i) {
+		if (currentFrameNo == 10 && getCurrentFrame().isOver()){
+			return;
+		}
 		if (getCurrentFrame().isOver()) {
 			currentFrameNo++;
 		}

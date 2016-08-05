@@ -157,7 +157,7 @@ public class GameTest {
 		assertEquals(270, frame9.getScore());
 		assertEquals(300, frame10.getScore());
 	}
-	
+
 	@Test
 	public void roll_11_ball_all_10() {
 		game.prepare();
@@ -169,10 +169,10 @@ public class GameTest {
 		BowlingFrame frame9 = game.getFrame(9);
 		assertEquals(BowlingTerm.BLANK, frame9.getScore());
 		assertEquals(BowlingTerm.BLANK, frame10.getScore());
-		rollBall(1,10);
+		rollBall(1, 10);
 		assertEquals(270, frame9.getScore());
 	}
-	
+
 	@Test
 	public void roll_10_ball_all_10_then_2_6() {
 		game.prepare();
@@ -184,12 +184,12 @@ public class GameTest {
 		BowlingFrame frame9 = game.getFrame(9);
 		assertEquals(BowlingTerm.BLANK, frame9.getScore());
 		assertEquals(BowlingTerm.BLANK, frame10.getScore());
-		rollBall(2,6);
+		rollBall(2, 6);
 		assertEquals(266, frame9.getScore());
 		assertEquals(BowlingTerm.BLANK, frame10.getScore());
-		
+
 	}
-	
+
 	@Test
 	public void roll_10_ball_all_6() {
 		game.prepare();
@@ -199,6 +199,61 @@ public class GameTest {
 		assertEquals(false, frame1.isOver());
 		assertEquals(BowlingTerm.BLANK, frame1.getScore());
 		assertEquals(BowlingTerm.BLANK, frame3.getScore());
-		
+
+	}
+
+	@Test
+	public void roll_realsimulate1() {
+		game.prepare();
+		rollBall(1, 6);
+		BowlingFrame frame = game.getCurrentFrame();
+		assertEquals(false, frame.isOver());
+		assertEquals(6, frame.getRoll(1).getPins());
+		assertEquals(BowlingTerm.BLANK, frame.getScore());
+		game.roll(4);
+		assertEquals(true, frame.isOver());
+		assertEquals(1, frame.getFrameNo());
+		assertEquals(BowlingTerm.BLANK, frame.getScore());
+		game.roll(10);
+		assertEquals(1, frame.getFrameNo());
+		assertEquals(20, frame.getScore());
+		rollBall(5, 10);
+		frame = game.getCurrentFrame();
+		assertEquals(true, frame.isOver());
+		assertEquals(7, frame.getFrameNo());
+		assertEquals(BowlingTerm.BLANK, frame.getScore());
+		rollBall(6, 5);
+		BowlingFrame frame2 = game.getFrame(2);
+		assertEquals(50, frame2.getScore());
+		BowlingFrame frame3 = game.getFrame(3);
+		assertEquals(80, frame3.getScore());
+		BowlingFrame frame6 = game.getFrame(6);
+		assertEquals(165, frame6.getScore());
+		BowlingFrame frame7 = game.getFrame(7);
+		assertEquals(185, frame7.getScore());
+
+		assertEquals(185, frame.getScore());
+
+		frame = game.getCurrentFrame();
+		assertEquals(false, frame.isOver());
+		assertEquals(10, frame.getFrameNo());
+		game.roll(6);
+		assertEquals(231, frame.getScore());
+	}
+
+	@Test
+	public void roll_20_ball_all_1() {
+		game.prepare();
+		rollBall(20, 1);
+		BowlingFrame frame1 = game.getFrame(1);
+		assertEquals(true, frame1.isOver());
+
+		assertEquals(1, frame1.getFrameNo());
+
+		BowlingFrame frame = game.getCurrentFrame();
+		assertEquals(true, frame.isOver());
+
+		assertEquals(20, frame.getScore());
+
 	}
 }

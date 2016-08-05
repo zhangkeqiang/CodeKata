@@ -21,10 +21,7 @@ public class TenthFrame extends BowlingFrame {
 		case BowlingTerm.FRAME_RUNNING:
 			return BowlingTerm.BLANK;
 		case BowlingTerm.FRAME_NORMALOVER:
-			if (this.frameNo > 1)
 				score = this.previousFrame.getScore() + rolls[0].getPins() + rolls[1].getPins();
-			else
-				score = rolls[0].getPins() + rolls[1].getPins();
 			break;
 		case BowlingTerm.SLASH_SQARE:
 			if (this.rolls[2] != null) {

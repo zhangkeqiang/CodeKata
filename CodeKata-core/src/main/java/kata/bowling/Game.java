@@ -2,10 +2,7 @@ package kata.bowling;
 
 /**
  * @ClassName: Game
- * @Description: TODO(这里用一句话描述这个类的作用)
- * @author Administrator
- * @date 2016年7月23日 下午5:54:33
- * @Copyright © 2016上海通善互联网金融信息服务有限公司
+ * @Description: BowlingGame, 10 frames
  */
 public class Game {
 

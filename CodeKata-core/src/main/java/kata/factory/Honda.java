@@ -5,6 +5,7 @@ package kata.factory;
  */
 public class Honda extends Car {
     
+    private String path = "HondaPath";
     /**
      * default constructor of Honda
      */
@@ -15,6 +16,13 @@ public class Honda extends Car {
     @Override
     public String getBrand(){
         return "Honda";
+    }
+    /** get Honda's path
+     * @see kata.factory.Car#getPath()
+     */
+    @Override
+    public String getPath() {
+        return this.path;
     }
     
 

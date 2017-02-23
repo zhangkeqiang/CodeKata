@@ -9,6 +9,15 @@ import java.util.Map;
  */
 public abstract class Car {
 
+    /**
+     * DEFAULT_PATH:TODO
+     */
+    
+    private static final String DEFAULT_PATH = "defaultPath";
+
+    /*
+     * Car
+     */
     public Car() {
         dataMap.put("key0", "value0");
         dataMap.put("key2", "value2");
@@ -27,5 +36,13 @@ public abstract class Car {
     public String getValueByKey(String key) {
         String value = dataMap.get(key);
         return value;
+    }
+
+    /**@method getPath
+     * @description 
+     * @return Object
+    */
+    public String getPath(){
+        return DEFAULT_PATH;
     }
 }

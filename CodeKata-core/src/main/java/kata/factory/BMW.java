@@ -9,7 +9,12 @@ public class BMW extends Car {
         return "BMW";
     }
     
+    /**
+     * BMW
+     */
     public BMW(){
         dataMap.put("keyBMW", "BMW7i");
     }
+
+
 }

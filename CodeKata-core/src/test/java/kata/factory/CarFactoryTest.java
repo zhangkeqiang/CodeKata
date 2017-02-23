@@ -36,7 +36,7 @@ public class CarFactoryTest {
         assertEquals(null,bmw.getValueByKey("key1"));
         assertEquals("BMW7i",bmw.getValueByKey("keyBMW"));
         assertEquals("value2",bmw.getValueByKey("key2"));
-        
+        assertEquals("defaultPath",bmw.getPath());
         
     }
     
@@ -48,6 +48,7 @@ public class CarFactoryTest {
         assertEquals("value1",honda.getValueByKey("key1"));
         assertEquals("value0",honda.getValueByKey("key0"));
         assertEquals("Hondavalue2",honda.getValueByKey("key2"));
+        assertEquals("HondaPath",honda.getPath());
     }
 
 }

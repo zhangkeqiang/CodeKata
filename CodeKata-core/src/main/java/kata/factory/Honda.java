@@ -5,7 +5,7 @@ package kata.factory;
  */
 public class Honda extends Car {
     
-    private String path = "HondaPath";
+    protected String path = "HondaPath";
     /**
      * default constructor of Honda
      */

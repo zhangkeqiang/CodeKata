@@ -2,6 +2,8 @@ package kata.factory;
 
 import static org.junit.Assert.*;
 
+import java.util.Map;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -49,6 +51,22 @@ public class CarFactoryTest {
         assertEquals("value0",honda.getValueByKey("key0"));
         assertEquals("Hondavalue2",honda.getValueByKey("key2"));
         assertEquals("HondaPath",honda.getPath());
+        Map dataMap = honda.getDataMap();
+        assertEquals(dataMap.size(),3);
+    }
+    
+    
+    @Test
+    public final void Honda_Spirior_should_be_created() {
+        Car honda = CarFactory.createCar("Spirior");
+        assertNotNull(honda);
+        assertEquals("Honda", honda.getBrand());
+        assertEquals("value1",honda.getValueByKey("key1"));
+        assertEquals("value0",honda.getValueByKey("key0"));
+        assertEquals("Spiriorvalue",honda.getValueByKey("key2"));
+        assertEquals("HondaPath",honda.getPath());
+        Map dataMap = honda.getDataMap();
+        assertEquals(dataMap.size(),3);
     }
 
 }

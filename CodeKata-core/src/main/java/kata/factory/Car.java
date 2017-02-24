@@ -45,4 +45,8 @@ public abstract class Car {
     public String getPath(){
         return DEFAULT_PATH;
     }
+    
+    public Map getDataMap(){
+        return this.dataMap;
+    }
 }

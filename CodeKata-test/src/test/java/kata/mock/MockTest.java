@@ -9,14 +9,29 @@ import java.io.OutputStreamWriter;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.ResourceBundle;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import kata.IncomeTax;
 
+@RunWith(MockitoJUnitRunner.class)
 public class MockTest {
 
+    @Mock
+    private Map bundle;
+    @Test
+    public final void testMockAnnotation(){
+        String keyString = "keyhello";
+        String valueString = "hello";
+        when(bundle.get(keyString)).thenReturn(valueString);
+        assertEquals(valueString, bundle.get(keyString));
+    }
 	@Test
 	public final void testMock_IncomeTax1() {
 		IncomeTax mockIncomeTax = mock(IncomeTax.class);

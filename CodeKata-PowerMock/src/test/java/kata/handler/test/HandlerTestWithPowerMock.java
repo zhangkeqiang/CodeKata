@@ -43,7 +43,7 @@ public class HandlerTestWithPowerMock {
         Assert.assertEquals(expected, a1aHandler.analyzeJob("jobA")); 
 
         // Optionally verify that the private method was actually called 
-        PowerMockito.verifyPrivate(a1aHandler,times(2)).invoke("analyzeJobStep2", "jobA"); 
+        PowerMockito.verifyPrivate(a1aHandler,times(1)).invoke("analyzeJobStep2", "jobA"); 
     }
     
     @Test

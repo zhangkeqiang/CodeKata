@@ -1,20 +1,18 @@
 package kata.handler;
 
 import static org.junit.Assert.*;
+
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import static org.hamcrest.Matchers.*;
 import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
-
-import kata.IncomeTax;
 
 
 /**@ClassName: A2AHandlerTest
@@ -29,21 +27,7 @@ public class A2AHandlerTestByMockito {
     
     private static final String jobA = "jobA";
 
-    /**@method setUpBeforeClass
-     * @description 
-     * @return void
-    */
-    @BeforeClass
-    public static void setUpBeforeClass() throws Exception {
-    }
-
-    /**@method tearDownAfterClass
-     * @description 
-     * @return void
-    */
-    @AfterClass
-    public static void tearDownAfterClass() throws Exception {
-    }
+ 
 
     /**@method setUp
      * @description 
@@ -78,12 +62,19 @@ public class A2AHandlerTestByMockito {
     public final void testMockProtectedAnalyzeJobStep1Directly(){
         A2AHandler handler = mock(A2AHandler.class);
         int expected = 56; 
-        //when(handler.analyzeJob(jobA)).thenReturn(expected);
-        
-        
         when(handler.analyzeJobStep1(jobA)).thenReturn(expected);
         assertEquals(expected, handler.analyzeJobStep1(jobA));
+       
         assertEquals(0, handler.analyzeJob(jobA));
+    }
+    
+    @Test(expected = Exception.class) 
+    public final void testMockThrowException(){
+        A2AHandler handler = mock(A2AHandler.class);
+        System.out.println("jobstep1 is starting");
+        when(handler.analyzeJobStep1(jobA)).thenThrow(new Exception());
+        int i = handler.analyzeJobStep1(jobA);
+        System.out.println("jobstep1 is " + i);
     }
   
 }

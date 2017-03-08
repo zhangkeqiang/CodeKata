@@ -115,4 +115,24 @@ public class CarDecorationStoreTest {
         
     }
     
+    @Test
+    public final void testdecorateHonda() {
+//        PowerMockito.mockStatic(CarFactory.class);
+        String car1Name = "Spirior";
+        String car2Name = "BMW";
+//        Mockito.when(CarFactory.createCar(car1Name)).thenReturn(new Honda());
+//        Mockito.when(CarFactory.createCar(car2Name)).thenReturn(new BMW());
+        CarDecorationStore store = new CarDecorationStore();
+        String brand1 = store.decorateHonda("message");
+        assertEquals("Honda", brand1);        
+
+        
+//        PowerMockito.verifyStatic(Mockito.times(0));
+//        CarFactory.createCar(car1Name);
+//        
+//        PowerMockito.verifyStatic(Mockito.times(0));
+//        CarFactory.createCar(car2Name);
+        
+    }
+    
 }

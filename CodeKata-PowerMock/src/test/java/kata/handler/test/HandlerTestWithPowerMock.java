@@ -82,6 +82,7 @@ public class HandlerTestWithPowerMock {
             Assert.assertTrue(true);
         }
         
+        Mockito.verify(a1aHandler, times(1)).methodmaybethrowExceptoin("DDD");
     }
 
 }

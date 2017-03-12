@@ -18,7 +18,7 @@ public class HandlerCenter {
      * for singleton, only in this class can new one instance
      */
     private HandlerCenter() {
-        init();
+        //init();
     }
 
     protected void init() {

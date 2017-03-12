@@ -10,7 +10,7 @@ public class HandlerCenter {
     private Map<String, Handler> handlerMap = new HashMap<String, Handler>();
 
     private HandlerCenter() {
-        //init();
+        init();
     }
 
     protected void init() {

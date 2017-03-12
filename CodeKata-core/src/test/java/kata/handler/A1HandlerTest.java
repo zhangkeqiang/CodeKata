@@ -1,5 +1,5 @@
 package kata.handler;
-import static org.hamcrest.Matchers.is;
+
 import static org.junit.Assert.*;
 
 import org.junit.After;
@@ -10,7 +10,7 @@ public class A1HandlerTest {
     @Test
     public void testA1_protected_method_should_be_called(){
         A1Handler a1 = new A1Handler();
-        Assert.assertEquals(1004, a1.analyzeJobStep1("ddd"));
-        assertThat(23, is(23));
+        assertEquals(1004, a1.analyzeJobStep1("ddd"));
+        System.out.println("dfdsfssddsdfsfdss");
     }
 }

@@ -3,10 +3,7 @@ package kata.handler;
 import static org.junit.Assert.*;
 
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
-import static org.hamcrest.Matchers.*;
+import static org.mockito.Mockito.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -54,7 +51,7 @@ public class A2AHandlerTestByMockito {
         A2AHandler a2AHandler =new A2AHandler();
         A2AHandler spyA2AHandler = Mockito.spy(a2AHandler);
         int expected = 56;        
-        Mockito.doReturn(expected).when(spyA2AHandler).analyzeJobStep1(jobA);
+        doReturn(expected).when(spyA2AHandler).analyzeJobStep1(jobA);
         assertEquals(expected, spyA2AHandler.analyzeJob(jobA));
     }
 
@@ -63,9 +60,12 @@ public class A2AHandlerTestByMockito {
         A2AHandler handler = mock(A2AHandler.class);
         int expected = 56; 
         when(handler.analyzeJobStep1(jobA)).thenReturn(expected);
+        when(handler.analyzeJob2(jobA)).thenReturn(expected);
         assertEquals(expected, handler.analyzeJobStep1(jobA));
-       
+        
         assertEquals(0, handler.analyzeJob(jobA));
+        verify(handler).analyzeJobStep1(jobA);
+        verify(handler, never()).analyzeJob2(jobA);
     }
     
     @Test(expected = Exception.class) 
@@ -75,6 +75,7 @@ public class A2AHandlerTestByMockito {
         when(handler.analyzeJobStep1(jobA)).thenThrow(new Exception());
         int i = handler.analyzeJobStep1(jobA);
         System.out.println("jobstep1 is " + i);
+        
     }
   
 }

@@ -14,6 +14,9 @@ import kata.factory.Car;
 public class HandlerCenter {
     private Map<String, Handler> handlerMap = new HashMap<String, Handler>();
 
+    /**
+     * for singleton, only in this class can new one instance
+     */
     private HandlerCenter() {
         //init();
     }

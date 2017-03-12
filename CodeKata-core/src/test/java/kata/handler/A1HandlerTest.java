@@ -11,6 +11,6 @@ public class A1HandlerTest {
     public void testA1_protected_method_should_be_called(){
         A1Handler a1 = new A1Handler();
         Assert.assertEquals(1004, a1.analyzeJobStep1("ddd"));
-        // assertThat(23, is(24));
+        assertThat(23, is(23));
     }
 }

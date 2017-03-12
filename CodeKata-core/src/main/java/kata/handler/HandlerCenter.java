@@ -6,6 +6,11 @@ import java.util.Map;
 
 import kata.factory.Car;
 
+/**
+ * @ClassName: HandlerCenter
+ * @Description: to Manage all the handers 
+ * 2017/3/12
+ */
 public class HandlerCenter {
     private Map<String, Handler> handlerMap = new HashMap<String, Handler>();
 

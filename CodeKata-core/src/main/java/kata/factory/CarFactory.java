@@ -20,8 +20,7 @@ public class CarFactory {
             // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            car = new DefaultCar();
         }
         return car;
     }

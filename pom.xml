@@ -13,6 +13,7 @@
 		<module>CodeKata-PowerMock</module>
 		<module>Bowling</module>
 		<module>CodeKata-pattern</module>
+		<module>CodeKata-Cucumber</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

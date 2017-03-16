@@ -47,4 +47,10 @@ public class CarManagerTest {
         Car car19 = manager.getCar("BMW19");
         assertEquals("DefautCarBrand", car19.getBrand());
     }
+    
+    @Test
+    public final void testsaveACar(){
+        Car car = CarManager.make();
+        assertTrue(manager.save(car));
+    }
 }

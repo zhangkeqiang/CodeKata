@@ -1,7 +1,10 @@
-Feature: CakeTable
+Feature: CukeTable
 
-  Scenario: a few cukes
-    Given I prepare some 3 cukes
+  Scenario: check a few cukes
+    Given I prepare 3 cukes
+    And I like cake
+    |cake1|anny|
+    |cake2|lily|
     When I generate a report
     |key1|value1|
     |key2|value2|
@@ -13,3 +16,4 @@ Feature: CakeTable
     | Cucumis sativus | Cucumber     |
     | Cucumis anguria | Burr Gherkin |
     
+    But I should not see 5.14 cakes

@@ -1,4 +1,4 @@
-package kata.cucumber;
+package kata.cucumber.table;
 
 import static org.junit.Assert.*;
 
@@ -15,7 +15,8 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = {
         "pretty" }, features = {
-                "src/test/resources/cuketable.feature" })
+                "src/test/resources/cuketable.feature" },
+                glue = {"kata.cucumber.table"}, monochrome = true)
 public class CukeTableTest {
 
 }

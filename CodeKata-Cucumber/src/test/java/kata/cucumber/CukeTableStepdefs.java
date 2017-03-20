@@ -1,6 +1,7 @@
 package kata.cucumber;
 
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Assert;
 
@@ -24,9 +25,11 @@ public class CukeTableStepdefs {
     }
 
     @When("^I generate a report$")
-    public void i_generate_a_report() throws Throwable {
+    public void i_generate_a_report(Map<String, String> map) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
-        System.out.println("i_generate_a_report");
+        for (String key : map.keySet()) {
+            System.out.println(key+":" +map.get(key));
+        }
     }
 
     @Then("^I should see the following cukes:$")

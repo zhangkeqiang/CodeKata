@@ -1,6 +1,6 @@
 package kata.cucumber;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -22,6 +22,7 @@ public class TaskManagerTest {
     public static Collection<Object[]> prepareData() {
         // 测试数据
         Object[][] objects = {
+                // total, finished, left
                 {
                         200, 12, 188 },
                 {
@@ -46,7 +47,7 @@ public class TaskManagerTest {
      */
     @Before
     public void setUp() throws Exception {
-        
+
     }
 
     /**
@@ -54,11 +55,11 @@ public class TaskManagerTest {
      */
     @Test
     public final void testGetLeft() {
-        //Given 
+        // Given
         taskManager.setTotal(this.total);
-        //When 
+        // When
         taskManager.setDone(finished);
-        //Then 
+        // Then
         assertEquals(left, taskManager.getLeft());
     }
 

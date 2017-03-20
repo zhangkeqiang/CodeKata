@@ -1,10 +1,12 @@
 package kata.cucumber;
 
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Assert;
 
 import cucumber.api.DataTable;
+import cucumber.api.Format;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -34,5 +36,10 @@ public class TaskStepdefs {
     @Then("^I have (\\d+) tasks left$")
     public void i_have_left_tasks_left(int left) throws Throwable {
         Assert.assertEquals(left, manager.getLeft());
+    }
+    
+    @Given("^the Start date is \"([^\"]*)\"$")
+    public void the_Start_date_is(@Format("dd-MM-yyyy") Date startDate) throws Throwable {
+        System.out.println("The Start date is " + startDate);
     }
 }

@@ -6,6 +6,8 @@ import static org.junit.Assert.fail;
 import java.util.Arrays;
 import java.util.Collection;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,9 +16,11 @@ import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 
 import kata.flowmeter.DataPlan;
+import kata.testassist.BaseTest;
+import kata.testassist.BaseTestTest;
 
 @RunWith(Parameterized.class)
-public class FlowMeter2FewFlowTest2 {
+public class FlowMeter2FewFlowTest2 extends BaseTest{
     PlanUser user;
     DataPlan plan;
 
@@ -74,5 +78,14 @@ public class FlowMeter2FewFlowTest2 {
         System.out.println("testMeter2calcFlowanother");
         user.setFlow(2016, 1, realFlow);
         assertEquals(feeFlow, user.calculateBillingFlow(2016, 1));
+    }
+
+    protected Logger logger = LogManager.getLogger(this);
+    /** (这里用一句话描述这个方法的作用)
+     * @see kata.testassist.BaseTest#getLogger()
+     */
+    @Override
+    protected Logger getLogger() {
+        return logger;
     }
 }

@@ -2,9 +2,9 @@ Feature: CukeTable
 
   Scenario: check a few cukes
     Given I prepare 3 cukes
-    And I like cake
-    |cake1|anny|
-    |cake2|lily|
+    And I like cuke
+    |cuke1|anny|
+    |cuke2|lily|
     When I generate a report
     |key1|value1|
     |key2|value2|

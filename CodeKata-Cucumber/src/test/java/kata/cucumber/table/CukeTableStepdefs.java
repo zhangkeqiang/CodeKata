@@ -32,17 +32,18 @@ public class CukeTableStepdefs {
     }
 
     @Then("^I should see the following cukes:$")
-    public void the_following_users_exist(DataTable expectedCukesTable) {
+    public void i_should_see_following_cukes(DataTable expectedCukesTable) {
         // We'd typically pull this out of a database or a web page...
         List<List<String>> rawList = expectedCukesTable.raw();
+        System.out.println("Show the cukes======");
         for (List<String> fieldlist : rawList) {
             System.out.println(fieldlist);
         }
         Assert.assertEquals(this.countOfCukes, rawList.size());
     }
     
-    @Given("^I like cake$")
-    public void i_like_cake(DataTable table) throws Throwable {
+    @Given("^I like cuke$")
+    public void i_like_cuke(DataTable table) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         // For automatic transformation, change DataTable to one of
         // List<YourType>, List<List<E>>, List<Map<K,V>> or Map<K,V>.

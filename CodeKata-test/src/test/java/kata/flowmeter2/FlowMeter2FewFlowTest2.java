@@ -56,7 +56,6 @@ public class FlowMeter2FewFlowTest2 extends BaseTest{
 
     @Before
     public void setUp() throws Exception {
-        System.out.println("SetUp");
         user = new PlanUser();
         plan = new DataPlan(1000, 30);
         plan.setMode(DataPlan.TWOMONTH);
@@ -68,24 +67,14 @@ public class FlowMeter2FewFlowTest2 extends BaseTest{
 
     @Test
     public void testMeter2calcFlow() {
-        System.out.println("testMeter2calcFlow");
         user.setFlow(2016, 1, realFlow);
         assertEquals(feeFlow, user.calculateBillingFlow(2016, 1));
     }
 
     @Test
     public void testMeter2calcFlowanother() {
-        System.out.println("testMeter2calcFlowanother");
         user.setFlow(2016, 1, realFlow);
         assertEquals(feeFlow, user.calculateBillingFlow(2016, 1));
     }
 
-    protected Logger logger = LogManager.getLogger(this);
-    /** (这里用一句话描述这个方法的作用)
-     * @see kata.testassist.BaseTest#getLogger()
-     */
-    @Override
-    protected Logger getLogger() {
-        return logger;
-    }
 }

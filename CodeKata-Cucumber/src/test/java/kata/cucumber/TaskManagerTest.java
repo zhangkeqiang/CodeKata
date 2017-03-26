@@ -12,12 +12,14 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 
+import kata.testassist.BaseTest;
+
 /**
  * @ClassName: TaskManagerTest
  * @Description:
  */
 @RunWith(Parameterized.class)
-public class TaskManagerTest {
+public class TaskManagerTest extends BaseTest{
     @Parameters
     public static Collection<Object[]> prepareData() {
         // 测试数据
@@ -57,6 +59,7 @@ public class TaskManagerTest {
     public final void testGetLeft() {
         // Given
         taskManager.setTotal(this.total);
+        logger.info(this.total);
         // When
         taskManager.setDone(finished);
         // Then

@@ -10,10 +10,10 @@
 	<name>name</name>
 	<description>core desc</description>
 	<dependencies>
-		<dependency>
+<!-- 		<dependency>
 			<groupId>KQ</groupId>
 			<artifactId>CodeKata</artifactId>
 			<version>2.0.0</version>
-		</dependency>
+		</dependency> -->
 	</dependencies>
 </project>

@@ -1,7 +1,13 @@
 package kata.handler;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class AHandler implements Handler {
 
+    protected static final Logger logger = LogManager.getLogger(AHandler.class);
+    
+    
     public int analyzeJob(String jobName) {
         int step1 = analyzeJobStep1(jobName);
        

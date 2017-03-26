@@ -8,10 +8,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import kata.testassist.BaseTest;
+
 /**@ClassName: HandlerCenterTest
  * @Description:  
  */
-public class HandlerCenterTest {
+public class HandlerCenterTest extends BaseTest{
 
     /**@method setUp
      * @description 
@@ -19,14 +21,6 @@ public class HandlerCenterTest {
     */
     @Before
     public void setUp() throws Exception {
-    }
-
-    /**@method tearDown
-     * @description 
-     * @return void
-    */
-    @After
-    public void tearDown() throws Exception {
     }
 
     /**

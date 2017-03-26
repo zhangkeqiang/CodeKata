@@ -1,13 +1,13 @@
 package kata.handler;
 
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class HandlerTest {
+import kata.testassist.BaseTest;
+
+public class HandlerTest extends BaseTest{
 
     AHandler handlerA = new AHandler();
     BHandler handlerB = new BHandler();
@@ -16,10 +16,6 @@ public class HandlerTest {
     @Before
     public void setUp() throws Exception {
         addHandlersToCenter();
-    }
-
-    @After
-    public void tearDown() throws Exception {
     }
 
     @Test

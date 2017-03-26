@@ -7,12 +7,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 import kata.factory.Car;
+import kata.testassist.BaseTest;
 
 /**
  * @ClassName: CarManagerTest
  * @Description:
  */
-public class CarManagerTest {
+public class CarManagerTest extends BaseTest{
 
     CarManager manager = new CarManager();
 
@@ -23,6 +24,7 @@ public class CarManagerTest {
 
     @After
     public void tearDown() throws Exception {
+        super.tearDown();
     }
 
     @Test
@@ -45,6 +47,7 @@ public class CarManagerTest {
         assertEquals(true, 99 < manager.getCount());
         
         Car car19 = manager.getCar("BMW19");
+        logger.info(car19.getPath());
         assertEquals("DefautCarBrand", car19.getBrand());
     }
     

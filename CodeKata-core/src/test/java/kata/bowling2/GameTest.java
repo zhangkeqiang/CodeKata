@@ -6,15 +6,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 import kata.bowling.BowlingTerm;
+import kata.testassist.BaseTest;
 
 /**
  * @ClassName: GameTest
- * @Description: TODO(这里用一句话描述这个类的作用)
- * @author Administrator
  * @date 2016年7月24日 上午9:12:37
- * @Copyright © 2016上海通善互联网金融信息服务有限公司
  */
-public class GameTest {
+public class GameTest extends BaseTest{
 	BowlingGame game;
 
 	/**
@@ -221,7 +219,7 @@ public class GameTest {
 		assertEquals(1, frame.getSecondScore());
 		assertEquals(2, frame.getTotalScore());
 		for(int i = 0; i < 10; i++){
-			System.out.println("FrameNo" + (i+1) + game.getFrame(i+1).getTotalScore());
+			logger.warn("FrameNo" + (i+1) + game.getFrame(i+1).getTotalScore());
 		}
 		assertEquals(20, game.getTotalScore());
 	}

@@ -9,6 +9,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import kata.handler.A1AHandler;
+import kata.testassist.BaseTest;
+
 import static org.mockito.Mockito.*;
 
 
@@ -21,7 +23,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 @RunWith(PowerMockRunner.class) 
 @PrepareForTest(A1AHandler.class) 
-public class HandlerTestWithPowerMock {
+public class HandlerTestWithPowerMock{
 
     @Before
     public void setUp() throws Exception {

@@ -9,5 +9,13 @@ import org.apache.logging.log4j.Logger;
  */
 public class KQAppender{
     static Logger logger = LogManager.getLogger();
+    /**
+     * @method appendMessage
+     * @param message what is need be appended
+     * @return void
+     */
+    public void appendMessage(String message){
+        logger.info(message);
+    }
 }  
 

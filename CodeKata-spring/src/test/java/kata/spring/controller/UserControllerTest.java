@@ -26,7 +26,7 @@ public class UserControllerTest {
     /**
      * Test method for {@link kata.spring.controller.UserController#view(java.lang.Long, javax.servlet.http.HttpServletRequest)}.
      */
-    @Test
+    //@Test
     public final void testView() {
         MockHttpServletRequest req = new MockHttpServletRequest();  
         ModelAndView mv = userController.view(14544L, req);  

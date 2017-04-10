@@ -17,7 +17,7 @@ public class AHandler implements Handler {
 
     protected int analyzeJobStep1(String jobName) {
         
-        return 1;
+        return jobName.length();
     }
 
     private int analyzeJobStep2(String jobName) {

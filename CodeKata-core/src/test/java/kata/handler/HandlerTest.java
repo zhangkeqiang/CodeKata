@@ -46,7 +46,7 @@ public class HandlerTest extends BaseTest{
         Handler B = HandlerCenter.getHandler("BHandler");
         Assert.assertEquals(12, B.analyzeJob("Good Job"));
         Handler A = HandlerCenter.getHandler("AHandler");
-        Assert.assertEquals(1, A.analyzeJob("Good Job"));
+        Assert.assertEquals(8, A.analyzeJob("Good Job"));
         Handler A1 = HandlerCenter.getHandler("A1Handler");
         Assert.assertEquals(1004, A1.analyzeJob("Good Job"));
         

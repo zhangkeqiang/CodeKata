@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Specify the refresh internal in seconds. -->
+<Configuration monitorInterval="600">
+	<!-- 定义下面的引用名 -->
+	<Properties>
+		<property name="log_pattern">%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} [%F:%L] - %msg%n</property>
+		<property name="file_name">/data/tsjinrong/logs/${project.artifactId}/${project.artifactId}.log</property>
+		<property name="rolling_file_name">/data/tsjinrong/logs/${project.artifactId}/${project.artifactId}-%d{yyyy-MM-dd}-%i.log</property> 
+		<property name="error_file_name">/data/tsjinrong/logs/${project.artifactId}/${project.artifactId}-error.log</property>
+		<property name="error_rolling_file_name">/data/tsjinrong/logs/${project.artifactId}/${project.artifactId}-error-%d{yyyy-MM-dd}-%i.log.gz</property> 
+		<property name="every_file_size">80M</property><!-- 日志切割的最小单位 -->
+		<property name="output_log_level">warn</property><!-- 默认日志输出级别 -->
+		<property name="file_name_perf">/data/tsjinrong/logs/${project.artifactId}/${project.artifactId}-perf.log</property>
+		<property name="rolling_file_name_perf">/data/tsjinrong/logs/${project.artifactId}/${project.artifactId}-perf-%d{yyyy-MM-dd}-%i.log.gz</property>
+	</Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="${log_pattern}" />
+		</Console>
+        <RollingFile name="RollingFile" fileName="${file_name}" append="true" filePattern="${rolling_file_name}">
+			<PatternLayout pattern="${log_pattern}" />
+			<Policies>
+				<!-- <OnStartupTriggeringPolicy /> -->
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="${every_file_size}" />
+			</Policies>
+		</RollingFile>
+        <RollingFile name="perfFileAppender" fileName="${file_name_perf}" append="true"
+                     filePattern="${rolling_file_name_perf}">
+            <PatternLayout pattern="%m%n"/>
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="${every_file_size}"/>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="org.jasig" level="info" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
+        </Logger>
+        <Logger name="cn.tsjinrong.uts" level="info" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
+        </Logger>
+        <Logger name="org.springframework" level="warn" />
+        <Logger name="org.springframework.webflow" level="warn" />
+        <Logger name="org.springframework.web" level="warn" />
+        <Logger name="org.springframework.security" level="warn" />
+
+        <Logger name="perfStatsLogger" level="info" additivity="false">
+            <AppenderRef ref="perfFileAppender"/>
+        </Logger>
+
+        <Logger name="org.jasig.cas.web.flow" level="info" additivity="true">
+            <AppenderRef ref="RollingFile"/>
+        </Logger>
+		<Logger name="org.jasig.inspektr.audit.support.Slf4jLoggingAuditTrailManager"
+			level="info">
+			<AppenderRef ref="RollingFile" />
+		</Logger>
+		<Logger name="org.ldaptive" level="info" additivity="false">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="RollingFile" />
+		</Logger>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile" />
+        </Root>
+    </Loggers>
+</Configuration>

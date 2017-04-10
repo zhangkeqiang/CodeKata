@@ -16,6 +16,7 @@
 		<module>CodeKata-Cucumber</module>
 		<module>CodeKata-spring</module>
 		<module>CodeKata-web</module>
+		<module>CodeKata-springweb</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

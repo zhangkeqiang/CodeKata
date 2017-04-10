@@ -47,7 +47,7 @@ public class A2AHandlerTestByMockito {
      * @throws Exception 
      */
     @Test
-    public final void testMockProtectedAnalyzeJobStep1() throws Exception{
+    public final void testMockProtectedAnalyzeJobStep1InA2AHandler() throws Exception{
         A2AHandler a2AHandler =new A2AHandler();
         A2AHandler spyA2AHandler = Mockito.spy(a2AHandler);
         int expected = 56;        
@@ -55,6 +55,14 @@ public class A2AHandlerTestByMockito {
         assertEquals(expected, spyA2AHandler.analyzeJob(jobA));
     }
 
+    @Test
+    public final void testMockProtectedAnalyzeJobStep1() throws Exception{
+        AHandler aHandler =new AHandler();
+        AHandler spyA2AHandler = Mockito.spy(aHandler);
+        int expected = 56;        
+        doReturn(expected).when(spyA2AHandler).analyzeJobStep1(jobA);
+        assertEquals(expected, spyA2AHandler.analyzeJob(jobA));
+    }
     @Test
     public final void testMockProtectedAnalyzeJobStep1Directly(){
         A2AHandler handler = mock(A2AHandler.class);

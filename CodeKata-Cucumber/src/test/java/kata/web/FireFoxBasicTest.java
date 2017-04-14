@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import java.util.concurrent.TimeUnit;
 
@@ -36,7 +37,7 @@ public class FireFoxBasicTest {
     public void tearDown() throws Exception {
     }
 
-    @Test
+    @Ignore @Test
     public final void test() {
         System.setProperty("webdriver.ie.driver","C:\\Program Files\\Internet Explorer\\iexplore.exe");
      // 创建一个 FireFox 的浏览器实例

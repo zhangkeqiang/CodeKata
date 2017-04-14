@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import java.util.concurrent.TimeUnit;
 
@@ -37,7 +38,7 @@ public class IEBasicTest {
     public void tearDown() throws Exception {
     }
 
-    @Test
+    @Ignore  @Test
     public final void test() {
         System.setProperty("webdriver.ie.driver","C:\\Program Files\\Internet Explorer\\iexplore.exe");
         DesiredCapabilities ieCapabilities = DesiredCapabilities.internetExplorer(); ieCapabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);   

@@ -1,13 +1,10 @@
 package kata.flowmeter2;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +14,6 @@ import org.junit.runners.Parameterized.Parameters;
 
 import kata.flowmeter.DataPlan;
 import kata.testassist.BaseTest;
-import kata.testassist.BaseTestTest;
 
 @RunWith(Parameterized.class)
 public class FlowMeter2FewFlowTest2 extends BaseTest{

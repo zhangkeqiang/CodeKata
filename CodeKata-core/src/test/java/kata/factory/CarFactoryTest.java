@@ -43,7 +43,7 @@ public class CarFactoryTest {
     }
     
     @Test
-    public final void Honda_Car_should_be_created() {
+    public final void honda_Car_should_be_created() {
         Car honda = CarFactory.createCar("Honda");
         assertNotNull(honda);
         assertEquals("Honda", honda.getBrand());
@@ -54,6 +54,13 @@ public class CarFactoryTest {
         Map dataMap = honda.getDataMap();
         assertEquals(dataMap.size(),3);
     }
+
+    @Test
+    public final void bmw_Car_should_be_created(){
+        Car bmw = CarFactory.createCar("BMW");
+        assertNotNull(bmw);
+    }
+
     
     
     @Test

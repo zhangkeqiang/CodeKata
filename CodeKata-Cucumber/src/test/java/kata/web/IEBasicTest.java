@@ -41,7 +41,7 @@ public class IEBasicTest {
     public void tearDown() throws Exception {
     }
 
-    @Test
+    @Ignore @Test
     public final void test() {
         System.setProperty("webdriver.ie.driver", "C:\\Program Files\\Internet Explorer\\iexplore.exe");
         DesiredCapabilities ieCapabilities = DesiredCapabilities.internetExplorer();

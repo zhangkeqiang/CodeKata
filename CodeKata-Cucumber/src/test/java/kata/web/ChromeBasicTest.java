@@ -37,7 +37,7 @@ public class ChromeBasicTest {
     public void tearDown() throws Exception {
     }
 
-    @Test
+    @Ignore @Test
     public final void test() {
         
        //System.setProperty("webdriver.firefox.bin", "C:\\Program Files\\Mozilla Firefox\\firefox.exe");

@@ -1,13 +1,13 @@
 package kata.handler;
 
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class HandlerTest {
+import kata.testassist.BaseTest;
+
+public class HandlerTest extends BaseTest{
 
     AHandler handlerA = new AHandler();
     BHandler handlerB = new BHandler();
@@ -16,10 +16,6 @@ public class HandlerTest {
     @Before
     public void setUp() throws Exception {
         addHandlersToCenter();
-    }
-
-    @After
-    public void tearDown() throws Exception {
     }
 
     @Test
@@ -50,7 +46,7 @@ public class HandlerTest {
         Handler B = HandlerCenter.getHandler("BHandler");
         Assert.assertEquals(12, B.analyzeJob("Good Job"));
         Handler A = HandlerCenter.getHandler("AHandler");
-        Assert.assertEquals(1, A.analyzeJob("Good Job"));
+        Assert.assertEquals(8, A.analyzeJob("Good Job"));
         Handler A1 = HandlerCenter.getHandler("A1Handler");
         Assert.assertEquals(1004, A1.analyzeJob("Good Job"));
         

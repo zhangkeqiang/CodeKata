@@ -9,6 +9,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import kata.handler.A1AHandler;
+import kata.testassist.BaseTest;
+
 import static org.mockito.Mockito.*;
 
 
@@ -21,7 +23,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 @RunWith(PowerMockRunner.class) 
 @PrepareForTest(A1AHandler.class) 
-public class HandlerTestWithPowerMock {
+public class HandlerTestWithPowerMock{
 
     @Before
     public void setUp() throws Exception {
@@ -38,13 +40,12 @@ public class HandlerTestWithPowerMock {
         /* 
          * Setup the expectation to the private method using the method name 
          */
-        int expected = 3;
-        PowerMockito.doReturn(3).when(a1aHandler, "analyzeJobStep2", "jobA");
-        int actual = a1aHandler.analyzeJob("jobA");
+        int expected = 56;
+        PowerMockito.doReturn(expected).when(a1aHandler, "analyzeJobStep2", "jobA");
         Assert.assertEquals(expected, a1aHandler.analyzeJob("jobA")); 
 
         // Optionally verify that the private method was actually called 
-        PowerMockito.verifyPrivate(a1aHandler,times(2)).invoke("analyzeJobStep2", "jobA"); 
+        PowerMockito.verifyPrivate(a1aHandler,times(1)).invoke("analyzeJobStep2", "jobA"); 
     }
     
     @Test
@@ -83,6 +84,7 @@ public class HandlerTestWithPowerMock {
             Assert.assertTrue(true);
         }
         
+        Mockito.verify(a1aHandler, times(1)).methodmaybethrowExceptoin("DDD");
     }
 
 }

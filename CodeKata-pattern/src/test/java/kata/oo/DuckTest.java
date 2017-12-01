@@ -36,4 +36,6 @@ public class DuckTest {
     	assertTrue(bird.walk(m));
     	assertEquals(m,bird.getDistance());
     }
+    
+    
 }

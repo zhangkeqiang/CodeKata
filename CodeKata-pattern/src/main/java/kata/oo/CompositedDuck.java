@@ -10,4 +10,8 @@ public class CompositedDuck {
         return duck.countWings();
     }
 
+	public int countFeet() {
+		return duck.countFeet();
+	}
+
 }

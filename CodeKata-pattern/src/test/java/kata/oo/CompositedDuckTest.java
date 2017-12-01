@@ -23,4 +23,9 @@ public class CompositedDuckTest {
     public void check_how_many_wings(){
         assertEquals(2, duck.countWings());
     }
+    
+    @Test
+    public void check_how_many_feet(){
+        assertEquals(2, duck.countFeet());
+    }
 }

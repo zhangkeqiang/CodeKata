@@ -25,4 +25,15 @@ public class DuckTest {
         assertFalse(bird.fly(m));
     }
 
+    @Test
+    public void testCountFeet() {
+    	assertEquals(2, bird.countFeet());
+    }
+    
+    @Test
+    public void testWalk() {
+    	int m = 10;
+    	assertTrue(bird.walk(m));
+    	assertEquals(m,bird.getDistance());
+    }
 }

@@ -2,15 +2,39 @@ package kata.oo;
 
 public class Bird {
 
-    public Bird() {
-        // TODO Auto-generated constructor stub
-    }
+	protected static final int WINGS_OF_BIRD = 2;
+	protected static final int FEET_OF_BIRD = 2;
+	protected int flyDistance = 0;
+	protected int walkDistance = 0;
 
-    public boolean fly(int m) {
-        return true;
-    }
+	public Bird() {
+		// TODO Auto-generated constructor stub
+	}
 
-    public int countWings(){
-        return 2;
-    }
+	public boolean fly(int m) {
+		flyDistance += m;
+		return true;
+	}
+
+	public boolean walk(int m) {
+		walkDistance += m;
+		return true;
+	}
+
+	public int countWings() {
+		return WINGS_OF_BIRD;
+	}
+
+	public int countFeet() {
+		return FEET_OF_BIRD;
+	}
+
+	public int getFlyDistance() {
+		return this.flyDistance;
+	}
+
+	public int getDistance() {
+		return this.flyDistance + this.walkDistance;
+	}
+
 }

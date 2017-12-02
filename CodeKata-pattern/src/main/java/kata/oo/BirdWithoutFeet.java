@@ -3,7 +3,6 @@ package kata.oo;
 public class BirdWithoutFeet extends Bird{
 
 	public BirdWithoutFeet() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

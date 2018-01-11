@@ -8,7 +8,6 @@ public class Bird {
 	protected int walkDistance = 0;
 	protected String url;
 	public Bird() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public boolean fly(int m) {

@@ -37,5 +37,10 @@ public class DuckTest {
     	assertEquals(m,bird.getDistance());
     }
     
+    @Test 
+    public void testgetURL() {
+    	String url = "http://www.wildfowl-photography.co.uk/identification/types-of-duck.htm";
+		assertEquals(url , bird.getURL());
+    }
     
 }

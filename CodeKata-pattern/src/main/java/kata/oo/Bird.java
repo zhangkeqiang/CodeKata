@@ -6,7 +6,7 @@ public class Bird {
 	protected static final int FEET_OF_BIRD = 2;
 	protected int flyDistance = 0;
 	protected int walkDistance = 0;
-
+	protected String url;
 	public Bird() {
 		// TODO Auto-generated constructor stub
 	}
@@ -35,6 +35,10 @@ public class Bird {
 
 	public int getDistance() {
 		return this.flyDistance + this.walkDistance;
+	}
+
+	public String getURL() {
+		return url;
 	}
 
 }

@@ -9,6 +9,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import kata.kata12.BestSellingManager;
@@ -72,12 +73,13 @@ public class BestSellersTest {
 	}
 	
 	@Test
+	@Ignore
 	public void testGenerateBestSellingList() {
 		long sleeptime = 100;
 		BestSellingManager manager = new BestSellingManager();
 		manager.start();		
 		List<SaleItem> bestList = manager.getBestList();
-				
+		assertNotNull(bestList);		
 		manager.changeType(BestSellingManager.HOURLYUPDATE);
 		try {
 			BestSellingManager.sleep(sleeptime);

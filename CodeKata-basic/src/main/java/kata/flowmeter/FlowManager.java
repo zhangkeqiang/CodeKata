@@ -31,7 +31,10 @@ public class FlowManager {
 				meter = new CurrentMonthMeter();
 			}else if(this.billMode == TWOMONTH){
 				meter = new TwoMonthMeter();
+			}else {
+				meter = new CurrentMonthMeter();
 			}
+			
 		}
 		return meter;
 	}

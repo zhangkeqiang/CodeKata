@@ -22,6 +22,8 @@ public class EITCommander {
 		    eit = new EITT();
 		}else if(getContext().getEITType()=="EITT2"){
 			eit = new EITT2();
+		}else {
+			eit = new EITT();
 		}
 		eit.setContext(getContext());
 		return eit;

@@ -18,6 +18,7 @@ public class SMSSenderTest extends SMSSender {
 		String sPhone = "123455666666";
 		String code = "666";
 		assertTrue(sender.isInCodeList(sPhone, code));
+		assertEquals(1, sender.verifyCode(sPhone, code));
 	}
 
 	@Test
@@ -25,6 +26,7 @@ public class SMSSenderTest extends SMSSender {
 		String sPhone = null ;
 		String code = "666";
 		assertFalse(sender.isInCodeList(sPhone, code));
+		assertEquals(0, sender.verifyCode(sPhone, code));
 	}
 	
 	@Test
@@ -32,6 +34,7 @@ public class SMSSenderTest extends SMSSender {
 		String sPhone = "123455661234";
 		String code = "666";
 		assertFalse(sender.isInCodeList(sPhone, code));
+		assertEquals(0, sender.verifyCode(sPhone, code));
 	}
 	@Override
 	public void send(String string, String string2) {

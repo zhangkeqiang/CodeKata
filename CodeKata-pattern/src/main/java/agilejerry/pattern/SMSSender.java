@@ -25,8 +25,8 @@ public abstract class SMSSender {
 		return ret;
 	}
 
-	private boolean isInCodeList(String sPhone, String code) {
-		return false;
+	protected boolean isInCodeList(String sPhone, String code) {
+		return sPhone==null? false: sPhone.indexOf(code)>=0;
 	}
 
 }

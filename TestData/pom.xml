@@ -6,19 +6,12 @@
 		<artifactId>CodeKata</artifactId>
 		<version>2.2.5</version>
 	</parent>
-	<artifactId>CodeKata-PowerMock</artifactId>
-
+	<artifactId>TestData</artifactId>
 	<dependencies>
 		<dependency>
-			<groupId>KQ</groupId>
-			<artifactId>CodeKata-basic</artifactId>
-			<version>2.2.5</version>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.17</version>
 		</dependency>
-		<dependency>
-			<groupId>KQ</groupId>
-			<artifactId>CodeKata-core</artifactId>
-			<version>2.2.5</version>
-		</dependency>
-
 	</dependencies>
 </project>

@@ -58,7 +58,8 @@ public class SpreadSheet {
         return rows;
     }
 
-    private boolean isEmpty(final Row row) {
+    @SuppressWarnings("deprecation")
+	private boolean isEmpty(final Row row) {
         Cell firstCell = row.getCell(0);
         boolean rowIsEmpty = (firstCell == null)
                 || (firstCell.getCellType() == Cell.CELL_TYPE_BLANK);
@@ -74,7 +75,8 @@ public class SpreadSheet {
         return firstEmptyCellPosition(firstRow);
     }
 
-    private int firstEmptyCellPosition(final Row cells) {
+    @SuppressWarnings("deprecation")
+	private int firstEmptyCellPosition(final Row cells) {
         int columnCount = 0;
         for (Cell cell : cells) {
             if (cell.getCellType() == Cell.CELL_TYPE_BLANK) {
@@ -85,7 +87,8 @@ public class SpreadSheet {
         return columnCount;
     }
 
-    private Object objectFrom(final HSSFWorkbook workbook, final Cell cell) {
+    @SuppressWarnings("deprecation")
+	private Object objectFrom(final HSSFWorkbook workbook, final Cell cell) {
         Object cellValue = null;
 
         if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
@@ -112,7 +115,8 @@ public class SpreadSheet {
         return cellValue;
     }
 
-    private Object evaluateCellFormula(final HSSFWorkbook workbook, final Cell cell) {
+    @SuppressWarnings("deprecation")
+	private Object evaluateCellFormula(final HSSFWorkbook workbook, final Cell cell) {
         FormulaEvaluator evaluator = workbook.getCreationHelper()
                 .createFormulaEvaluator();
         CellValue cellValue = evaluator.evaluate(cell);

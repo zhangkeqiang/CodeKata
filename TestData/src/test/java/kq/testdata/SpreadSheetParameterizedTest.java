@@ -26,7 +26,7 @@ public class SpreadSheetParameterizedTest {
 
 	@Parameters
 	public static Collection loadSpreadSheetData() throws IOException {
-		SpreadSheetParameterizedTest test = new SpreadSheetParameterizedTest("", "", 0);
+		SpreadSheetParameterizedTest test = new SpreadSheetParameterizedTest("", "", 0,0);
 		URL url = test.getClass().getResource("excel.xls");
 		System.out.println(url);
 		InputStream in = test.getClass().getResourceAsStream("excel.xls");
@@ -34,7 +34,7 @@ public class SpreadSheetParameterizedTest {
 		return sheet.getData();
 	}
 
-	public SpreadSheetParameterizedTest(String a, String b, double indexOfA) {
+	public SpreadSheetParameterizedTest(String a, String b, double indexOfA,double abs) {
 		System.out.println(a + "|" + b + "|" + indexOfA);
 		this.a = a;
 		this.b = b;

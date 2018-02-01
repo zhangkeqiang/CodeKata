@@ -13,34 +13,21 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-//@RunWith(Parameterized.class)
 public class SpreadSheetTest {
 	private double a;
 	private double b;
 	private double aTimesB;
+	InputStream in;
+	SpreadSheet sheet;
 
 	@Before
 	public void setUp() throws Exception {
+
 	}
 
-	// @Parameters
-	public static Collection spreadsheetData() throws IOException {
-		InputStream spreadsheet = new FileInputStream("excel.xls");
-		return new SpreadSheet(spreadsheet).getData();
-	}
-
-	public SpreadSheetTest() {
-	}
-
-	// public SpreadSheetTest(double a, double b, double aTimesB) {
-	// super();
-	// this.a = a;
-	// this.b = b;
-	// this.aTimesB = aTimesB;
-	// }
 	@Test
 	public void testGetData() throws IOException {
-		InputStream in = getClass().getResourceAsStream("excel.xls");
+		in = getClass().getResourceAsStream("excel.xls");
 		SpreadSheet sheet = new SpreadSheet(in);
 		assertNotNull(sheet);
 		Collection<Object[]> data = sheet.getData();
@@ -49,6 +36,18 @@ public class SpreadSheetTest {
 				System.out.println(cell.toString());
 			}
 		}
+	}
+
+	@Test
+	public void testGetColumns() throws IOException {
+		in = getClass().getResourceAsStream("excel.xls");
+		SpreadSheet sheet = new SpreadSheet(in);
+		assertNotNull(sheet);
+		Collection<String> columns = sheet.getHeader();
+		for (String columnName : columns) {
+			System.out.println(columnName);
+		}
+		assertEquals("AA", columns.toArray()[0]);
 	}
 
 }

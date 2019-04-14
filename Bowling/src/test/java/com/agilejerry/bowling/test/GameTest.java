@@ -170,7 +170,7 @@ public class GameTest {
 		assertEquals(BowlingTerm.BLANK, frame9.getScore());
 		assertEquals(BowlingTerm.BLANK, frame10.getScore());
 		rollBall(1, 10);
-		assertEquals(270, frame9.getScore());
+		assertEquals(272, frame9.getScore());
 	}
 
 	@Test

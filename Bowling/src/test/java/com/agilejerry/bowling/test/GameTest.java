@@ -155,7 +155,7 @@ public class GameTest {
 		assertEquals(240, frame8.getScore());
 		BowlingFrame frame9 = game.getFrame(9);
 		assertEquals(270, frame9.getScore());
-		assertEquals(302, frame10.getScore());
+		assertEquals(300, frame10.getScore());
 	}
 
 	@Test

@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>KQ</groupId>
 		<artifactId>CodeKata</artifactId>
-		<version>2.2.21</version>
+		<version>2.2.49</version>
 	</parent>
 	<artifactId>CodeKata-web</artifactId>
 	<packaging>war</packaging>
@@ -12,7 +12,7 @@
 		<dependency>
 			<groupId>KQ</groupId>
 			<artifactId>CodeKata-core</artifactId>
-			<version>2.2.21</version>
+			<version>2.2.49</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>

@@ -27,8 +27,8 @@ public final class App {
         
     } 
     
-    String[] getAsArray(Collection c) {
-        return (String[]) c.toArray();
+    Object[] getAsArray(Collection<String> c) {
+        return c.toArray();
       }
     
     

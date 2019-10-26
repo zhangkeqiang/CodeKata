@@ -1,66 +1,55 @@
 package kata;
 
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import static org.junit.Assert.*;
 
-/**
- * Unit test for simple App.
- */
+import java.util.ArrayList;
+import java.util.Collection;
 
-public class AppTest  extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */     
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
+public class AppTest {
 
-    public void testAppOne()
-    {
-        assertTrue( true );
-    	assertNotNull(new TestSuite( AppTest.class )); 
-    }
-    
-    public void testAppTwo()
-    {
-        assertTrue( true );
-    	
-    }
+	App app;
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+	}
 
-    
-    public void testAppThree()
-    {
-        assertTrue( true );
-    	
-    }
-    
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+	}
 
-    
-    public void testAppFour()
-    {
-        assertTrue( true );
-    	
-    }
-    /*
-    ***/
-    
-    public void testAppFive()
-    {
-        assertTrue( true );
-    	
-    }  
+	@Before
+	public void setUp() throws Exception {
+		app = new App();
+	}
 
-    
+	@After
+	public void tearDown() throws Exception {
+	}
 
-    
-    public void testAppSix3()
-    {
-        assertTrue( true );
-    	
-    }
+	@Test
+	public void testMain() {
+		app.main(null);
+	}
+
+	@Test
+	public void testFoo() {
+		app.foo();
+	}
+
+	@Test
+	public void testFooInt() {
+		app.foo(18);
+	}
+
+	@Test
+	public void testGetAsArray() {
+		Collection<String> c = new ArrayList();
+		app.getAsArray(c );
+	}
+
 }

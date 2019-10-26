@@ -1,19 +1,23 @@
 package kata;
 
 public class Length {
-	private int inch =0;
-	public Length(int i, String unit) {
+	private double inch =0;
+	public Length(double d, String unit) {
 		switch(unit){
 			case "INCH":
-				inch = i;
+				inch = d;
 				break;
 			case "FEET":
-				inch = i*12;
+				inch = d*12;
 				break;
 		}
 	}
 	
-	public int getInch() {
+	public double getInch() {
 		return this.inch;
+	}
+	
+	public double getFeet() {
+		return this.inch/12;
 	}
 }

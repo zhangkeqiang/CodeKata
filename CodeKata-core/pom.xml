@@ -4,16 +4,16 @@
 	<parent>
 		<groupId>KQ</groupId>
 		<artifactId>CodeKata</artifactId>
-		<version>2.0.0</version>
+		<version>2.2.71</version>
 	</parent>
 	<artifactId>CodeKata-core</artifactId>
 	<name>CodeKata-core</name>
 	<description>core desc</description>
 	<dependencies>
-<!-- 		<dependency>
+		<dependency>
 			<groupId>KQ</groupId>
-			<artifactId>CodeKata</artifactId>
-			<version>2.0.0</version>
-		</dependency> -->
+			<artifactId>CodeKata-basic</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 </project>

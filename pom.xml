@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>KQ</groupId>
 	<artifactId>CodeKata</artifactId>
-	<version>2.0.0</version>
+	<version>2.2.71</version>
 	<name>CodeKata</name>
 	<url>http://maven.apache.org</url>
 	<packaging>pom</packaging>
@@ -13,11 +13,11 @@
 		<module>CodeKata-PowerMock</module>
 		<module>Bowling</module>
 		<module>CodeKata-pattern</module>
-		<module>CodeKata-Cucumber</module>
 		<module>CodeKata-spring</module>
 		<module>CodeKata-web</module>
 		<module>CodeKata-springweb</module>
-		<module>SeleniumPlus</module>
+		<module>CodeKata-basic</module>
+		<module>TestData</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -111,18 +111,12 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.3</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
 		</plugins>
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-			</resource>
-		</resources>
 	</build>
 	<profiles>
 		<profile>

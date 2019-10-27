@@ -27,5 +27,16 @@ public class RulerTest {
 		Ruler ruler = new Ruler(1);
 		ruler.setInch(96);
 		assertEquals(8, ruler.getFeet());
+		assertEquals(96, ruler.getInch());
 	}
+	
+	@Test 
+	public void testGetYard() {
+		Ruler ruler = new Ruler(1);
+		ruler.setInch(96);
+		assertEquals(8, ruler.getFeet());
+		assertEquals(96, ruler.getInch());
+		assertEquals((double)8/3, ruler.getYard(), 0.0000001);
+	}
+	
 }

@@ -18,4 +18,8 @@ public class Ruler {
 	public int getFeet() {
 		return this.inch / 12;
 	}
+	
+	public double getYard() {
+		return (double) this.inch / 36;
+	}
 }

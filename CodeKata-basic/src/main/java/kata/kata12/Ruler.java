@@ -1,25 +1,31 @@
 package kata.kata12;
 
 public class Ruler {
-	private int inch;
+	private double inch = 0;
 
-	public Ruler(int feet) {
-		this.inch = feet * 12;
+	public Ruler() {
+		
 	}
 
-	public int getInch() {
+	public double getInch() {
 		return this.inch;
 	}
 	
-	public void setInch(int inch) {
+	public void setFeet(double feet) {
+		this.inch = feet * 12;
+	}
+	public void setInch(double inch) {
 		this.inch = inch;
 	}
 	
-	public int getFeet() {
+	public void setYard(double yard) {
+		this.inch = yard * 36;
+	}
+	public double getFeet() {
 		return this.inch / 12;
 	}
 	
 	public double getYard() {
-		return (double) this.inch / 36;
+		return this.inch / 36;
 	}
 }

@@ -8,8 +8,11 @@ import org.junit.Test;
 
 public class RulerTest {
 
+	private static final double _0_0000001 = 0.0000001;
+	Ruler ruler;
 	@Before
 	public void setUp() throws Exception {
+		ruler = new Ruler();
 	}
 
 	@After
@@ -18,25 +21,34 @@ public class RulerTest {
 
 	@Test
 	public void testGetInch() {
-		Ruler ruler = new Ruler(4);
-		assertEquals(48, ruler.getInch());
+		ruler.setFeet(4);
+		assertEquals(48, ruler.getInch(),_0_0000001);
 	}
 
 	@Test 
 	public void testGetFeet() {
-		Ruler ruler = new Ruler(1);
 		ruler.setInch(96);
-		assertEquals(8, ruler.getFeet());
-		assertEquals(96, ruler.getInch());
+		assertEquals(8, ruler.getFeet(),_0_0000001);
+		assertEquals(96, ruler.getInch(), _0_0000001);
+		
+		ruler.setInch(97);
+		assertEquals((double)97/12, ruler.getFeet(),_0_0000001);
 	}
 	
 	@Test 
 	public void testGetYard() {
-		Ruler ruler = new Ruler(1);
 		ruler.setInch(96);
-		assertEquals(8, ruler.getFeet());
-		assertEquals(96, ruler.getInch());
-		assertEquals((double)8/3, ruler.getYard(), 0.0000001);
+		assertEquals(8, ruler.getFeet(),_0_0000001);
+		assertEquals(96, ruler.getInch(),_0_0000001);
+		assertEquals((double)8/3, ruler.getYard(), _0_0000001);
+	}
+	
+	@Test 
+	public void testSet_GetYard() {
+		ruler.setYard(3.5);
+		assertEquals(10.5, ruler.getFeet(),_0_0000001);
+		assertEquals(126, ruler.getInch(),_0_0000001);
+		assertEquals(3.5, ruler.getYard(), _0_0000001);
 	}
 	
 }

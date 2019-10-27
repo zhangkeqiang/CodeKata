@@ -10,4 +10,12 @@ public class Ruler {
 	public int getInch() {
 		return this.inch;
 	}
+	
+	public void setInch(int inch) {
+		this.inch = inch;
+	}
+	
+	public int getFeet() {
+		return this.inch / 12;
+	}
 }

@@ -22,4 +22,10 @@ public class RulerTest {
 		assertEquals(48, ruler.getInch());
 	}
 
+	@Test 
+	public void testGetFeet() {
+		Ruler ruler = new Ruler(1);
+		ruler.setInch(96);
+		assertEquals(8, ruler.getFeet());
+	}
 }

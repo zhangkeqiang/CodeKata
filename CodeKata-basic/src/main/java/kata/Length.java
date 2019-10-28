@@ -10,6 +10,8 @@ public class Length {
 			case "FEET":
 				inch = d*12;
 				break;
+			default: 
+				inch = d;
 		}
 	}
 	
@@ -19,5 +21,9 @@ public class Length {
 	
 	public double getFeet() {
 		return this.inch/12;
+	}
+	
+	public double getYard() {
+		return this.inch/36;
 	}
 }

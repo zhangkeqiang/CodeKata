@@ -10,6 +10,8 @@ public class Length {
 			case "FEET":
 				inch = d*12;
 				break;
+			default: 
+				inch = d;
 		}
 	}
 	

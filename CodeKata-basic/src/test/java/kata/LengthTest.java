@@ -36,4 +36,12 @@ public class LengthTest {
 		assertEquals(l1.getFeet(), l2.getFeet(),0.000001);
 	}
 
+	@Test
+	public void testLength_Yard() {
+		Length l1 = new Length(720,"INCH");
+		Length l2 = new Length(60,"FEET");
+		log.debug(l1.getYard());
+		log.debug(l2.getYard());
+		assertEquals(l1.getYard(), l2.getYard(),0.000001);
+	}
 }

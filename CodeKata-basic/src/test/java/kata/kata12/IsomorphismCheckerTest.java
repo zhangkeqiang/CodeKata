@@ -17,8 +17,31 @@ public class IsomorphismCheckerTest {
 	}
 
 	@Test
-	public final void test() {
+	public final void testab() {
 		assertTrue(IsomorphismChecker.foo("a","b"));
 	}
 
+	@Test
+	public final void testaabb() {
+		assertTrue(IsomorphismChecker.foo("aa","bb"));
+	}
+	
+	@Test
+	public final void testlength() {
+		assertFalse(IsomorphismChecker.foo("aaa","bb"));
+	}
+	
+	@Test
+	public final void testababab() {
+		assertTrue(IsomorphismChecker.foo("abab","baba"));
+		assertTrue(IsomorphismChecker.foo("abadddaaa1234","babcccbbb5678"));
+		assertTrue(IsomorphismChecker.foo("abadddaaazzzzzz","babcccbbbeeeeee"));
+	}
+	
+	@Test
+	public final void testabababb() {
+		assertFalse(IsomorphismChecker.foo("abaddddaaa","babccczbbb"));
+	}
+
+	
 }

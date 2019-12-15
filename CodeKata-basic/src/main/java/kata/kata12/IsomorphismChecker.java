@@ -10,4 +10,7 @@ public class IsomorphismChecker {
 		}
 		return true;
 	}
+
+	private IsomorphismChecker() {
+	}
 }

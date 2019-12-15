@@ -9,39 +9,39 @@ import org.junit.Test;
 public class IsomorphismCheckerTest {
 	@Test
 	public final void testab() {
-		assertTrue(IsomorphismChecker.foo("a", "b"));
+		assertTrue(IsomorphismChecker.checkIsomorphic("a", "b"));
 	}
 
 	@Test
 	public final void testaabb() {
-		assertTrue(IsomorphismChecker.foo("aa", "bb"));
+		assertTrue(IsomorphismChecker.checkIsomorphic("aa", "bb"));
 	}
 
 	@Test
 	public final void testlength() {
-		assertFalse(IsomorphismChecker.foo("aaa", "bb"));
+		assertFalse(IsomorphismChecker.checkIsomorphic("aaa", "bb"));
 	}
 
 	@Test
 	public final void testababab() {
-		assertTrue(IsomorphismChecker.foo("egg", "add"));
-		assertFalse(IsomorphismChecker.foo("foo", "bar"));
+		assertTrue(IsomorphismChecker.checkIsomorphic("egg", "add"));
+		assertFalse(IsomorphismChecker.checkIsomorphic("foo", "bar"));
 	}
 
 	@Test
 	public final void testabababb() {
-		assertFalse(IsomorphismChecker.foo("abaddddaaa", "babccczbbb"));
-		assertFalse(IsomorphismChecker.foo("abadddaaad234", "babcccbbb5678"));
-		assertFalse(IsomorphismChecker.foo("abadddaaazzzzzc", "babcccbbbeeeeee"));
-		assertFalse(IsomorphismChecker.foo("asdfghjka", "bwertyuwb"));
+		assertFalse(IsomorphismChecker.checkIsomorphic("abaddddaaa", "babccczbbb"));
+		assertFalse(IsomorphismChecker.checkIsomorphic("abadddaaad234", "babcccbbb5678"));
+		assertFalse(IsomorphismChecker.checkIsomorphic("abadddaaazzzzzc", "babcccbbbeeeeee"));
+		assertFalse(IsomorphismChecker.checkIsomorphic("asdfghjka", "bwertyuwb"));
 	}
 
 	@Test
 	public final void testababab_more() {
-		assertTrue(IsomorphismChecker.foo("abab", "baba"));
-		assertTrue(IsomorphismChecker.foo("abadddaaa1234", "babcccbbb5678"));
-		assertTrue(IsomorphismChecker.foo("abadddaaazzzzzz", "babcccbbbeeeeee"));
-		assertTrue(IsomorphismChecker.foo("asdfghjka", "bwertyuib"));
+		assertTrue(IsomorphismChecker.checkIsomorphic("abab", "baba"));
+		assertTrue(IsomorphismChecker.checkIsomorphic("abadddaaa1234", "babcccbbb5678"));
+		assertTrue(IsomorphismChecker.checkIsomorphic("abadddaaazzzzzz", "babcccbbbeeeeee"));
+		assertTrue(IsomorphismChecker.checkIsomorphic("asdfghjka", "bwertyuib"));
 	}
 
 }

@@ -39,6 +39,6 @@ public class A2AHandler extends AHandler {
 	}
 
 	protected int analyzeJobStep2inA2A(String param) {
-		return 31;
+		return param.length();
 	}
 }

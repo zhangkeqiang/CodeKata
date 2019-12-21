@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>KQ</groupId>
 		<artifactId>CodeKata</artifactId>
-		<version>3.0.4</version>
+		<version>3.0.5</version>
 	</parent>
 	<artifactId>CodeKata-spring</artifactId>
 	<properties>
@@ -116,7 +116,7 @@
 		<dependency>
 			<groupId>KQ</groupId>
 			<artifactId>CodeKata-core</artifactId>
-			<version>3.0.4</version>
+			<version>3.0.5</version>
 		</dependency>
 	</dependencies>
 </project>

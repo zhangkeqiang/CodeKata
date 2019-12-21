@@ -51,6 +51,7 @@ public class BestSellingManager extends Thread {
                 sleep(50);
             } catch (InterruptedException e) {
                 LOGGER.error(e.getMessage());
+                Thread.currentThread().interrupt();
             }
         }
     }

@@ -2,8 +2,6 @@ package kata.kata12;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 public class IsomorphismCheckerTest {
@@ -37,7 +35,7 @@ public class IsomorphismCheckerTest {
 	}
 
 	@Test
-	public final void testababab_more() {
+	public final void testMoreTrue() {
 		assertTrue(IsomorphismChecker.checkIsomorphic("abab", "baba"));
 		assertTrue(IsomorphismChecker.checkIsomorphic("abadddaaa1234", "babcccbbb5678"));
 		assertTrue(IsomorphismChecker.checkIsomorphic("abadddaaazzzzzz", "babcccbbbeeeeee"));

@@ -2,12 +2,11 @@ package kata.kata12;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 public class RulerTest {
-	private static final double _0_0000001 = 0.0000001;
+	private static final double SMALLDELTA = 0.0000001;
 	Ruler ruler;
 
 	@Before
@@ -18,33 +17,33 @@ public class RulerTest {
 	@Test
 	public void testGetInch() {
 		ruler.setFeet(4);
-		assertEquals(48, ruler.getInch(), _0_0000001);
+		assertEquals(48, ruler.getInch(), SMALLDELTA);
 	}
 
 	@Test
 	public void testGetFeet() {
 		ruler.setInch(96);
-		assertEquals(8, ruler.getFeet(), _0_0000001);
-		assertEquals(96, ruler.getInch(), _0_0000001);
+		assertEquals(8, ruler.getFeet(), SMALLDELTA);
+		assertEquals(96, ruler.getInch(), SMALLDELTA);
 
 		ruler.setInch(97);
-		assertEquals((double) 97 / 12, ruler.getFeet(), _0_0000001);
+		assertEquals((double) 97 / 12, ruler.getFeet(), SMALLDELTA);
 	}
 
 	@Test
 	public void testGetYard() {
 		ruler.setInch(96);
-		assertEquals(8, ruler.getFeet(), _0_0000001);
-		assertEquals(96, ruler.getInch(), _0_0000001);
-		assertEquals((double) 8 / 3, ruler.getYard(), _0_0000001);
+		assertEquals(8, ruler.getFeet(), SMALLDELTA);
+		assertEquals(96, ruler.getInch(), SMALLDELTA);
+		assertEquals((double) 8 / 3, ruler.getYard(), SMALLDELTA);
 	}
 
 	@Test
-	public void testSet_GetYard() {
+	public void testSetGetYard() {
 		ruler.setYard(3.5);
-		assertEquals(10.5, ruler.getFeet(), _0_0000001);
-		assertEquals(126, ruler.getInch(), _0_0000001);
-		assertEquals(3.5, ruler.getYard(), _0_0000001);
+		assertEquals(10.5, ruler.getFeet(), SMALLDELTA);
+		assertEquals(126, ruler.getInch(), SMALLDELTA);
+		assertEquals(3.5, ruler.getYard(), SMALLDELTA);
 	}
 
 }

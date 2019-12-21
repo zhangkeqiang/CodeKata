@@ -18,7 +18,7 @@ public class RulerTest {
 	@Test
 	public void testGetInch() {
 		ruler.setFeet(4);
-		assertEquals(ruler.getInch(), 48, _0_0000001);
+		assertEquals(48, ruler.getInch(), _0_0000001);
 	}
 
 	@Test
@@ -28,14 +28,14 @@ public class RulerTest {
 		assertEquals(96, ruler.getInch(), _0_0000001);
 
 		ruler.setInch(97);
-		assertEquals(ruler.getFeet(), (double) 97 / 12, _0_0000001);
+		assertEquals((double) 97 / 12, ruler.getFeet(), _0_0000001);
 	}
 
 	@Test
 	public void testGetYard() {
 		ruler.setInch(96);
 		assertEquals(8, ruler.getFeet(), _0_0000001);
-		assertEquals(ruler.getInch(), 96, _0_0000001);
+		assertEquals(96, ruler.getInch(), _0_0000001);
 		assertEquals((double) 8 / 3, ruler.getYard(), _0_0000001);
 	}
 

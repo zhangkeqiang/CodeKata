@@ -1,11 +1,13 @@
 package kata.kata12;
 
 public class IsomorphismChecker {
-	public static boolean checkIsomorphic(String string1, String string2) {
-		if (string1 == null || string2 == null || string1.length() != string2.length())
+	public static boolean checkIsomorphic(String stringA, String stringB) {
+		if (stringA == null || stringB == null)
 			return false;
-		for (int i = 1; i < string1.length(); i++) {
-			if (string1.indexOf(string1.charAt(i)) != string2.indexOf(string2.charAt(i)))
+		if (stringA.length() != stringB.length())
+			return false;
+		for (int i = 1; i < stringA.length(); i++) {
+			if (stringA.indexOf(stringA.charAt(i)) != stringB.indexOf(stringB.charAt(i)))
 				return false;
 		}
 		return true;

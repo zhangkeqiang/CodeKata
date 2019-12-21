@@ -4,6 +4,9 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import kata.factory.Car;
 
 /**
@@ -12,6 +15,7 @@ import kata.factory.Car;
  * 2017/3/12
  */
 public class HandlerCenter {
+	protected static Logger LOGGER = LogManager.getLogger();
     private Map<String, Handler> handlerMap = new HashMap<String, Handler>();
 
     /**
@@ -59,7 +63,7 @@ public class HandlerCenter {
             Method getInstanceMethod = aclass.getMethod("getInstance");
             handler = (Handler) getInstanceMethod.invoke(null);
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.info("context", e);
         }
         return handler;
     }

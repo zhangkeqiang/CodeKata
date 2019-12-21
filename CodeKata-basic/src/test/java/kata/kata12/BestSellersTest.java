@@ -19,15 +19,17 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
-import java.util.List; 
+import java.util.List;
+
 /**
  * @author zhangmike
  *
  */
 public class BestSellersTest {
-	
+
 	Logger logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
-	//private ArrayList<SaleItem> list;
+
+	// private ArrayList<SaleItem> list;
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -47,7 +49,7 @@ public class BestSellersTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		//list = new BestSellingList<SaleItem>();
+		// list = new BestSellingList<SaleItem>();
 	}
 
 	/**
@@ -59,67 +61,72 @@ public class BestSellersTest {
 
 	@Test
 	public void testNewBestSellingList() {
-		
-		//assertNotNull(list);
-		
+
+		// assertNotNull(list);
+
 	}
-	
+
 	@Test
 	public void testFullBestSellingList() {
-		//SaleItem item = new SaleItem("Apple Mac");
-		//assertNotNull(list);
-		//assertTrue(list.add(item));
-		
+		// SaleItem item = new SaleItem("Apple Mac");
+		// assertNotNull(list);
+		// assertTrue(list.add(item));
+
 	}
-	
+
 	@Test
-	@Ignore
+	// @Ignore
 	public void testGenerateBestSellingList() {
-		long sleeptime = 100;
+		long sleeptime = 1000;
 		BestSellingManager manager = new BestSellingManager();
-		manager.start();		
+		manager.start();
 		List<SaleItem> bestList = manager.getBestList();
-		assertNotNull(bestList);		
+		assertNotNull(bestList);
 		manager.changeType(BestSellingManager.HOURLYUPDATE);
 		try {
 			BestSellingManager.sleep(sleeptime);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		for (SaleItem item : bestList)
-        {
-			logger.info(item.getName()); 
-        }
+		for (SaleItem item : bestList) {
+			logger.info(item.getName());
+		}
 		assertNotNull(bestList);
-		
+
 		manager.changeType(BestSellingManager.DAILYUPDATE);
 		try {
 			BestSellingManager.sleep(sleeptime);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		//bestList = manager.getBestList();
-		for (SaleItem item : bestList)
-        {
-			logger.info(item.getName()); 
-        }
-		assertNotNull(bestList);
-		
-		manager.changeType(BestSellingManager.REALTIMEUPDATE);
-		//manager.generateBestList();
+		// bestList = manager.getBestList();
+		if (bestList.isEmpty())
+			return;
 		try {
-			BestSellingManager.sleep(sleeptime);
-		} catch (InterruptedException e) {
+			for (SaleItem item : bestList) {
+				logger.info(item.getName());
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		//bestList = manager.getBestList();
-		for (SaleItem item : bestList)
-        {
-			logger.info(item.getName()); 
-        }
 		assertNotNull(bestList);
-		
+
+		manager.changeType(BestSellingManager.REALTIMEUPDATE);
+		// manager.generateBestList();
+		try {
+			BestSellingManager.sleep(sleeptime);
+			// bestList = manager.getBestList();
+			for (SaleItem item : bestList) {
+				logger.info(item.getName());
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		assertNotNull(bestList);
+
 	}
 
 }

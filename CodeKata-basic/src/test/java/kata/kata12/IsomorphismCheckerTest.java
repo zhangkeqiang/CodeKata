@@ -6,6 +6,15 @@ import org.junit.Test;
 
 public class IsomorphismCheckerTest {
 	@Test
+	public final void testnulla() {
+		assertFalse(IsomorphismChecker.checkIsomorphic(null, "b"));
+	}
+	
+	@Test
+	public final void testnullb() {
+		assertFalse(IsomorphismChecker.checkIsomorphic("a", null));
+	}
+	@Test
 	public final void testab() {
 		assertTrue(IsomorphismChecker.checkIsomorphic("a", "b"));
 	}

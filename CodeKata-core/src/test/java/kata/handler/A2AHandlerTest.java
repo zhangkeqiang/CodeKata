@@ -13,16 +13,6 @@ import kata.testassist.BaseTest;
  */
 public class A2AHandlerTest extends BaseTest{
 
-    /**@method setUp
-     * @description 
-     * @return void
-    */
-    @Before
-    public void setUp() throws Exception {
-    }
-
-    
-
     /**
      * Test method for {@link kata.handler.A2AHandler#analyzeJobStep1(java.lang.String)}.
      */
@@ -40,5 +30,27 @@ public class A2AHandlerTest extends BaseTest{
         handler.notifyBHandler();
     }
     
+    @Test(expected=Exception.class)
+    public final void testExpectedExceptionbymethodmaybethrowExceptoin() throws Exception{
+        A2AHandler handler = new A2AHandler();
+        handler.methodmaybethrowExceptoin("string");
+    }
+    
+    @Test
+    public final void testanalyzeJob2() {
+        A2AHandler handler = new A2AHandler();
+        String jobName="hahddda";
+        assertEquals(31,handler.analyzeJob2(jobName));
+        
+    }
+    
+    
+    @Test
+    public final void testanalyzeJobStep2inA2A() {
+        A2AHandler handler = new A2AHandler();
+        String jobName="haha";
+        assertEquals(31,handler.analyzeJobStep2inA2A(jobName));
+        
+    }
 
 }

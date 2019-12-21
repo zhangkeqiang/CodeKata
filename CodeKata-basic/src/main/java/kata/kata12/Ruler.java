@@ -3,10 +3,6 @@ package kata.kata12;
 public class Ruler {
 	private double inch = 0;
 
-	public Ruler() {
-
-	}
-
 	public double getInch() {
 		return this.inch;
 	}

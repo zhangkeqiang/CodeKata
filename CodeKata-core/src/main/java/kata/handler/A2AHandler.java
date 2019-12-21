@@ -12,7 +12,7 @@ public class A2AHandler extends AHandler {
         int nRet=0;
         try {
             notifyBHandler();
-            nRet = analyzeJobStep2(jobName);
+            nRet = analyzeJobStep2inA2A(jobName);
         } catch (Exception e) {
             logger.error("notifyBHandler trigger exception", e);
         }
@@ -34,9 +34,9 @@ public class A2AHandler extends AHandler {
     }
     
     protected int analyzeJob2(String name){
-        return analyzeJobStep2(name);
+        return analyzeJobStep2inA2A(name);
     }
-    private int analyzeJobStep2(String param){
+    private int analyzeJobStep2inA2A(String param){
         return 31;
     }
 }

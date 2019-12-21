@@ -13,7 +13,7 @@ public class BestSellingManager extends Thread {
     public static final int REALTIMEUPDATE = 1;
     private static final Logger LOGGER = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
     private int updateType = DAILYUPDATE;
-    private static ArrayList<SaleItem> bestList = new ArrayList<SaleItem>();
+    private static ArrayList<SaleItem> bestList = new ArrayList<>();
 
     public List<SaleItem> generateBestList() {
         bestList.clear();

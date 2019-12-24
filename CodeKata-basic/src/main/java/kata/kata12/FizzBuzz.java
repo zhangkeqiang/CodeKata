@@ -7,6 +7,10 @@ public class FizzBuzz {
 	protected static Logger logger = LogManager.getLogger();
 	
 	public static void main(String[] args) {
+		printFizzBuzzFromOneToHundred();
+	}
+
+	protected static void printFizzBuzzFromOneToHundred() {
 		FizzBuzz fiz = new FizzBuzz();
 		for (int i = 1; i < 101; i++) {
 			logger.info(fiz.getFizzBuzzValue(i));

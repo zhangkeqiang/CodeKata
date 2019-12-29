@@ -38,12 +38,4 @@ public class EITTest extends TestCase {
 		EITI eit = new EITIT();
 		eit.run();
 	}
-	
-	
-	@Test
-	public void testEITIConstant() {
-		assertEquals(1001, EITI.III);
-	}
-	
-
 }

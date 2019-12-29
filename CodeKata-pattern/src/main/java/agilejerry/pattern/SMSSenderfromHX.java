@@ -4,13 +4,12 @@ public class SMSSenderfromHX extends SMSSender {
 
 	@Override
 	public void sendVerifyCode(String sPhone, String message) {
-		
-
+		//send nothing
 	}
 
 	@Override
 	public void send(String string, String string2) {
-		
+		//send nothing
 	}
 
 }

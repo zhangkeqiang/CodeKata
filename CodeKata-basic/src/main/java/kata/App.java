@@ -8,13 +8,12 @@ import java.util.Collection;
  */
 public final class App {
 
-        /**/
     public static void main( String[] args ){
-    	
+    	//do nothing
     }
     
     App(){
-    	
+    	//do nothing
     }
     
     public void foo() {

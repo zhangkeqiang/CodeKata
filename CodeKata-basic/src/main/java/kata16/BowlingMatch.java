@@ -7,8 +7,5 @@ public class BowlingMatch {
 	ArrayList<Bowler> alBowler = new ArrayList<Bowler>(); 
 	public void startMatch(int numberOfBowler) {
 		this.numberOfBowler = numberOfBowler;
-		for(int i=0;i<this.numberOfBowler;i++) {
-			alBowler.add(new Bowler());
-		}
 	}
 }

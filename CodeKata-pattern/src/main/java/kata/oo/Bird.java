@@ -8,6 +8,7 @@ public class Bird {
 	protected int walkDistance = 0;
 	protected String url;
 	public Bird() {
+		//nothing here
 	}
 
 	public boolean fly(int m) {

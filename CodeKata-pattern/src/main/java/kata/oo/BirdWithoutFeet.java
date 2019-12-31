@@ -3,6 +3,7 @@ package kata.oo;
 public class BirdWithoutFeet extends Bird{
 
 	public BirdWithoutFeet() {
+		//nothing here
 	}
 
 	@Override

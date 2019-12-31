@@ -22,7 +22,7 @@ public class DataPlan {
 		this.mode = mode;
 	}
 	public void clear() {		
-		
+		//nothing here
 	}
 	
 	

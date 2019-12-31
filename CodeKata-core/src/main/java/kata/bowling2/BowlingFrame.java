@@ -72,7 +72,7 @@ public class BowlingFrame {
 			BowlingRoll roll = new BowlingRoll(10);
 			roll.setPins(pins);
 			rollList.add(roll);
-		} else if (state == BowlingTerm.FRAME_RUNNING) {
+		}else if(state == BowlingTerm.FRAME_RUNNING){
 			BowlingRoll roll = new BowlingRoll(10 - rollList.get(0).getPins());
 			if (pins > roll.getMaxPins())
 				return;
@@ -83,7 +83,7 @@ public class BowlingFrame {
 			} else {
 				state = BowlingTerm.FRAME_NORMALOVER;
 			}
-		} else if (state == BowlingTerm.SLASH_SQARE) {
+		}else if(state == BowlingTerm.SLASH_SQARE){
 			BowlingRoll roll = new BowlingRoll(10);
 			roll.setPins(pins);
 			rollList.add(roll);
@@ -134,10 +134,10 @@ public class BowlingFrame {
 	 * @date 2016年7月24日 下午2:56:39
 	 */
 	private boolean checkTenthOver() {
-		if (state == BowlingTerm.FRAME_NORMALOVER)
+		if(state == BowlingTerm.FRAME_NORMALOVER)
 			return true;
-		if (getRollScore(3) != BowlingTerm.BLANK)
-			return true;
+		if(getRollScore(3) != BowlingTerm.BLANK)
+			return true;		
 		return false;
 	}
 
@@ -162,12 +162,11 @@ public class BowlingFrame {
 		return BowlingTerm.ABNORMAL;
 	}
 
-	/**
-	 * @method calculateScoreAtTenthFrame(这里用一句话描述这个方法的作用)
+	/**@method calculateScoreAtTenthFrame(这里用一句话描述这个方法的作用)
 	 * @return int
 	 * @author Administrator
 	 * @date 2016年7月24日 下午3:18:50
-	 */
+	*/
 	private int calculateScoreAtTenthFrame() {
 		if (state == BowlingTerm.FRAME_RUNNING) {
 			return BowlingTerm.BLANK;
@@ -224,18 +223,25 @@ public class BowlingFrame {
 		if (state == BowlingTerm.FRAME_NORMALOVER) {
 			totalScore = rollList.get(0).getPins() + rollList.get(1).getPins();
 			return totalScore;
-		}
-		if (state == BowlingTerm.X_STRIKE) {
+		} else if (state == BowlingTerm.X_STRIKE) {
 			if (game.getCurrentFrame().getNo() > this._No) {
 				BowlingFrame nextFrame = game.getNextFrame(this._No);
 				if (nextFrame == null) {
 					return BowlingTerm.X_STRIKE;
 				}
-				return calculateScoreWhenNextFrame(nextFrame);
+				if (nextFrame.getState() == BowlingTerm.X_STRIKE) {
+					BowlingFrame nextnextFrame = game.getFrame(this._No + 2);
+					if (nextnextFrame == null)
+						return BowlingTerm.X_STRIKE;
+					totalScore = 2 * BowlingTerm.STRIKE + nextnextFrame.getFirstScore();
+					return totalScore;
+				} else if (nextFrame.getSecondScore() != BowlingTerm.BLANK) {
+					totalScore = BowlingTerm.STRIKE + nextFrame.getFirstScore() + nextFrame.getSecondScore();
+					return totalScore;
+				}
 			}
 			return BowlingTerm.X_STRIKE;
-		}
-		if (state == BowlingTerm.SLASH_SQARE) {
+		} else if (state == BowlingTerm.SLASH_SQARE) {
 			if (game.getCurrentFrame().getNo() > this._No) {
 				BowlingFrame nextFrame = game.getNextFrame(this._No);
 				totalScore = BowlingTerm.STRIKE + nextFrame.getFirstScore();
@@ -244,20 +250,6 @@ public class BowlingFrame {
 			return BowlingTerm.SLASH_SQARE;
 		}
 		return BowlingTerm.ABNORMAL;
-	}
-
-	private int calculateScoreWhenNextFrame(BowlingFrame nextFrame) {
-		if (nextFrame.getState() == BowlingTerm.X_STRIKE) {
-			BowlingFrame nextnextFrame = game.getFrame(this._No + 2);
-			if (nextnextFrame == null)
-				return BowlingTerm.X_STRIKE;
-			else
-				totalScore = 2 * BowlingTerm.STRIKE + nextnextFrame.getFirstScore();
-
-		} else if (nextFrame.getSecondScore() != BowlingTerm.BLANK) {
-			totalScore = BowlingTerm.STRIKE + nextFrame.getFirstScore() + nextFrame.getSecondScore();
-		}
-		return totalScore;
 	}
 
 	/**
@@ -291,7 +283,7 @@ public class BowlingFrame {
 	 * @date 2016年7月24日 下午3:00:14
 	 */
 	public int getRollScore(int i) {
-		if (rollList.size() < i) {
+		if(rollList.size() < i){
 			return BowlingTerm.BLANK;
 		}
 		return rollList.get(i - 1).getPins();

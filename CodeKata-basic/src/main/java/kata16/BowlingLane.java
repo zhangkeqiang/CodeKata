@@ -27,8 +27,8 @@ public class BowlingLane {
 			return null;
 		}
 		BowlingBlock block = new BowlingBlock(pin);
-		getCurrentBowler().addBlock(block);
-		message = "got" + pin;
+		BlockResult result = getCurrentBowler().addBlock(block);
+		message = result.getMessage();
 		return block;
 
 	}

@@ -3,19 +3,22 @@ package kata16;
 import java.util.ArrayList;
 
 public class Bowler {
-	ArrayList<BowlingGame> alGame = new ArrayList<BowlingGame>(); 
+	ArrayList<BowlingGame> alGame = new ArrayList<BowlingGame>();
 	private int NoOfGame = 0;
+
 	public Bowler(int numOfMatch) {
-		
+		for (int i = 0; i < numOfMatch; i++) {
+			alGame.add(new BowlingGame());
+		}
+
 	}
+
 	public BowlingGame getCurrentGame() {
-		return null;
+		return alGame.get(NoOfGame);
 	}
 
-	public void addBlock(BowlingBlock block) {
-		
+	public BlockResult addBlock(BowlingBlock block) {
+		return this.getCurrentGame().getCurrentFrame().addBlock(block);
 	}
-
-
 
 }

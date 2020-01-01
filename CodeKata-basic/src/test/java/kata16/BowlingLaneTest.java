@@ -17,7 +17,7 @@ public class BowlingLaneTest {
 	}
 	
 	@Test
-	public final void firstStrike_message_show_Strike() {
+	public final void Strikes_message_show_Strike() {
 		lane.roll(10);
 		assertThat(lane.showTotalMessage(),containsString("not started"));
 		assertTrue(lane.startMatch(1, 1));
@@ -28,8 +28,10 @@ public class BowlingLaneTest {
 		assertThat(lane.showTotalMessage(),containsString("Strike!"));
 		assertThat(lane.showTotalMessage(),containsString("Frame2"));
 		assertThat(lane.showTotalMessage(),containsString("No.1"));
-		lane.roll(1);
-//		assertThat(lane.showTotalMessage(),containsString("Score:21"));
+		lane.roll(10);
+		assertThat(lane.showTotalMessage(),containsString("Score:Double Strikes"));
+		lane.roll(10);
+		assertThat(lane.showTotalMessage(),containsString("Score:30"));
 	}
 
 	@Test

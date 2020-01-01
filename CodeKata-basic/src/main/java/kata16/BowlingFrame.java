@@ -81,46 +81,59 @@ public class BowlingFrame {
 		if (isScored) {
 			return Integer.toString(score);
 		}
+		if (isStrike()) {
+			return tryGetScoreWhenStrike();
+		}
+		if (isSpare()) {
+			return tryGetScoreWhenSpare();
+		}
+		//Second block is over, no Spare, no Strike
 		score = 0;
 		for (int i = 0; i < alBlock.size(); i++) {
 			score = score + alBlock.get(i).getPin();
-			logger.debug(score);
 		}
-		if (score < 10) {
-			isScored = true;
-		} else if (isStrike()) {
-			if (hasNext2Blocks()) {
-				score += getNext2BlockScore();
-			} else {
-
-			}
-		} else if (isSpare()) {
-			if (hasNextBlock()) {
-				score += getNextBlockScore();
-				isScored = true;
-			} else {
-				return "SPAREWAITING";
-			}
-		}
-
+		isScored = true;
 		return Integer.toString(score);
 	}
 
+	private String tryGetScoreWhenSpare() {
+		if (hasNextBlock()) {
+			score = 10 + getNextBlockScore();
+			isScored = true;
+			return Integer.toString(score);
+		} else {
+			return "SPAREWAITING";
+		}
+	}
+
 	private boolean hasNextBlock() {
-		logger.debug(frameNum);
 		BowlingFrame nextFrame = game.getFrame(frameNum + 1);
-		logger.debug(nextFrame.getFrameNum());
-		logger.debug(nextFrame.getState());
 		return !nextFrame.getState().equals("INIT");
 	}
 
-	private int getFrameNum() {
-		return this.frameNum;
+	private String tryGetScoreWhenStrike() {
+		isScored = true;
+		BowlingFrame nextFrame = game.getFrame(frameNum + 1);
+		if (nextFrame.getState().equals("SPARE")) {
+			score = 20;
+		} else if (nextFrame.getState().equals("SECONDBLOCK")) {
+			score = nextFrame.getFirstBlock().getPin() + nextFrame.getSecondBlock().getPin();
+		} else if (nextFrame.getState().equals("STRIKE")) {
+			if (nextFrame.hasNextBlock()) {
+				score = 20 + game.getFrame(frameNum + 2).getFirstBlock().getPin();
+			} else {
+				isScored = false;
+				return "Double Strikes,Waiting";
+			}
+		} else {
+			isScored = false;
+			return "Waiting";
+		}
+		return Integer.toString(score);
 	}
 
-	private boolean hasNext2Blocks() {
-		// TODO Auto-generated method stub
-		return false;
+	private BowlingBlock getSecondBlock() {
+		return this.alBlock.get(1);
 	}
 
 	public boolean isStrike() {
@@ -137,14 +150,6 @@ public class BowlingFrame {
 
 	private BowlingBlock getFirstBlock() {
 		return this.alBlock.get(0);
-	}
-
-	private int getNext2BlockScore() {
-		BowlingBlock nextBlock = this.game.getFrame(frameNum + 1).getFirstBlock();
-		if (nextBlock.getPin() < 10) {
-			return 0;
-		}
-		return 0;
 	}
 
 }

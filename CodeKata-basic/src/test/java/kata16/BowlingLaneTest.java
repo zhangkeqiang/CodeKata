@@ -41,7 +41,7 @@ public class BowlingLaneTest {
 	}
 	
 	@Test
-	public final void two_Bowler_gutterBall_message_show_gutter() {
+	public final void two_Bowler_gutterBall_message_show_turns_change() {
 		assertTrue(lane.startMatch(1, 2));
 		logger.info(lane.showMessage());
 		assertThat(lane.showMessage(),containsString("No.1"));
@@ -54,6 +54,32 @@ public class BowlingLaneTest {
 		assertThat(lane.showMessage(),containsString("Strike") );
 		assertThat(lane.showMessage(),containsString("No.2"));
 		assertThat(lane.showMessage(),containsString("Frame1"));
+		
+		lane.roll(10);
+		assertThat(lane.showMessage(),containsString("Strike") );
+		//No.1 turn
+		assertThat(lane.showMessage(),containsString("No.1"));
+		assertThat(lane.showMessage(),containsString("Frame2"));
+		
+		lane.roll(0);
+		assertThat(lane.showMessage(),containsString("Gutter") );
+		assertThat(lane.showMessage(),containsString("No.1"));
+		assertThat(lane.showMessage(),containsString("Frame2"));
+		
+		lane.roll(0);
+		assertThat(lane.showMessage(),containsString("Gutter") );
+		assertThat(lane.showMessage(),containsString("No.2"));
+		assertThat(lane.showMessage(),containsString("Frame2"));
+		
+		lane.roll(0);
+		assertThat(lane.showMessage(),containsString("Gutter") );
+		assertThat(lane.showMessage(),containsString("No.2"));
+		assertThat(lane.showMessage(),containsString("Frame2"));
+		
+		lane.roll(0);
+		assertThat(lane.showMessage(),containsString("Gutter") );
+		assertThat(lane.showMessage(),containsString("No.1"));
+		assertThat(lane.showMessage(),containsString("Frame3"));
 	}
 	
 }

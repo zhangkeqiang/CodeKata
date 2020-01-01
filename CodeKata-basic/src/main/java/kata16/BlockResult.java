@@ -14,7 +14,7 @@ public class BlockResult {
 		this.state = state;
 	}
 	public boolean isOver() {
-		return (this.state.equals("STRIKE")) ;
+		return (state.equals("STRIKE") || state.equals("SECONDBLOCK")) ;
 	}
 
 }

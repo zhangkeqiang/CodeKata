@@ -24,10 +24,15 @@ public class BowlingFrame {
 			logger.debug("STRIKE");
 			state = STRIKE;
 			result = new BlockResult("Strike!", state);
-		} else if (block.getPin() == 0) {
+		} else if (block.getPin() == 0 && currentBlockNum == 0) {
 			state = "FIRSTBLOCK";
 			result = new BlockResult("Gutter Ball!", state);
-		} else {
+		} else if (block.getPin() == 0 && currentBlockNum == 1) {
+			logger.debug("SECONDBLOCK");
+			state = "SECONDBLOCK";
+			result = new BlockResult("Gutter Ball!", state);
+		}
+		else {
 			state = "FIRSTBLOCK";
 			result = new BlockResult("Hit" + block.getPin() + "Pins", state);
 		}

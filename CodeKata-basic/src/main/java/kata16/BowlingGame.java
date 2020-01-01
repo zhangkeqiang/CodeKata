@@ -19,7 +19,7 @@ public class BowlingGame {
 	}
 	public BlockResult addBlock(BowlingBlock block) {
 		BlockResult result = getCurrentFrame().addBlock(block);
-		if(getCurrentFrame().getState().equals("STRIKE")) {
+		if(result.isOver()) {
 			currentFrameNum++;
 		}
 		return result;

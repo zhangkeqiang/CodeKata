@@ -18,7 +18,7 @@ public class Bowler {
 	}
 
 	public BlockResult addBlock(BowlingBlock block) {
-		return this.getCurrentGame().getCurrentFrame().addBlock(block);
+		return this.getCurrentGame().addBlock(block);
 	}
 
 }

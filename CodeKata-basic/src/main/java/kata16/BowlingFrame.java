@@ -2,21 +2,42 @@ package kata16;
 
 import java.util.ArrayList;
 
-public class BowlingFrame {
-	private String state;
-	private int currentFrame = 0;
-	private ArrayList<BowlingBlock> alBlock = new ArrayList<BowlingBlock>();
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+public class BowlingFrame {
+	protected Logger logger = LogManager.getLogger();
+	private static final String STRIKE = "STRIKE";
+	private String state = "INIT";
+	private int currentBlockNum = 0;
+	public int getCurrentBlockNum() {
+		return currentBlockNum+1;
+	}
+	private ArrayList<BowlingBlock> alBlock = new ArrayList<BowlingBlock>();
+	public BowlingBlock getCurrentBlock() {
+		return alBlock.get(currentBlockNum);
+	}
 	public BlockResult addBlock(BowlingBlock block) {
 		BlockResult result;
 		alBlock.add(block);
-		if (block.getPin() == 10 && currentFrame == 0) {
-			 result = new BlockResult("Strike!",1);
+		if (block.getPin() == 10 && currentBlockNum == 0) {
+			logger.debug("STRIKE");
+			state = STRIKE;
+			result = new BlockResult("Strike!", state);
+		} else if (block.getPin() == 0) {
+			state = "FIRSTBLOCK";
+			result = new BlockResult("Gutter Ball!", state);
 		} else {
-			result = new BlockResult("Hit"+block.getPin()+"Pins",1);
+			state = "FIRSTBLOCK";
+			result = new BlockResult("Hit" + block.getPin() + "Pins", state);
 		}
-		currentFrame++;
+		currentBlockNum++;
+		logger.debug("currentBlockNum:"+getCurrentBlockNum());
 		return result;
+	}
+
+	public String getState() {
+		return this.state;
 	}
 
 }

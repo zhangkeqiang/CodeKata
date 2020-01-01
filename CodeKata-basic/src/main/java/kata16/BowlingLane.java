@@ -31,7 +31,15 @@ public class BowlingLane {
 		}
 		BowlingBlock block = new BowlingBlock(pin);
 		BlockResult result = getCurrentBowler().addBlock(block);
-		if (result.isOver()) {
+		if(result.isGameOver()) {
+			logger.info("Bowler"+(currentBowlerNum+1) + "'s Game is Over");
+			if((currentBowlerNum+1) == numOfBowler){
+				message = "All Bowlers' Game are Over";
+				logger.info(this.showTotalMessage());
+				return null;
+			}
+		}
+		if (result.isOver() || result.isGameOver()) {
 			nextTurn();
 		}
 		message = result.getMessage();
@@ -68,7 +76,7 @@ public class BowlingLane {
 	}
 
 	public String showTotalMessage() {
-		return "\r" + message + "\r" + showScores() + showBowlerTurn();
+		return "Current Situation:\r" + message + "\r" + showScores() + showBowlerTurn();
 	}
 
 	private String showScores() {

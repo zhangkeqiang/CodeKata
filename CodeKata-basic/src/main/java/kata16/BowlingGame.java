@@ -3,12 +3,13 @@ package kata16;
 import java.util.ArrayList;
 
 public class BowlingGame {
-	private final int NUM_OF_FRAME = 10;
+	private static final int NUM_OF_FRAMECONTAINER = 13;
+	private static final int NUM_OF_FRAME = 10;
 	ArrayList<BowlingFrame> alFrame = new ArrayList<BowlingFrame>();
 	private int currentFrameNum = 0;
 
 	public BowlingGame() {
-		for (int i = 0; i < NUM_OF_FRAME; i++) {
+		for (int i = 0; i < NUM_OF_FRAMECONTAINER; i++) {
 			alFrame.add(new BowlingFrame(this, i));
 		}
 	}
@@ -18,15 +19,38 @@ public class BowlingGame {
 	}
 
 	public int getCurrentFrameNum() {
-		return this.currentFrameNum + 1;
+		return (this.currentFrameNum + 1)>10?10:(this.currentFrameNum + 1);
 	}
 
 	public BlockResult addBlock(BowlingBlock block) {
-		BlockResult result = getCurrentFrame().addBlock(block);
-		if (result.isOver()) {
-			currentFrameNum++;
+		if (!isOver()) {
+			BlockResult result = getCurrentFrame().addBlock(block);
+			if(isOver()) {
+				result.setGameOver();
+			}
+			if (result.isOver()) {
+				currentFrameNum++;
+			}
+			return result;
+		}else {
+			return null;
 		}
-		return result;
+	}
+
+	public boolean isOver() {
+		return alFrame.get(9).isScored;
+	}
+
+	public int getScore() {
+		int score = 0;
+		for (int i = 0; i < 10; i++) {
+			if (alFrame.get(i).isScored()) {
+				score += alFrame.get(i).getScore();
+			} else {
+				break;
+			}
+		}
+		return score;
 	}
 
 	public String getMessage() {

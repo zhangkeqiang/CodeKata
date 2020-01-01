@@ -3,6 +3,7 @@ package kata16;
 public class BlockResult {
 	private String message;
 	private String state;
+	private boolean isGameOver = false;
 
 	public String getMessage() {
 		return message;
@@ -33,6 +34,14 @@ public class BlockResult {
 
 	public boolean isOver() {
 		return (state.equals("STRIKE") || state.equals("SECONDBLOCK") || state.equals("SPARE"));
+	}
+
+	public void setGameOver() {
+		isGameOver = true;		
+	}
+	
+	public boolean isGameOver() {
+		return this.isGameOver;
 	}
 
 }

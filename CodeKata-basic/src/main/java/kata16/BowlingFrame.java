@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.message.Message;
+
 
 public class BowlingFrame {
 	protected Logger logger = LogManager.getLogger();
@@ -13,6 +13,10 @@ public class BowlingFrame {
 	private int currentBlockNum = 0;
 	int score = 0;
 	boolean isScored = false;
+
+	public boolean isScored() {
+		return isScored;
+	}
 
 	public int getCurrentBlockNum() {
 		return currentBlockNum + 1;
@@ -47,6 +51,7 @@ public class BowlingFrame {
 		} else {
 			state = "ERROR";
 		}
+		game.getFrame(9).tryGetScore();
 		result = new BlockResult(block, state);
 		currentBlockNum++;
 		return result;
@@ -64,13 +69,7 @@ public class BowlingFrame {
 			}
 			sbMessage.append(alBlock.get(i).getPin());
 		}
-		sbMessage.append("|Score:" + this.tryGetScore());
-		// String resultOfTryScore = tryGetScore();
-		// if (resultOfTryScore.equals("SCORED")) {
-		// sbMessage.append("|Score:" + this.getScore());
-		// } else if (resultOfTryScore.equals("SPAREWAITING")) {
-		// sbMessage.append("|Score:SPARE");
-		// }
+		sbMessage.append("|" + this.tryGetScore());
 		return sbMessage.toString();
 	}
 
@@ -150,6 +149,10 @@ public class BowlingFrame {
 
 	private BowlingBlock getFirstBlock() {
 		return this.alBlock.get(0);
+	}
+
+	public int getScore() {
+		return this.score;
 	}
 
 }

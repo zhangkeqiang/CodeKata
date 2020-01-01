@@ -16,6 +16,44 @@ public class BowlingLaneTest {
 		
 	}
 	
+	private void rollBall(int times, int pin) {
+		for (int i = 0; i < times; i++) {
+			lane.roll(pin);
+		}
+	}
+	
+	@Test
+	public final void Roll12_10() {
+		assertTrue(lane.startMatch(1, 1));
+		rollBall(9,10);
+		lane.roll(10);
+		lane.roll(10);
+		lane.roll(10);
+		assertEquals(300,lane.getCurrentBowler().getCurrentGame().getScore());
+	}
+	
+	@Test
+	public final void Roll36_10_On_3_Bowlers() {
+		assertTrue(lane.startMatch(1, 3));
+		rollBall(36,10);
+		assertEquals(300,lane.getCurrentBowler().getCurrentGame().getScore());
+	}
+	
+	@Test
+	public final void Roll_10_For_9_Times_5_5_5() {
+		assertTrue(lane.startMatch(1, 1));
+		rollBall(9,10);
+		rollBall(3,5);
+		assertEquals(270,lane.getCurrentBowler().getCurrentGame().getScore());
+	}
+	
+	@Test
+	public final void Roll_5_For_21_Times() {
+		assertTrue(lane.startMatch(1, 1));
+		rollBall(21,5);
+		assertEquals(150,lane.getCurrentBowler().getCurrentGame().getScore());
+	}
+	
 	@Test
 	public final void Strikes_message_show_Strike() {
 		lane.roll(10);
@@ -29,9 +67,9 @@ public class BowlingLaneTest {
 		assertThat(lane.showTotalMessage(),containsString("Frame2"));
 		assertThat(lane.showTotalMessage(),containsString("No.1"));
 		lane.roll(10);
-		assertThat(lane.showTotalMessage(),containsString("Score:Double Strikes"));
+		assertThat(lane.showTotalMessage(),containsString("Double Strikes"));
 		lane.roll(10);
-		assertThat(lane.showTotalMessage(),containsString("Score:30"));
+		assertThat(lane.showTotalMessage(),containsString("10|30"));
 	}
 
 	@Test
@@ -42,7 +80,7 @@ public class BowlingLaneTest {
 		assertThat(lane.showTotalMessage(),containsString("Frame1:1"));
 		
 		lane.roll(1);
-		assertThat(lane.showTotalMessage(),containsString("Frame1:1,1|Score:2"));
+		assertThat(lane.showTotalMessage(),containsString("Frame1:1,1|2"));
 		lane.roll(1);
 	}
 	
@@ -52,9 +90,9 @@ public class BowlingLaneTest {
 		logger.info(lane.showTotalMessage());
 		lane.roll(5);
 		lane.roll(5);
-		assertThat(lane.showTotalMessage(),containsString("Frame1:5,5|Score:SPARE"));
+		assertThat(lane.showTotalMessage(),containsString("Frame1:5,5|SPARE"));
 		lane.roll(1);
-		assertThat(lane.showTotalMessage(),containsString("Frame1:5,5|Score:11"));
+		assertThat(lane.showTotalMessage(),containsString("Frame1:5,5|11"));
 	}
 	
 	@Test

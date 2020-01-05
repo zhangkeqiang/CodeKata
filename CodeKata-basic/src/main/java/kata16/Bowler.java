@@ -3,7 +3,7 @@ package kata16;
 import java.util.ArrayList;
 
 public class Bowler {
-	ArrayList<BowlingGame> alGame = new ArrayList<BowlingGame>();
+	ArrayList<BowlingGame> alGame = new ArrayList<>();
 	private int currentGameNum = 0;
 
 	public Bowler(int numOfMatch) {

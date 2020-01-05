@@ -10,8 +10,8 @@ public class BowlingLane {
 	private String message;
 	private String state = "INIT";
 
-	ArrayList<BowlingMatch> alBowlingMatch = new ArrayList<BowlingMatch>();
-	ArrayList<Bowler> alBowler = new ArrayList<Bowler>();
+	ArrayList<BowlingMatch> alBowlingMatch = new ArrayList<>();
+	ArrayList<Bowler> alBowler = new ArrayList<>();
 	private int numOfMatch;
 	private int numOfBowler;
 	private int currentBowlerNum = 0;

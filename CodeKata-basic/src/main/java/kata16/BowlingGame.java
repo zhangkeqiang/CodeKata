@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class BowlingGame {
 	private static final int NUM_OF_FRAMECONTAINER = 13;
-	ArrayList<BowlingFrame> alFrame = new ArrayList<BowlingFrame>();
+	ArrayList<BowlingFrame> alFrame = new ArrayList<>();
 	private int currentFrameNum = 0;
 
 	public BowlingGame() {
@@ -53,11 +53,11 @@ public class BowlingGame {
 	}
 
 	public String getMessage() {
-		String message = " Current Frame：No." + getCurrentFrameNum();
+		StringBuilder sbMessage = new StringBuilder().append(" Current Frame：No." + getCurrentFrameNum());
 		for (int i = 0; i < getCurrentFrameNum(); i++) {
-			message += " Frame" + Integer.toString(i + 1) + ":" + alFrame.get(i).getMessage();
+			sbMessage.append(" Frame" + Integer.toString(i + 1) + ":" + alFrame.get(i).getMessage());
 		}
-		return message;
+		return sbMessage.toString();
 	}
 
 	public BowlingFrame getFrame(int frameNum) {

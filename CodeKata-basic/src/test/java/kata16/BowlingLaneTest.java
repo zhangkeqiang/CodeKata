@@ -40,6 +40,13 @@ public class BowlingLaneTest {
 	}
 	
 	@Test
+	public final void Roll60_1_On_3_Bowlers() {
+		assertTrue(lane.startMatch(1, 3));
+		rollBall(60,1);
+		assertEquals(20,lane.getCurrentBowler().getCurrentGame().getScore());
+	}
+	
+	@Test
 	public final void Roll_10_For_9_Times_5_5_5() {
 		assertTrue(lane.startMatch(1, 1));
 		rollBall(9,10);

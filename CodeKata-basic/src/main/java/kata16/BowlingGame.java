@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class BowlingGame {
 	private static final int NUM_OF_FRAMECONTAINER = 13;
-	private static final int NUM_OF_FRAME = 10;
 	ArrayList<BowlingFrame> alFrame = new ArrayList<BowlingFrame>();
 	private int currentFrameNum = 0;
 

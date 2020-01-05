@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 public class BowlingFrame {
 	protected Logger logger = LogManager.getLogger();
+	private static final String SPARE = "SPARE";
 	private static final String STRIKE = "STRIKE";
 	private String state = "INIT";
 	private int currentBlockNum = 0;
@@ -22,7 +23,7 @@ public class BowlingFrame {
 		return currentBlockNum + 1;
 	}
 
-	private ArrayList<BowlingBlock> alBlock = new ArrayList<BowlingBlock>();
+	private ArrayList<BowlingBlock> alBlock = new ArrayList<>();
 	private BowlingGame game;
 	private int frameNum;
 
@@ -44,7 +45,7 @@ public class BowlingFrame {
 			state = "FIRSTBLOCK";
 		} else if (currentBlockNum == 1) {
 			if ((alBlock.get(0).getPin() + block.getPin()) == 10) {
-				state = "SPARE";
+				state = SPARE;
 			} else {
 				state = "SECONDBLOCK";
 			}
@@ -113,11 +114,11 @@ public class BowlingFrame {
 	private String tryGetScoreWhenStrike() {
 		isScored = true;
 		BowlingFrame nextFrame = game.getFrame(frameNum + 1);
-		if (nextFrame.getState().equals("SPARE")) {
+		if (nextFrame.getState().equals(SPARE)) {
 			score = 20;
 		} else if (nextFrame.getState().equals("SECONDBLOCK")) {
 			score = nextFrame.getFirstBlock().getPin() + nextFrame.getSecondBlock().getPin();
-		} else if (nextFrame.getState().equals("STRIKE")) {
+		} else if (nextFrame.getState().equals(STRIKE)) {
 			if (nextFrame.hasNextBlock()) {
 				score = 20 + game.getFrame(frameNum + 2).getFirstBlock().getPin();
 			} else {
@@ -140,7 +141,7 @@ public class BowlingFrame {
 	}
 
 	public boolean isSpare() {
-		return state.equals("SPARE");
+		return state.equals(SPARE);
 	}
 
 	private int getNextBlockScore() {

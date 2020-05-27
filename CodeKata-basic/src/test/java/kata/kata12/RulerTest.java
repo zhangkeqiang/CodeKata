@@ -46,4 +46,12 @@ public class RulerTest {
 		assertEquals(3.5, ruler.getYard(), SMALLDELTA);
 	}
 
+	@Test
+	public void testSetGetYard2() {
+		ruler.setYard(4.5);
+		assertEquals(10.5, ruler.getFeet(), SMALLDELTA);
+		assertEquals(126, ruler.getInch(), SMALLDELTA);
+		assertEquals(3.5, ruler.getYard(), SMALLDELTA);
+	}
+
 }

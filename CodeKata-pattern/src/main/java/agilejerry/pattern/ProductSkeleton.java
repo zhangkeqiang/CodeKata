@@ -3,7 +3,7 @@ package agilejerry.pattern;
 public abstract class ProductSkeleton implements Product {
 
 	public void fly() {
-
+		
 	}
 	public int calc(){
 		int i = step1();

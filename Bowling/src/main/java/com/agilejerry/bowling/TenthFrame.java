@@ -21,7 +21,7 @@ public class TenthFrame extends BowlingFrame {
 		case BowlingTerm.FRAME_RUNNING:
 			return BowlingTerm.BLANK;
 		case BowlingTerm.FRAME_NORMALOVER:
-				score = this.previousFrame.getScore() + rolls[0].getPins() + rolls[1].getPins();
+			score = this.previousFrame.getScore() + rolls[0].getPins() + rolls[1].getPins();
 			break;
 		case BowlingTerm.SLASH_SQARE:
 			if (this.rolls[2] != null) {
@@ -30,6 +30,10 @@ public class TenthFrame extends BowlingFrame {
 			break;
 		case BowlingTerm.X_STRIKE:
 			score = this.previousFrame.getScore() + 10 + getRoll(1).getPins() + getRoll(2).getPins();
+			break;
+		default:
+			//nothing is needed
+			break;
 		}
 		return score;
 	}
@@ -46,10 +50,10 @@ public class TenthFrame extends BowlingFrame {
 			}
 		} else if (currentRollNo == 2) {
 			if (this.state == BowlingTerm.X_STRIKE) {
-				if(pins == BowlingTerm.STRIKE)
+				if (pins == BowlingTerm.STRIKE)
 					prepare(10);
 				else
-					prepare(10-pins);
+					prepare(10 - pins);
 			} else if ((pins + rolls[0].getPins()) < BowlingTerm.STRIKE) {
 				this.state = BowlingTerm.FRAME_NORMALOVER;
 				this._isOver = true;
@@ -61,6 +65,5 @@ public class TenthFrame extends BowlingFrame {
 			_isOver = true;
 		}
 	}
-
 
 }

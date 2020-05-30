@@ -1,10 +1,9 @@
 package kata.bowling;
 
 /**@ClassName: Frame
- * @Description: TODO(这里用一句话描述这个类的作用) 
- * @author Administrator 
+ * @Description: 保龄球的一个回合 
+ * @author Mike Zhang 
  * @date 2016年7月23日 下午6:04:07 
- * @Copyright © 2016上海通善互联网金融信息服务有限公司
  */
 public class Frame {
 

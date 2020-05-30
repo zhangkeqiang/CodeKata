@@ -114,12 +114,6 @@ public class BowlingFrame {
 
 	}
 
-	/**
-	 * @method calculateScore(这里用一句话描述这个方法的作用)
-	 * @return int
-	 * @author Administrator
-	 * @date 2016年7月29日 上午9:33:25
-	 */
 	protected int calculateScore() {
 		switch (state) {
 		case BowlingTerm.FRAME_RUNNING:
@@ -134,6 +128,10 @@ public class BowlingFrame {
 			break;
 		case BowlingTerm.X_STRIKE:
 			calculateNextTwoRoll();
+			break;
+		default:
+			//nothing is left
+			break;
 		}
 
 		return score;

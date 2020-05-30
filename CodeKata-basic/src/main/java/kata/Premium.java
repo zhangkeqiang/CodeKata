@@ -13,7 +13,56 @@ public class Premium {
 
     public double calculatePremiumRate(int age, char gender, char marriage, int children) throws KataException{
         double point = 0;
-        if(age < 0){
+        point = calculatePremiumPointByAge(age, point);        
+        point = calculatePremiumPointByGender(gender, point);        
+        point = calculatePremiumPointByMarriage(marriage, point);
+        point = calculatePremiumPointByChildren(children, point);        
+        return calculatePremiumRateByPoint(point);
+    }
+
+	protected double calculatePremiumRateByPoint(double point) {
+		if(point >= 10){
+            return 0.6;
+        } else {
+            return N0_4;
+        }
+	}
+
+	protected double calculatePremiumPointByChildren(int children, double point) throws KataException {
+		if(children < 0){
+            throw new KataException(PREMIUM_CHILDREN_CAN_T_BE_BELOW_ZERO);
+        }else if(children <=6){
+            point -= children * 0.5;
+        }else{
+            point -= 3;
+        }
+		return point;
+	}
+
+	protected double calculatePremiumPointByMarriage(char marriage, double point) throws KataException {
+		if(marriage == 'Y'){
+            point += 3;
+        }else if(marriage == 'N'){
+            point += 5;
+        }else {
+            throw new KataException(PREMIUM_MARRIAGE_CAN_T_BE_IDENTIFIED);
+        }
+		return point;
+	}
+
+	protected double calculatePremiumPointByGender(char gender, double point) throws KataException {
+		if(gender == 'M'){
+            point += 5;
+        }else if(gender == 'F'){
+            point += 3;
+        }else {
+            throw new KataException(PREMIUM_GENDER_CAN_T_BE_IDENTIFIED);
+        }
+		return point;
+	}
+
+	protected double calculatePremiumPointByAge(int age, double point) throws KataException {
+		if(age < 0){
             throw new KataException(PREMIUM_AGE_CAN_T_BE_BELOW_ZERO);
         }else if (age < TWENTY || age > N59 ){
             point += 2;
@@ -22,37 +71,8 @@ public class Premium {
         }else if (age >=40 && age <= N59){
             point += 4;
         }
-        
-        if(gender == 'M'){
-            point += 5;
-        }else if(gender == 'F'){
-            point += 3;
-        }else {
-            throw new KataException(PREMIUM_GENDER_CAN_T_BE_IDENTIFIED);
-        }
-        
-        if(marriage == 'Y'){
-            point += 3;
-        }else if(marriage == 'N'){
-            point += 5;
-        }else {
-            throw new KataException(PREMIUM_MARRIAGE_CAN_T_BE_IDENTIFIED);
-        }
-        
-        if(children < 0){
-            throw new KataException(PREMIUM_CHILDREN_CAN_T_BE_BELOW_ZERO);
-        }else if(children <=6){
-            point -= children * 0.5;
-        }else{
-            point -= 3;
-        }
-        
-        if(point >= 10){
-            return 0.6;
-        } else {
-            return N0_4;
-        }
-    }
+		return point;
+	}
 
 
 }

@@ -58,53 +58,68 @@ public class Game {
 				continue;
 			int frameScore = BowlingTerm.BLANK;
 			if (i < 8) {
-				// 1-8Frame 计分如下
-				if (frames[i].getTotalScore() == BowlingTerm.X_STRIKE) {
-					// strike
-					if (currentFrameNo > i + 1) {
-						if (frames[i + 1].getFirstScore() == BowlingTerm.STRIKE) {
-							if (currentFrameNo > i + 2)
-								frameScore = BowlingTerm.STRIKE * 2 + frames[i + 2].getFirstScore();
-						} else if (frames[i + 1].getSecondScore() > BowlingTerm.BLANK)
-							frameScore = BowlingTerm.STRIKE + frames[i + 1].getFirstScore()
-									+ frames[i + 1].getSecondScore();
-					}
-				} else if (frames[i].getTotalScore() == BowlingTerm.SLASH_SQARE) {
-					if (currentFrameNo > i + 1)
-						frameScore = BowlingTerm.STRIKE + frames[i + 1].getFirstScore();
-				} else if (frames[i].getSecondScore() > BowlingTerm.BLANK) {
-					frameScore = frames[i].getFirstScore() + frames[i].getSecondScore();
-				}
+				frameScore = calculateGameScoreForFrame1To8(i, frameScore);
 			} else if (i == 8) {
-				if (frames[i].getTotalScore() == BowlingTerm.X_STRIKE && currentFrameNo == 10) {
-					if (frames[i + 1].getSecondScore() > BowlingTerm.BLANK) {
-						frameScore = BowlingTerm.STRIKE + frames[i + 1].getFirstScore()
-								+ frames[i + 1].getSecondScore();
-					}
-				} else if (frames[i].getTotalScore() == BowlingTerm.SLASH_SQARE && currentFrameNo == 10) {
-					if (frames[i + 1].getFirstScore() > BowlingTerm.BLANK)
-						frameScore = BowlingTerm.STRIKE + frames[i + 1].getFirstScore();
-				} else if (frames[i].getSecondScore() > BowlingTerm.BLANK
-						&& frames[i].getTotalScore() != BowlingTerm.SLASH_SQARE) {
-					frameScore = frames[i].getFirstScore() + frames[i].getSecondScore();
-				}
+				frameScore = calculateGameScoreForFrame9(i, frameScore);
 			} else if (i == 9) {
-				if (frames[i].getFirstScore() == BowlingTerm.STRIKE) {
-					if (frames[i].getThirdScore() > BowlingTerm.BLANK) {
-						frameScore = BowlingTerm.STRIKE + frames[i].getSecondScore() + frames[i].getThirdScore();
-					}
-				} else if (frames[i].getTotalScore() == BowlingTerm.SLASH_SQARE) {
-					if (frames[i].getThirdScore() > BowlingTerm.BLANK) {
-						frameScore = BowlingTerm.STRIKE + frames[i].getThirdScore();
-					}
-				} else {
-					if (frames[i].getSecondScore() > BowlingTerm.BLANK)
-						frameScore = frames[i].getFirstScore() + frames[i].getSecondScore();
-				}
+				frameScore = calculateGameScoreForFrame10(i, frameScore);
 			}
 			if (frameScore != BowlingTerm.BLANK)
 				frames[i].setTotalScore(frameScore);
 		}
+	}
+
+	protected int calculateGameScoreForFrame1To8(int i, int frameScore) {
+		// 1-8Frame 计分如下
+		if (frames[i].getTotalScore() == BowlingTerm.X_STRIKE) {
+			// strike
+			if (currentFrameNo > i + 1) {
+				if (frames[i + 1].getFirstScore() == BowlingTerm.STRIKE) {
+					if (currentFrameNo > i + 2)
+						frameScore = BowlingTerm.STRIKE * 2 + frames[i + 2].getFirstScore();
+				} else if (frames[i + 1].getSecondScore() > BowlingTerm.BLANK)
+					frameScore = BowlingTerm.STRIKE + frames[i + 1].getFirstScore()
+							+ frames[i + 1].getSecondScore();
+			}
+		} else if (frames[i].getTotalScore() == BowlingTerm.SLASH_SQARE) {
+			if (currentFrameNo > i + 1)
+				frameScore = BowlingTerm.STRIKE + frames[i + 1].getFirstScore();
+		} else if (frames[i].getSecondScore() > BowlingTerm.BLANK) {
+			frameScore = frames[i].getFirstScore() + frames[i].getSecondScore();
+		}
+		return frameScore;
+	}
+
+	protected int calculateGameScoreForFrame9(int i, int frameScore) {
+		if (frames[i].getTotalScore() == BowlingTerm.X_STRIKE && currentFrameNo == 10) {
+			if (frames[i + 1].getSecondScore() > BowlingTerm.BLANK) {
+				frameScore = BowlingTerm.STRIKE + frames[i + 1].getFirstScore()
+						+ frames[i + 1].getSecondScore();
+			}
+		} else if (frames[i].getTotalScore() == BowlingTerm.SLASH_SQARE && currentFrameNo == 10) {
+			if (frames[i + 1].getFirstScore() > BowlingTerm.BLANK)
+				frameScore = BowlingTerm.STRIKE + frames[i + 1].getFirstScore();
+		} else if (frames[i].getSecondScore() > BowlingTerm.BLANK
+				&& frames[i].getTotalScore() != BowlingTerm.SLASH_SQARE) {
+			frameScore = frames[i].getFirstScore() + frames[i].getSecondScore();
+		}
+		return frameScore;
+	}
+
+	protected int calculateGameScoreForFrame10(int i, int frameScore) {
+		if (frames[i].getFirstScore() == BowlingTerm.STRIKE) {
+			if (frames[i].getThirdScore() > BowlingTerm.BLANK) {
+				frameScore = BowlingTerm.STRIKE + frames[i].getSecondScore() + frames[i].getThirdScore();
+			}
+		} else if (frames[i].getTotalScore() == BowlingTerm.SLASH_SQARE) {
+			if (frames[i].getThirdScore() > BowlingTerm.BLANK) {
+				frameScore = BowlingTerm.STRIKE + frames[i].getThirdScore();
+			}
+		} else {
+			if (frames[i].getSecondScore() > BowlingTerm.BLANK)
+				frameScore = frames[i].getFirstScore() + frames[i].getSecondScore();
+		}
+		return frameScore;
 	}
 
 	/**

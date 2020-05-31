@@ -26,16 +26,4 @@ public class Ruler {
 	public double getYard() {
 		return this.inch / 36;
 	}
-	
-	public void setFeet2(double feet) {
-		this.inch = feet * 12;
-	}
-	
-	public void setFeet3(double feet) {
-		this.inch = feet * 12;
-	}
-	
-	public void setFeet4(double feet) {
-		this.inch = feet * 12;
-	}
 }

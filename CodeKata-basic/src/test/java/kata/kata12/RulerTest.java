@@ -45,5 +45,5 @@ public class RulerTest {
 		assertEquals(126, ruler.getInch(), SMALLDELTA);
 		assertEquals(3.5, ruler.getYard(), SMALLDELTA);
 	}
-
+	
 }

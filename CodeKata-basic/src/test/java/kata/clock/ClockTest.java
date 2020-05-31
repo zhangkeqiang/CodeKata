@@ -1,10 +1,8 @@
 package kata.clock;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
-import junit.framework.Assert;
 
 public class ClockTest {
 
@@ -15,7 +13,7 @@ public class ClockTest {
 		beijingClock.setTime("9:00:00");
 		String expected = "01:00:00";
 		String actual = lundunClock.getTime();
-		Assert.assertEquals(expected,actual );
+		assertEquals(expected,actual );
 	}
 	
 	
@@ -27,7 +25,7 @@ public class ClockTest {
         beijingClock.setTime("9:00:00");
         String expected = "1:00:00";
         String actual = lundunClock.getTime();
-        Assert.assertEquals(expected,actual );
+        assertEquals(expected,actual );
     }
 	
 	@Test
@@ -37,7 +35,7 @@ public class ClockTest {
 		beijingClock.setTime("10:00:00");
 		String expected = "02:00:00";
 		String actual = lundunClock.getTime();
-		Assert.assertEquals(expected,actual );
+		assertEquals(expected,actual );
 	}
 
 	@Test
@@ -47,7 +45,8 @@ public class ClockTest {
 		beijingClock.setTime("02:00:00");
 		String expected = "06:00:00";
 		String actual = lundunClock.getTime();
-		Assert.assertEquals(expected,actual );
+		assertEquals(expected,actual );
+		
 	}
 	
 	@Test
@@ -57,7 +56,7 @@ public class ClockTest {
 		beijingClock.setTime("08:22:22");
 		String expected = "12:22:22";
 		String actual = lundunClock.getTime();
-		Assert.assertEquals(expected,actual );
+		assertEquals(expected,actual );
 	}
 	
 	@Test
@@ -67,7 +66,7 @@ public class ClockTest {
 		beijingClock.setTime("08:22:22");
 		String expected = "07:22:22";
 		String actual = newyorkClock.getTime();
-		Assert.assertEquals(expected,actual );
+		assertEquals(expected,actual );
 	}
 	
    @Test
@@ -77,7 +76,7 @@ public class ClockTest {
         beijingClock.setTime("18:22:22");
         String expected = "05:22:22";
         String actual = newyorkClock.getTime();
-        Assert.assertEquals(expected,actual );
+        assertEquals(expected,actual );
     }
 	
    @Test
@@ -88,16 +87,16 @@ public class ClockTest {
        beijingClock.setTime("8:22:22");
        String expected = "19:22:22";
        String actual = newyorkClock.getTime();
-       Assert.assertEquals(expected,actual );
+       assertEquals(expected,actual );
        
        beijingClock.setTime("14:22:22");
        expected = "1:22:22";
        actual = newyorkClock.getTime();
-       Assert.assertEquals(expected,actual );
+       assertEquals(expected,actual );
        newyorkClock.setDisplayFormat(Clock.H24ZERO);
        expected = "01:22:22";
        actual = newyorkClock.getTime();
-       Assert.assertEquals(expected,actual );
+       assertEquals(expected,actual );
    }
    
    

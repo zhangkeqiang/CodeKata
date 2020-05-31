@@ -48,7 +48,7 @@ public class AppTest {
 
 	@Test
 	public void testGetAsArray() {
-		Collection<String> c = new ArrayList();
+		Collection<String> c = new ArrayList<String>();
 		app.getAsArray(c );
 	}
 

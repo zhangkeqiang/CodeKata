@@ -20,6 +20,8 @@ public class EventAssistServiceTest extends SpringBaseTest {
     public final void testCalcByAssist() {
         assertNotNull(eventAssistService);
         assertEquals(8989,eventAssistService.calcByAssist(89));
+        
+        
     }
 
 }

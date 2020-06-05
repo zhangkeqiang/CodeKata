@@ -3,6 +3,7 @@ package kata.spring.controller;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.web.ModelAndViewAssert;
@@ -27,9 +28,15 @@ public class UserControllerTest {
      * Test method for {@link kata.spring.controller.UserController#view(java.lang.Long, javax.servlet.http.HttpServletRequest)}.
      */
     @Test
+    @Ignore
     public final void testView() {
     	assertNotNull(userController);
-//        MockHttpServletRequest req = new MockHttpServletRequest();  
+        MockHttpServletRequest req = new MockHttpServletRequest();  
+        assertNotNull(req);
+        String localName = "localName";
+		req.setLocalName(localName);
+        assertEquals(localName,req.getLocalName());
+
 //        ModelAndView mv = userController.view(14544L, req);  
 //  
 //        ModelAndViewAssert.assertViewName(mv, "user/view");  

@@ -7,7 +7,7 @@ public class ABCommand implements Command {
 	private String message;
 	Logger logger = LogManager.getLogger(); 
 	public ABCommand(int i) {
-		message = "It is" + String.valueOf(i);
+		message = "It is " + i;
 	}
 
 	public ABCommand() {

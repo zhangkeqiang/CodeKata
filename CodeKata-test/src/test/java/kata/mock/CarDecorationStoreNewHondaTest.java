@@ -1,4 +1,4 @@
-package kata.store;
+package kata.mock;
 
 import static org.junit.Assert.*;
 
@@ -21,6 +21,7 @@ import kata.factory.BMW;
 import kata.factory.Car;
 import kata.factory.CarFactory;
 import kata.factory.Honda;
+import kata.store.CarDecorationStore;
 
 /**
  * @ClassName: CarDecorationStoreTest

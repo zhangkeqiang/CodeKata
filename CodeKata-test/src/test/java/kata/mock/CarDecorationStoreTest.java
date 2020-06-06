@@ -1,4 +1,4 @@
-package kata.store;
+package kata.mock;
 
 import static org.junit.Assert.*;
 
@@ -16,6 +16,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 import kata.factory.BMW;
 import kata.factory.CarFactory;
 import kata.factory.Honda;
+import kata.store.CarDecorationStore;
 
 /**@ClassName: CarDecorationStoreTest
  * @Description:  

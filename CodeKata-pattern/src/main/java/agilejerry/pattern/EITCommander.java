@@ -1,18 +1,14 @@
 package agilejerry.pattern;
 
 public class EITCommander {
-	//private EITContext eitContext;
+	private EITCommander() {
+		//nothing
+	}
 	public static EITI createEITI(){
 		return new EITIT();
 	}
 	
 	public static EITContext getContext(){
-		/*
-		if(eitContext == null){
-			eitContext = EITContext.getInstance();
-		}
-		return eitContext;
-		*/
 		return EITContext.getInstance();
 	}
 

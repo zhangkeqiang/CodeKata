@@ -50,7 +50,7 @@ public class A2AHandlerTest extends BaseTest {
 	public final void testanalyzeJobStep2inA2A() {
 		A2AHandler handler = new A2AHandler();
 		String jobName = "haha";
-		assertEquals(4, handler.analyzeJobStep2inA2A(jobName));
+		assertEquals(4, handler.analyzeJob2(jobName));
 
 	}
 

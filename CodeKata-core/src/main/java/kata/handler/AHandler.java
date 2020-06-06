@@ -17,12 +17,12 @@ public class AHandler implements Handler {
 
     protected int analyzeJobStep1(String jobName) {
         
-        return jobName.length();
+        return analyzeJobStep2(jobName);
     }
 
     private int analyzeJobStep2(String jobName) {
         
-        return 0;
+    	return jobName.length();
     }
 
     public int analyzePerson(String personName) {

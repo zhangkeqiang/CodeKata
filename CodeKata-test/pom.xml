@@ -1,22 +1,33 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>KQ</groupId>
 		<artifactId>CodeKata</artifactId>
-		<version>3.0.14</version>
+		<version>3.0.44</version>
 	</parent>
 	<artifactId>CodeKata-test</artifactId>
 	<dependencies>
 		<dependency>
 			<groupId>KQ</groupId>
 			<artifactId>CodeKata-core</artifactId>
-			<version>3.0.14</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>KQ</groupId>
 			<artifactId>CodeKata-basic</artifactId>
-			<version>3.0.14</version>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>KQ</groupId>
+			<artifactId>CodeKata-spring</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>KQ</groupId>
+			<artifactId>CodeKata-PowerMock</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
@@ -24,10 +35,11 @@
 			<version>${mockito.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- powermock <dependency> <groupId>org.powermock</groupId> <artifactId>powermock-module-junit4</artifactId> 
-			<version>${powermock.version}</version> <scope>test</scope> </dependency> 
-			<dependency> <groupId>org.powermock</groupId> <artifactId>powermock-api-mockito</artifactId> 
-			<version>${powermock.version}</version> <scope>test</scope> </dependency> -->
-
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 </project>

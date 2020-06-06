@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>KQ</groupId>
 		<artifactId>CodeKata</artifactId>
-		<version>3.0.14</version>
+		<version>3.0.44</version>
 	</parent>
 	<artifactId>CodeKata-PowerMock</artifactId>
 
@@ -12,12 +12,12 @@
 		<dependency>
 			<groupId>KQ</groupId>
 			<artifactId>CodeKata-basic</artifactId>
-			<version>3.0.14</version>
+			<version>3.0.44</version>
 		</dependency>
 		<dependency>
 			<groupId>KQ</groupId>
 			<artifactId>CodeKata-core</artifactId>
-			<version>3.0.14</version>
+			<version>3.0.44</version>
 		</dependency>
 
 	</dependencies>

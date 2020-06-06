@@ -1,17 +1,20 @@
 package agilejerry.pattern;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class AACommand implements Command {
 	
-	private int II;
+	Logger logger = LogManager.getLogger();  //LogManager.ROOT_LOGGER_NAME
+	private int iI;
 	public AACommand(int i){
-		this.II = i;
+		this.iI = i;
 	}
 	
 	public AACommand(){
-		this.II = 10;
+		this.iI = 10;
 	}
 	public boolean execute() {
-		System.out.println("AACommand"  + II);
+		logger.info("AACommand"  + iI);
 		return true;
 	}
 

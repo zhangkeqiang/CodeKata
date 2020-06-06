@@ -35,19 +35,32 @@ public class HandlerTestWithPowerMock{
 
     
     @Test
+    public void testProtectedMethod() throws Exception {
+        A1AHandler a1aHandler =(A1AHandler) PowerMockito.spy(new A1AHandler()); 
+        /* 
+         * Setup the expectation to the private method using the method name 
+         */
+        int expected = 56;
+        PowerMockito.doReturn(expected).when(a1aHandler, "analyzeJobStep1", "jobA");
+        Assert.assertEquals(expected, a1aHandler.analyzeJob("jobA")); 
+
+        // Optionally verify that the private method was actually called 
+        PowerMockito.verifyPrivate(a1aHandler,times(1)).invoke("analyzeJobStep1", "jobA"); 
+    }
+    
+    @Test
     public void testPrivateMethod() throws Exception {
         A1AHandler a1aHandler =(A1AHandler) PowerMockito.spy(new A1AHandler()); 
         /* 
          * Setup the expectation to the private method using the method name 
          */
         int expected = 56;
-        PowerMockito.doReturn(expected).when(a1aHandler, "analyzeJobStep2", "jobA");
+        PowerMockito.doReturn(expected).when(a1aHandler, "analyzeJobStep3", "jobA");
         Assert.assertEquals(expected, a1aHandler.analyzeJob("jobA")); 
 
         // Optionally verify that the private method was actually called 
-        PowerMockito.verifyPrivate(a1aHandler,times(1)).invoke("analyzeJobStep2", "jobA"); 
+        PowerMockito.verifyPrivate(a1aHandler,times(1)).invoke("analyzeJobStep3", "jobA"); 
     }
-    
     @Test
     public void testWithMockito() throws Exception {
         A1AHandler a1aHandler =(A1AHandler) PowerMockito.spy(new A1AHandler()); 

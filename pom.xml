@@ -24,6 +24,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<powermock.version>1.6.2</powermock.version>
 		<mockito.version>1.10.19</mockito.version>
+		<spring.version>[4.3.17,)</spring.version>
 	</properties>
 
 	<dependencies>

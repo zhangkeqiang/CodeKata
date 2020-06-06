@@ -41,11 +41,11 @@ public class HandlerTestWithPowerMock{
          * Setup the expectation to the private method using the method name 
          */
         int expected = 56;
-        PowerMockito.doReturn(expected).when(a1aHandler, "analyzeJobStep2", "jobA");
+        PowerMockito.doReturn(expected).when(a1aHandler, "analyzeJobStep1", "jobA");
         Assert.assertEquals(expected, a1aHandler.analyzeJob("jobA")); 
 
         // Optionally verify that the private method was actually called 
-        PowerMockito.verifyPrivate(a1aHandler,times(1)).invoke("analyzeJobStep2", "jobA"); 
+        PowerMockito.verifyPrivate(a1aHandler,times(1)).invoke("analyzeJobStep1", "jobA"); 
     }
     
     @Test

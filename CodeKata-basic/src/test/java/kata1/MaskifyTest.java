@@ -11,5 +11,11 @@ public class MaskifyTest {
 	public final void testHideLast4Chars() {
 		assertEquals("abcd####", mask.hideLast4Chars("abcdSDDS"));
 	}
+	
+	@Test
+	public final void testHideLast4CharsforShortString() {
+		
+		assertEquals("###", mask.hideLast4Chars("DDS"));
+	}
 
 }

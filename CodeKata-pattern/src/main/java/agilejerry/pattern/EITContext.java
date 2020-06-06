@@ -2,7 +2,7 @@ package agilejerry.pattern;
 
 public class EITContext {
 	private static EITContext instance = new EITContext();  
-	private int I=500;
+	private int iInteger=500;
 	private EITContext(){
 		
 	}
@@ -12,11 +12,11 @@ public class EITContext {
 	}
 	
 	public int getI(){
-		return I;
+		return iInteger;
 	}
 
 	public void setI(int i) {
-		I = i;		
+		iInteger = i;		
 	}
 
 	public String getEITType() {

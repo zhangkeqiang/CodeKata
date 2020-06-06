@@ -5,16 +5,16 @@ import org.apache.logging.log4j.Logger;
 public class AACommand implements Command {
 	
 	Logger logger = LogManager.getLogger();  //LogManager.ROOT_LOGGER_NAME
-	private int II;
+	private int iI;
 	public AACommand(int i){
-		this.II = i;
+		this.iI = i;
 	}
 	
 	public AACommand(){
-		this.II = 10;
+		this.iI = 10;
 	}
 	public boolean execute() {
-		logger.info("AACommand"  + II);
+		logger.info("AACommand"  + iI);
 		return true;
 	}
 

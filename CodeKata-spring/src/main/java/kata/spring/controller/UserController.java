@@ -12,8 +12,8 @@ import kata.spring.entity.User;
 /**@ClassName: UserController
  * @Description:  
  */
-@Controller  
-@RequestMapping("/user")  
+//@Controller  
+//@RequestMapping("/user")  
 public class UserController {
     @RequestMapping("/{id}")  
     public ModelAndView view(@PathVariable("id") Long id, HttpServletRequest req) {  

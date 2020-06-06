@@ -67,7 +67,7 @@ public class A2AHandlerTestByPowerMock{
     public final void testMockPrivateAnalyzeJobStep2() throws Exception{
         A2AHandler a2AHandler =(A2AHandler) PowerMockito.spy(new A2AHandler());
         int expected = 56;
-        PowerMockito.doReturn(expected).when(a2AHandler, "analyzeJobStep2", "jobA");
+        PowerMockito.doReturn(expected).when(a2AHandler, "analyzeJobStep2inA2A", "jobA");
         assertEquals(expected, a2AHandler.analyzeJob2("jobA"));
     }
     
@@ -75,7 +75,7 @@ public class A2AHandlerTestByPowerMock{
     public final void testMockPrivateVoidNotify() throws Exception{
         A2AHandler a2AHandler =(A2AHandler) PowerMockito.spy(new A2AHandler());
         int expected = 56;
-        PowerMockito.doReturn(expected).when(a2AHandler, "analyzeJobStep2", "jobA");        
+        PowerMockito.doReturn(expected).when(a2AHandler, "analyzeJobStep2inA2A", "jobA");        
         PowerMockito.doNothing().when(a2AHandler, "notifyBHandler");
         assertEquals(expected, a2AHandler.analyzeJob("jobA"));
     }

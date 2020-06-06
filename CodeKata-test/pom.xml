@@ -4,19 +4,19 @@
 	<parent>
 		<groupId>KQ</groupId>
 		<artifactId>CodeKata</artifactId>
-		<version>3.0.31</version>
+		<version>3.0.32</version>
 	</parent>
 	<artifactId>CodeKata-test</artifactId>
 	<dependencies>
 		<dependency>
 			<groupId>KQ</groupId>
 			<artifactId>CodeKata-core</artifactId>
-			<version>3.0.31</version>
+			<version>3.0.32</version>
 		</dependency>
 		<dependency>
 			<groupId>KQ</groupId>
 			<artifactId>CodeKata-basic</artifactId>
-			<version>3.0.31</version>
+			<version>3.0.32</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>

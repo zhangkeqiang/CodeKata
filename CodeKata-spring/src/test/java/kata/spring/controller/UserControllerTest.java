@@ -19,16 +19,17 @@ public class UserControllerTest {
      * @description 
      * @return void
     */
-    @Before
+    //@Before
     public void setUp() throws Exception {
         userController = new UserController();  
     }
 
     /**
      * Test method for {@link kata.spring.controller.UserController#view(java.lang.Long, javax.servlet.http.HttpServletRequest)}.
-     */
+
     @Test
     @Ignore
+    */
     public final void testView() {
     	assertNotNull(userController);
         MockHttpServletRequest req = new MockHttpServletRequest();  

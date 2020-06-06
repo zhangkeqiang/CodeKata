@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>KQ</groupId>
 	<artifactId>CodeKata</artifactId>
-	<version>3.0.45</version>
+	<version>3.0.46</version>
 	<name>CodeKata</name>
 	<url>http://maven.apache.org</url>
 	<packaging>pom</packaging>

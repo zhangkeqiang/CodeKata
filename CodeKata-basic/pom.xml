@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>KQ</groupId>
 		<artifactId>CodeKata</artifactId>
-		<version>3.0.64</version>
+		<version>3.0.65</version>
 	</parent>
 	<artifactId>CodeKata-basic</artifactId>
 	<build>

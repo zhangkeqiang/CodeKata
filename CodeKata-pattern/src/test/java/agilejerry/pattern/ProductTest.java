@@ -9,7 +9,7 @@ public class ProductTest {
 	Product p;
 	@Before
 	public void setUp(){		
-		p = SimpleFactory.CreateProduct();
+		p = SimpleFactory.createProduct();
 	}
 	@Test
 	public void testFly() {		    

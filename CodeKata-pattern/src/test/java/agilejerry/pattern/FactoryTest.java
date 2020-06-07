@@ -10,7 +10,7 @@ public class FactoryTest {
 	public void testCreateProduct() {
 		//SimpleFactory factory = new SimpleFactory();
 		//assertNotNull(factory);
-		Product product = SimpleFactory.CreateProduct();
+		Product product = SimpleFactory.createProduct();
 		assertNotNull(product);
 		
 	}

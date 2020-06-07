@@ -3,7 +3,7 @@ package agilejerry.pattern;
 public class SMSSenderfromHX extends SMSSender {
 
 	@Override
-	public void sendVerifyCode(String sPhone, String message) {
+	public void sendVerifyCode(String sPhone) {
 		//send nothing
 	}
 

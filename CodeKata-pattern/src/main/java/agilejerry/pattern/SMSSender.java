@@ -3,7 +3,7 @@ package agilejerry.pattern;
 public abstract class SMSSender {
 	public abstract void send(String string, String string2);
 
-	public void sendVerifyCode(String sPhone, String message) {
+	public void sendVerifyCode(String sPhone) {
 		String code = generateCode();
 		addCodeList(sPhone, code);
 		send(sPhone, code);

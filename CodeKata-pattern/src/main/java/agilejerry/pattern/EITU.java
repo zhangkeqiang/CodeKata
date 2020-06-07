@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class EITU {
-	private static final int _0 = 0;
+	private static final int ZERO = 0;
 	protected Logger logger = LogManager.getLogger();
 	EITI eit;
 	EITCommander commander;
@@ -27,7 +27,7 @@ public class EITU {
 
 	public int calc() {
 		logger.debug("clac");
-		return _0;
+		return ZERO;
 	}
 
 }

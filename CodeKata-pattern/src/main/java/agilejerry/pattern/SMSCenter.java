@@ -1,7 +1,10 @@
 package agilejerry.pattern;
 
 public class SMSCenter {
-	public static SMSSender createSMSSender(){
-		return new SMSSenderfromHX();		
+	private SMSCenter() {
+	}
+
+	public static SMSSender createSMSSender() {
+		return new SMSSenderfromHX();
 	}
 }

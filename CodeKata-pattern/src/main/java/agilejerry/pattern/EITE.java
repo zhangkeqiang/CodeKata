@@ -1,9 +1,13 @@
 package agilejerry.pattern;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public abstract class EITE implements EITI{
 	protected EITContext context;
+	protected Logger logger = LogManager.getLogger();
 	public int run(){
-		System.out.println("EITE.run...run1 = " + run1());
+		logger.debug("EITE.run...run1 = " + run1());
 		return run1() + run2();
 	}
 	

@@ -1,6 +1,7 @@
 package agilejerry.pattern;
 
 public class EITContext {
+	private static final String EITT = "EITT";
 	private static EITContext instance = new EITContext();  
 	private int iInteger=500;
 	private EITContext(){
@@ -20,6 +21,6 @@ public class EITContext {
 	}
 
 	public String getEITType() {
-		return "EITT";
+		return EITT;
 	}
 }

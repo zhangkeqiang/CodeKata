@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class MaskifyTest {
 	Maskify mask = new Maskify();
-	ArrayList<String[]> alTestData = new ArrayList<String[]>();
+	ArrayList<String[]> alTestData = new ArrayList<>();
 
 	@Before
 	public void setUp(){

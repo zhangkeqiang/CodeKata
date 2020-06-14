@@ -4,14 +4,14 @@
 	<parent>
 		<groupId>KQ</groupId>
 		<artifactId>CodeKata</artifactId>
-		<version>3.0.70</version>
+		<version>3.0.71</version>
 	</parent>
 	<artifactId>CodeKata-pattern</artifactId>
 	<dependencies>
 		<dependency>
 			<groupId>KQ</groupId>
 			<artifactId>CodeKata-core</artifactId>
-			<version>3.0.70</version>
+			<version>3.0.71</version>
 		</dependency>
 	</dependencies>
 </project>

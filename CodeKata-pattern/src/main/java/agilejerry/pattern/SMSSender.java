@@ -1,6 +1,11 @@
 package agilejerry.pattern;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public abstract class SMSSender {
+	private static final String _2345 = "2345";
+	private Map<String, String> mapPhoneCode = new HashMap<>();
 	public abstract void send(String string, String string2);
 
 	public void sendVerifyCode(String sPhone) {
@@ -10,11 +15,11 @@ public abstract class SMSSender {
 	};
 
 	private void addCodeList(String sPhone, String code) {
-
+		mapPhoneCode.put(sPhone, code);
 	}
 
 	private String generateCode() {
-		return "2345";
+		return _2345;
 	}
 
 	public int verifyCode(String sPhone, String code) {

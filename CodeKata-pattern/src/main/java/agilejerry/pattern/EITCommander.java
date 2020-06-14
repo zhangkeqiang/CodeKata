@@ -21,7 +21,6 @@ public class EITCommander {
 		}else {
 			eit = new EITT();
 		}
-		eit.setContext(getContext());
 		return eit;
 	}
 }

@@ -16,10 +16,6 @@ public abstract class EITE implements EITI {
 
 	protected abstract int run2();
 
-	public void setContext(EITContext theContext) {
-		//this.context = theContext;
-	}
-
 	public void setContextI(int i) {
 		context.setI(i);
 	}

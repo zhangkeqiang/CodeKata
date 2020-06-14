@@ -8,7 +8,8 @@ public class MultiplyTest {
 
 	@Test
 	public final void testMultiply() {
-		assertEquals(19.1475,Multiply.multiply(3.45, 5.55),0.0001);
+		double dbExpected = 19.1475;
+		assertEquals(dbExpected, Multiply.multiply(3.45, 5.55),0.0001);
 	}
 
 }

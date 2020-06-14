@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class SMSSender {
-	private static final String _2345 = "2345";
+	private static final String FIXEDCODE = "2345";
 	private Map<String, String> mapPhoneCode = new HashMap<>();
 	public abstract void send(String string, String string2);
 
@@ -19,7 +19,7 @@ public abstract class SMSSender {
 	}
 
 	private String generateCode() {
-		return _2345;
+		return FIXEDCODE;
 	}
 
 	public int verifyCode(String sPhone, String code) {

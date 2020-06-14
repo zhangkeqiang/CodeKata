@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public abstract class EITE implements EITI {
-	protected EITContext context;
+	protected EITContext context = EITContext.getInstance();
 	protected Logger logger = LogManager.getLogger();
 
 	public int run() {
@@ -17,7 +17,7 @@ public abstract class EITE implements EITI {
 	protected abstract int run2();
 
 	public void setContext(EITContext theContext) {
-		this.context = theContext;
+		//this.context = theContext;
 	}
 
 	public void setContextI(int i) {

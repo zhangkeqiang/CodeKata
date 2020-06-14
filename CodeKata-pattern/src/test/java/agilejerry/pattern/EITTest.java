@@ -13,6 +13,7 @@ public class EITTest extends TestCase {
 	}
 
 	protected void tearDown() throws Exception {
+		
 		super.tearDown();
 	}
 
@@ -32,6 +33,8 @@ public class EITTest extends TestCase {
 		assertEquals(8, eit2.run());
 		eit.setContextI(100);
 		assertEquals(103, eit2.run());
+		//clean data, recover to initial settings
+		eit.setContextI(500);
 	}
 
 	public void testRun() {

@@ -14,7 +14,7 @@ public class VisitedLover extends Visited {
 	}
 
 	private void kiss(Visitor visitor) {
-		logger.debug("Kiss!" + visitor.toString());
+		logger.debug("Kiss " + visitor.toString());
 	}
 
 }

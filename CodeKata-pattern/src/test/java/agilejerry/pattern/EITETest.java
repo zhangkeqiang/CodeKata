@@ -10,7 +10,7 @@ public class EITETest {
 	public final void testRun() {
 		EITE eite = new EITT2();
 		EITContext context = EITContext.getInstance();
-		eite.setContext(context);
+		assertEquals(500, context.getI());
 		assertEquals(1505,eite.run());
 		
 	}

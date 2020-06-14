@@ -1,19 +1,22 @@
 package agilejerry.pattern;
 
-public class Visitor {
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+public class Visitor {
+	protected Logger logger = LogManager.getLogger();
 	public boolean visit(Visited visited) {
-		System.out.println("Start to Visit");
+		logger.debug("Start to Visit " + visited.toString());
 		return true;
 	}
 
 	public boolean visit(VisitedFriend visited) {
-		System.out.println("Start to Visit Friend");
+		logger.debug("Start to Visit Friend " + visited.toString());
 		return true;
 	}
 	
 	public void shakeHand(VisitedFriend visitedFriend) {
-		System.out.println("ShakeHand");
+		logger.debug("ShakeHand with " + visitedFriend.toString());
 	}
 	
 	

@@ -1,7 +1,5 @@
 package kata;
 
-import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -33,7 +31,7 @@ public class AppTest {
 
 	@Test
 	public void testMain() {
-		app.main(null);
+		App.main(null);
 	}
 
 	@Test

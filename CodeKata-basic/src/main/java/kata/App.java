@@ -7,9 +7,12 @@ import java.util.Collection;
  *
  */
 public final class App {
+	int x = 3;
 
     public static void main( String[] args ){
-    	//do nothing
+    	App app = new App();
+    	app.foo();
+    	app.foo(13);
     }
     
     App(){
@@ -17,12 +20,12 @@ public final class App {
     }
     
     public void foo() {
-        int x = 3;
+        
     }
     
     
     public void foo(int y) {
-        int x = 3;
+        x = y;
         
     } 
     

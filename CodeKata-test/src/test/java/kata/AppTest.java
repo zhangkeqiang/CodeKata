@@ -1,5 +1,7 @@
 package kata;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -33,15 +35,25 @@ public class AppTest {
 	public void testMain() {
 		App.main(null);
 	}
+	
+	@Test
+	public void testSetGet() {
+		int y = -1800000;
+		app.setX(y);
+		assertEquals(y,app.getX());
+	}
 
 	@Test
 	public void testFoo() {
 		app.foo();
+		assertEquals(0,app.getX());
 	}
 
 	@Test
 	public void testFooInt() {
-		app.foo(18);
+		int y = 18;
+		app.foo(y);
+		assertEquals(y,app.getX());
 	}
 
 	@Test

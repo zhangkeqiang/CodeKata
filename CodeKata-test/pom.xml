@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>KQ</groupId>
 		<artifactId>CodeKata</artifactId>
-		<version>3.0.76</version>
+		<version>3.0.77</version>
 	</parent>
 	<artifactId>CodeKata-test</artifactId>
 	<dependencies>

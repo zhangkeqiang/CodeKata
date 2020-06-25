@@ -14,9 +14,9 @@ public class Premium2 {
 			throw new PremiumException("Premium:age can't be below zero.");
 		}else if (age < AGE20 || age > AGE59 ){
 			point += 2;
-		}else if (age >= AGE20 && age <= AGE39){
+		}else if (age <= AGE39){
 			point += 6;
-		}else if (age >=AGE40 && age <= AGE59){
+		}else if (age >=AGE40){
 			point += 4;
 		}
 		
@@ -41,7 +41,7 @@ public class Premium2 {
 
 	private double dealwithMarriage(char marriage)
 			throws PremiumException {
-		double p = 0.0;
+		double p;
 		if(marriage == 'Y'){
 			p = 3;
 		}else if(marriage == 'N'){
@@ -53,7 +53,7 @@ public class Premium2 {
 	}
 
 	private double dealwithGender(char gender) throws PremiumException {
-		double p = 0.0;
+		double p;
 		if(gender == 'M'){
 			  p = 5;
 		}else if(gender == 'F'){

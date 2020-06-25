@@ -11,7 +11,7 @@ public class IncomeTax {
 
     public double calculate(double income) {
         double incomeintax = income - IncomeTax.STARTSTAIR;
-        double tax = -1.0;
+        double tax;
         if(incomeintax <= 0){
             tax = 0;
         }else if(incomeintax <= FIRSTSTAIR){

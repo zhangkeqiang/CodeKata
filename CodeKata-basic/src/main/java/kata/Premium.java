@@ -66,9 +66,9 @@ public class Premium {
             throw new KataException(PREMIUM_AGE_CAN_T_BE_BELOW_ZERO);
         }else if (age < TWENTY || age > N59 ){
             point += 2;
-        }else if (age >= TWENTY && age <= N39){
+        }else if (age <= N39){
             point += 6;
-        }else if (age >=40 && age <= N59){
+        }else if (age >=40){
             point += 4;
         }
 		return point;

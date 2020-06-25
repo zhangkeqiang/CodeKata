@@ -26,7 +26,7 @@ public class KataSearch {
 				return nm;
 			}else if(search < v) {
 				nh = nm-1;		
-			}else if(search > v) {
+			}else {
 				nl = nm+1;				
 			}						
 		}

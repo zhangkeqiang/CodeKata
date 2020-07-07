@@ -34,7 +34,7 @@ public class CurrentMonthMeterTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
+	@Test(timeout = 100)
 	public void testCalculateBillingFlow() {
 		assertEquals(900, meter.calculateBillingFlow(userFlow, 2015, 10));
 	}

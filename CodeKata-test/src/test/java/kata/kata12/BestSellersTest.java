@@ -74,7 +74,7 @@ public class BestSellersTest {
 
 	}
 
-	@Test
+	@Test(timeout = 10000)
 	// @Ignore
 	public void testGenerateBestSellingList() {
 		long sleeptime = 1000;

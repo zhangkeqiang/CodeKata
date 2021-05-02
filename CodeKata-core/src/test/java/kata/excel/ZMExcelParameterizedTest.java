@@ -1,6 +1,7 @@
 package kata.excel;
 
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -36,10 +37,21 @@ public class ZMExcelParameterizedTest {
 
 	@Test
 	public void testMeter2calcFlow() {
-		System.out.println(mapParams.get("SheetName"));
-		System.out.println(mapParams.get("FirstGridValue"));
+		
+		System.out.println("Header " + mapParams.get("Header"));
+		System.out.println("SheetName " + mapParams.get("SheetName"));
+		System.out.println("HeaderRow " + mapParams.get("HeaderRow"));
+
 		System.out.println(mapParams.get("MaxBlankThreshold"));
 		System.out.println(mapParams.get("HeaderMatcher"));
-		System.out.println(mapParams.get("ParameterCount"));
+		System.out.println(mapParams.get("ParameterCount"));		
+		System.out.println("ParameterNameColumn " + mapParams.get("ParameterNameColumn"));
+		
+		assertEquals("Scenario1", mapParams.get("Header1Name"));
+		assertEquals("V1.1", mapParams.get("FirstGridValue"));
+		assertEquals("4.4", mapParams.get("LastGridValue"));
+		assertEquals("V1.2", mapParams.get("ParamName1InSet2Value"));
+		assertEquals("V2.2", mapParams.get("ParamName2InSet2Value"));
+		assertEquals("", mapParams.get("ParamName3Value"));
 	}
 }

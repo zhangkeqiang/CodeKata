@@ -22,13 +22,13 @@ public class ZMExcel {
 
 	@SuppressWarnings("rawtypes")
 	public static List<Map> getExampleList(String excelPath, String worksheetName) {
-		return getExampleList(excelPath, worksheetName, 1, 'C', ".*");
+		return getExampleList(excelPath, worksheetName, 1, 'C', "");
 	}
 
 	@SuppressWarnings("rawtypes")
 	public static List<Map> getExampleList(String excelPath, String worksheetName, int headerRow,
 			char parameterNameColumn) {
-		return getExampleList(excelPath, worksheetName, headerRow, parameterNameColumn, ".*");
+		return getExampleList(excelPath, worksheetName, headerRow, parameterNameColumn, "");
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -61,32 +61,32 @@ public class ZMExcel {
 			}
 			// Get ParameterNames HashMap
 			HashMap<Integer, String> mapParameterName = new HashMap<Integer, String>();
-			System.out.println("getLastRowNum " + sheetTestData.getLastRowNum());
+			// System.out.println("getLastRowNum " + sheetTestData.getLastRowNum());
 			int nContinuousBlankCount = 0;
 			for (int iRow = headerRow; iRow <= sheetTestData.getLastRowNum(); iRow++) {
 				if (nContinuousBlankCount > 3) {
 					break;
 				}
-				System.out.println("Check Row " + iRow);
+				// System.out.println("Check Row " + iRow);
 				XSSFRow rowCurrent = sheetTestData.getRow(iRow);
 				if (rowCurrent == null) {
-					System.out.println("no row  ParameterName name at:" + iRow);
+					// System.out.println("no row ParameterName name at:" + iRow);
 					nContinuousBlankCount++;
-					System.out.println("nContinuousBlankCount " + nContinuousBlankCount);
+					// System.out.println("nContinuousBlankCount " + nContinuousBlankCount);
 					continue;
 				}
 				XSSFCell cellParameterName = rowCurrent.getCell(parameterNameColumnNum);
 				if (cellParameterName == null) {
-					System.out.println("no cell ParameterName name at:" + iRow);
+					// System.out.println("no cell ParameterName name at:" + iRow);
 					nContinuousBlankCount++;
-					System.out.println("nContinuousBlankCount " + nContinuousBlankCount);
+					// System.out.println("nContinuousBlankCount " + nContinuousBlankCount);
 					continue;
 				}
 				String strParameterName = cellParameterName.getStringCellValue();
 				if (strParameterName == null || strParameterName.isEmpty()) {
-					System.out.println("no parameter name at:" + iRow);
+					// System.out.println("no parameter name at:" + iRow);
 					nContinuousBlankCount++;
-					System.out.println("nContinuousBlankCount " + nContinuousBlankCount);
+					// System.out.println("nContinuousBlankCount " + nContinuousBlankCount);
 				} else {
 					mapParameterName.put(iRow, strParameterName);
 					nContinuousBlankCount = 0;
@@ -101,28 +101,28 @@ public class ZMExcel {
 					Map<String, String> mapTestSet = listTestSet.get(nPos++);
 					XSSFCell cellCurrent = rowCurrent.getCell(iCol);
 					if (cellCurrent.getCellType() == CellType.STRING) {
-						System.out.println("STRING " + cellCurrent.getRawValue());
+						// System.out.println("STRING " + cellCurrent.getRawValue());
 						mapTestSet.put((String) aParameterName.getValue(), cellCurrent.getStringCellValue());
 					} else if (cellCurrent.getCellType() == CellType.NUMERIC) {
-						System.out.println("NUMERIC " + cellCurrent.getRawValue());
+						// System.out.println("NUMERIC " + cellCurrent.getRawValue());
 						mapTestSet.put((String) aParameterName.getValue(),
 								String.valueOf(cellCurrent.getNumericCellValue()));
 					} else if (cellCurrent.getCellType() == CellType._NONE) {
-						System.out.println("_NONE " + cellCurrent.getRawValue());
+						// System.out.println("_NONE " + cellCurrent.getRawValue());
 						mapTestSet.put((String) aParameterName.getValue(),
 								String.valueOf(cellCurrent.getDateCellValue().toString()));
 					} else if (cellCurrent.getCellType() == CellType.BLANK) {
-						System.out.println("BLANK " + cellCurrent.getRawValue());
+						// System.out.println("BLANK " + cellCurrent.getRawValue());
 						mapTestSet.put((String) aParameterName.getValue(), "");
 					} else if (cellCurrent.getCellType() == CellType.BOOLEAN) {
-						System.out.println("BOOLEAN " + cellCurrent.getRawValue());
+						// System.out.println("BOOLEAN " + cellCurrent.getRawValue());
 						mapTestSet.put((String) aParameterName.getValue(),
 								String.valueOf(cellCurrent.getBooleanCellValue()));
 					} else if (cellCurrent.getCellType() == CellType.FORMULA) {
-						System.out.println("FORMULA " + cellCurrent.getCellFormula());
+						// System.out.println("FORMULA " + cellCurrent.getCellFormula());
 						mapTestSet.put((String) aParameterName.getValue(), cellCurrent.getRawValue());
 					} else {
-						System.out.println("Other " + cellCurrent.getRawValue());
+						// System.out.println("Other " + cellCurrent.getRawValue());
 						mapTestSet.put((String) aParameterName.getValue(), cellCurrent.getRawValue());
 					}
 				}

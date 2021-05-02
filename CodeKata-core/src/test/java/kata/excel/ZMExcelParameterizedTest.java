@@ -24,7 +24,7 @@ public class ZMExcelParameterizedTest {
     public static Collection<Object[]> prepareData()
     {
     	String filepath = "E:\\VSCode\\SimpleOpen\\ScrumBan\\Excel\\ExcelBDD.xlsx";
-    	return ZMExcel.getExampleList(filepath, "SimpleOpenBDD", 1, 'D');
+    	return ZMExcel.getExampleCollection(filepath, "SimpleOpenBDD", 1, 'D');
     }
 	
 	public ZMExcelParameterizedTest(Map map){

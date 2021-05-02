@@ -27,7 +27,7 @@ public class ZMExcelTest {
 		assertEquals(parameterNameColumnNum, 4);
 	}
 
-	@ParameterizedTest
+	@ParameterizedTest(name = "#{index} - Test: {0}")
 	@ValueSource(strings = { "racecar", "radar", "able was I ere I saw elba" })
 	void palindromes(String candidate) {
 		System.out.println(candidate);
@@ -47,13 +47,12 @@ public class ZMExcelTest {
 		assertEquals("V1.2", mapParams.get("ParamName1InSet2Value"));
 		assertEquals("V2.2", mapParams.get("ParamName2InSet2Value"));
 		assertEquals("", mapParams.get("ParamName3Value"));
-		assertTrue(mapParams.get("ParamName3Value") == "", "ParamName3Value");
 
-		assertEquals(mapParams.get("MaxBlankThreshold"), "3.0");
+		assertEquals("3.0", mapParams.get("MaxBlankThreshold"));
 		System.out.println("HeaderMatcher " + mapParams.get("HeaderMatcher"));
-		assertEquals(mapParams.get("HeaderMatcher"), "Scenario");
+		assertEquals("Scenario", mapParams.get("HeaderMatcher"));
 		System.out.println("ParameterCount " + mapParams.get("ParameterCount"));
-		assertEquals(mapParams.get("ParameterCount"), "5.0");
+		assertEquals("5.0", mapParams.get("ParameterCount"));
 
 		String filepath = "E:\\VSCode\\SimpleOpen\\ScrumBan\\Excel\\ExcelBDD.xlsx";
 		int nHeaderRow = Double.valueOf(mapParams.get("HeaderRow")).intValue();
@@ -69,18 +68,18 @@ public class ZMExcelTest {
 		System.out.println(list.get(3).toString());
 
 		assertEquals(list.toArray().length, 4);
-		assertEquals(list.get(0).get("ParamName1"), "V1.1");
-		assertEquals(list.get(1).get("ParamName1"), "V1.2");
-		assertEquals(list.get(2).get("ParamName1"), "V1.3");
-		assertEquals(list.get(3).get("ParamName1"), "V1.4");
+		assertEquals("V1.1", list.get(0).get("ParamName1"));
+		assertEquals("V1.2", list.get(1).get("ParamName1"));
+		assertEquals("V1.3", list.get(2).get("ParamName1"));
+		assertEquals("V1.4", list.get(3).get("ParamName1"));
 
-		assertEquals(list.get(0).get("ParamName2"), "V2.1");
-		assertEquals(list.get(1).get("ParamName2"), "V2.2");
+		assertEquals("V2.1", list.get(0).get("ParamName2"));
+		assertEquals("V2.2", list.get(1).get("ParamName2"));
 
-		assertEquals(list.get(0).get("ParamName3"), "");
-		assertEquals(list.get(1).get("ParamName3"), "");
-		assertEquals(list.get(2).get("ParamName3"), "");
-		assertEquals(list.get(3).get("ParamName3"), "");
+		assertEquals("", list.get(0).get("ParamName3"));
+		assertEquals("", list.get(1).get("ParamName3"));
+		assertEquals("", list.get(2).get("ParamName3"));
+		assertEquals("", list.get(3).get("ParamName3"));
 
 		assertEquals("2021/4/30", list.get(0).get("ParamName4"));
 		assertEquals("false", list.get(1).get("ParamName4"));

@@ -54,7 +54,7 @@ public class ZMExcel {
 				XSSFCell cellHeader = rowHeader.getCell(iCol);
 				if (cellHeader.getStringCellValue().matches(strRealHeaderMatcher)) {
 					mapTestDataHeader.put(iCol, cellHeader.getStringCellValue());
-					Map<String, Object> mapTestSet = new HashMap<String, Object>();
+					Map<String, String> mapTestSet = new HashMap<String, String>();
 					mapTestSet.put("Header", cellHeader.getStringCellValue());
 					listTestSet.add(mapTestSet);
 				}
@@ -98,12 +98,32 @@ public class ZMExcel {
 				XSSFRow rowCurrent = sheetTestData.getRow(iRow);
 				int nPos = 0;
 				for (Integer iCol : mapTestDataHeader.keySet()) {
-					Map<String, Object> mapTestSet = listTestSet.get(nPos++);
+					Map<String, String> mapTestSet = listTestSet.get(nPos++);
 					XSSFCell cellCurrent = rowCurrent.getCell(iCol);
 					if (cellCurrent.getCellType() == CellType.STRING) {
+						System.out.println("STRING " + cellCurrent.getRawValue());
 						mapTestSet.put((String) aParameterName.getValue(), cellCurrent.getStringCellValue());
 					} else if (cellCurrent.getCellType() == CellType.NUMERIC) {
-						mapTestSet.put((String) aParameterName.getValue(), cellCurrent.getNumericCellValue());
+						System.out.println("NUMERIC " + cellCurrent.getRawValue());
+						mapTestSet.put((String) aParameterName.getValue(),
+								String.valueOf(cellCurrent.getNumericCellValue()));
+					} else if (cellCurrent.getCellType() == CellType._NONE) {
+						System.out.println("_NONE " + cellCurrent.getRawValue());
+						mapTestSet.put((String) aParameterName.getValue(),
+								String.valueOf(cellCurrent.getDateCellValue().toString()));
+					} else if (cellCurrent.getCellType() == CellType.BLANK) {
+						System.out.println("BLANK " + cellCurrent.getRawValue());
+						mapTestSet.put((String) aParameterName.getValue(), "");
+					} else if (cellCurrent.getCellType() == CellType.BOOLEAN) {
+						System.out.println("BOOLEAN " + cellCurrent.getRawValue());
+						mapTestSet.put((String) aParameterName.getValue(),
+								String.valueOf(cellCurrent.getBooleanCellValue()));
+					} else if (cellCurrent.getCellType() == CellType.FORMULA) {
+						System.out.println("FORMULA " + cellCurrent.getCellFormula());
+						mapTestSet.put((String) aParameterName.getValue(), cellCurrent.getRawValue());
+					} else {
+						System.out.println("Other " + cellCurrent.getRawValue());
+						mapTestSet.put((String) aParameterName.getValue(), cellCurrent.getRawValue());
 					}
 				}
 			}
@@ -118,6 +138,7 @@ public class ZMExcel {
 		return listTestSet;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static Collection<Object[]> getExampleCollection(String excelPath, String worksheetName, int headerRow,
 			char parameterNameColumn) {
 		Collection<Object[]> collectionTestData = new ArrayList<Object[]>();

@@ -2,6 +2,8 @@ package kata.excel;
 
 import static org.junit.Assert.*;
 
+import java.io.InputStream;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
@@ -23,7 +25,7 @@ public class ZMExcelParameterizedTest {
 	@Parameters
     public static Collection<Object[]> prepareData()
     {
-    	String filepath = "E:\\VSCode\\SimpleOpen\\ScrumBan\\Excel\\ExcelBDD.xlsx";
+    	String filepath = "src/test/java/kata/excel/ExcelBDD.xlsx";
     	return ZMExcel.getExampleCollection(filepath, "SimpleOpenBDD", 1, 'D');
     }
 	

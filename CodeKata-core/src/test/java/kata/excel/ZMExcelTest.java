@@ -15,7 +15,7 @@ public class ZMExcelTest {
 
 	@SuppressWarnings("rawtypes")
 	static Stream<Map> provideExampleList() {
-		String filepath = "E:\\VSCode\\SimpleOpen\\ScrumBan\\Excel\\ExcelBDD.xlsx";
+		String filepath = "src/test/java/kata/excel/ExcelBDD.xlsx";
 		List<Map> list = ZMExcel.getExampleList(filepath, "SimpleOpenBDD", 1, 'D');
 		return list.stream();
 	}

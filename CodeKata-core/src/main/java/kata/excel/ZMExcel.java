@@ -36,103 +36,98 @@ public class ZMExcel {
 			char parameterNameColumn, String headerMatcher) {
 		String strRealHeaderMatcher = ".*" + headerMatcher + ".*";
 		ArrayList<Map> listTestSet = new ArrayList<Map>();
+		FileInputStream excelFile = null;
+		XSSFWorkbook workbook = null;
 		try {
-			int parameterNameColumnNum = (int) parameterNameColumn - 65;
-			System.out.println("parameterNameColumnNum:" + parameterNameColumnNum);
+			int parameterNameColumnNum = (int) parameterNameColumn - 65; // poi get column from 0, so Column A's Num is
+																			// 0, 65 is A's ASCII code
 
-			FileInputStream excelFile = new FileInputStream(new File(excelPath));
-			XSSFWorkbook workbook = new XSSFWorkbook(excelFile);
+			excelFile = new FileInputStream(new File(excelPath));
+			workbook = new XSSFWorkbook(excelFile);
 			XSSFSheet sheetTestData = workbook.getSheet(worksheetName);
-			System.out.println("RowSum:" + sheetTestData.getLastRowNum());
-			XSSFRow rowHeader = sheetTestData.getRow(headerRow - 1);
+			XSSFRow rowHeader = sheetTestData.getRow(headerRow - 1); // poi get row from 0, so 1st headerRow is at 0
 
 			// Get Matched Column HashMap
-			System.out.println("Column Sum:" + rowHeader.getLastCellNum());
 			int nMaxColumn = rowHeader.getLastCellNum();
-			HashMap<Integer, String> mapTestDataHeader = new HashMap<Integer, String>();
+			HashMap<Integer, String> mapTestDataHeader = new HashMap();
 			for (int iCol = parameterNameColumnNum + 1; iCol < nMaxColumn; iCol++) {
 				XSSFCell cellHeader = rowHeader.getCell(iCol);
 				if (cellHeader.getStringCellValue().matches(strRealHeaderMatcher)) {
 					mapTestDataHeader.put(iCol, cellHeader.getStringCellValue());
-					Map<String, String> mapTestSet = new HashMap<String, String>();
+					Map<String, String> mapTestSet = new HashMap();
 					mapTestSet.put("Header", cellHeader.getStringCellValue());
 					listTestSet.add(mapTestSet);
 				}
 			}
 			// Get ParameterNames HashMap
-			HashMap<Integer, String> mapParameterName = new HashMap<Integer, String>();
-			// System.out.println("getLastRowNum " + sheetTestData.getLastRowNum());
+			HashMap<Integer, String> mapParameterName = new HashMap();
 			int nContinuousBlankCount = 0;
 			for (int iRow = headerRow; iRow <= sheetTestData.getLastRowNum(); iRow++) {
 				if (nContinuousBlankCount > 3) {
 					break;
 				}
-				// System.out.println("Check Row " + iRow);
 				XSSFRow rowCurrent = sheetTestData.getRow(iRow);
 				if (rowCurrent == null) {
-					// System.out.println("no row ParameterName name at:" + iRow);
 					nContinuousBlankCount++;
-					// System.out.println("nContinuousBlankCount " + nContinuousBlankCount);
 					continue;
 				}
 				XSSFCell cellParameterName = rowCurrent.getCell(parameterNameColumnNum);
 				if (cellParameterName == null) {
-					// System.out.println("no cell ParameterName name at:" + iRow);
 					nContinuousBlankCount++;
-					// System.out.println("nContinuousBlankCount " + nContinuousBlankCount);
 					continue;
 				}
 				String strParameterName = cellParameterName.getStringCellValue();
 				if (strParameterName == null || strParameterName.isEmpty()) {
-					// System.out.println("no parameter name at:" + iRow);
 					nContinuousBlankCount++;
-					// System.out.println("nContinuousBlankCount " + nContinuousBlankCount);
-				} else {
+				} else if (strParameterName != "NA") {
 					mapParameterName.put(iRow, strParameterName);
+					nContinuousBlankCount = 0;
+				} else {
 					nContinuousBlankCount = 0;
 				}
 			}
 
 			for (Map.Entry aParameterName : mapParameterName.entrySet()) {
 				int iRow = (int) aParameterName.getKey();
+				String strParameterName = (String) aParameterName.getValue();
 				XSSFRow rowCurrent = sheetTestData.getRow(iRow);
 				int nPos = 0;
 				for (Integer iCol : mapTestDataHeader.keySet()) {
 					Map<String, String> mapTestSet = listTestSet.get(nPos++);
 					XSSFCell cellCurrent = rowCurrent.getCell(iCol);
 					if (cellCurrent.getCellType() == CellType.STRING) {
-						// System.out.println("STRING " + cellCurrent.getRawValue());
-						mapTestSet.put((String) aParameterName.getValue(), cellCurrent.getStringCellValue());
+						mapTestSet.put(strParameterName, cellCurrent.getStringCellValue());
 					} else if (cellCurrent.getCellType() == CellType.NUMERIC) {
-						// System.out.println("NUMERIC " + cellCurrent.getRawValue());
-						mapTestSet.put((String) aParameterName.getValue(),
-								String.valueOf(cellCurrent.getNumericCellValue()));
+						mapTestSet.put(strParameterName, String.valueOf(cellCurrent.getNumericCellValue()));
 					} else if (cellCurrent.getCellType() == CellType._NONE) {
-						// System.out.println("_NONE " + cellCurrent.getRawValue());
-						mapTestSet.put((String) aParameterName.getValue(),
-								String.valueOf(cellCurrent.getDateCellValue().toString()));
+						mapTestSet.put(strParameterName, String.valueOf(cellCurrent.getDateCellValue()));
 					} else if (cellCurrent.getCellType() == CellType.BLANK) {
-						// System.out.println("BLANK " + cellCurrent.getRawValue());
-						mapTestSet.put((String) aParameterName.getValue(), "");
+						mapTestSet.put(strParameterName, "");
 					} else if (cellCurrent.getCellType() == CellType.BOOLEAN) {
-						// System.out.println("BOOLEAN " + cellCurrent.getRawValue());
-						mapTestSet.put((String) aParameterName.getValue(),
-								String.valueOf(cellCurrent.getBooleanCellValue()));
+						mapTestSet.put(strParameterName, String.valueOf(cellCurrent.getBooleanCellValue()));
 					} else if (cellCurrent.getCellType() == CellType.FORMULA) {
-						// System.out.println("FORMULA " + cellCurrent.getCellFormula());
-						mapTestSet.put((String) aParameterName.getValue(), cellCurrent.getRawValue());
+						mapTestSet.put(strParameterName, cellCurrent.getRawValue());
 					} else {
-						// System.out.println("Other " + cellCurrent.getRawValue());
-						mapTestSet.put((String) aParameterName.getValue(), cellCurrent.getRawValue());
+						mapTestSet.put(strParameterName, cellCurrent.getRawValue());
 					}
 				}
 			}
-			workbook.close();
-			excelFile.close();
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				workbook.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			try {
+				excelFile.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 
 		return listTestSet;

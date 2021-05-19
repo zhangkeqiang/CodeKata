@@ -20,18 +20,18 @@ public class ZMExcelTest {
 		return list.stream();
 	}
 
-	@Test
-	public final void test() {
-		char parameterNameColumn = 'D';
-		int parameterNameColumnNum = (int) parameterNameColumn - 64;
-		assertEquals(parameterNameColumnNum, 4);
-	}
+//	@Test
+//	public final void test() {
+//		char parameterNameColumn = 'D';
+//		int parameterNameColumnNum = (int) parameterNameColumn - 64;
+//		assertEquals(parameterNameColumnNum, 4);
+//	}
 
-	@ParameterizedTest(name = "#{index} - Test: {0}")
-	@ValueSource(strings = { "racecar", "radar", "able was I ere I saw elba" })
-	void palindromes(String candidate) {
-		System.out.println(candidate);
-	}
+//	@ParameterizedTest(name = "#{index} - Test: {0}")
+//	@ValueSource(strings = { "racecar", "radar", "able was I ere I saw elba" })
+//	void palindromes(String candidate) {
+//		System.out.println(candidate);
+//	}
 
 	@ParameterizedTest(name = "#{index} - Test with Map : {0}")
 	@MethodSource("provideExampleList")
@@ -54,7 +54,7 @@ public class ZMExcelTest {
 		System.out.println("ParameterCount " + mapParams.get("ParameterCount"));
 		assertEquals("5.0", mapParams.get("ParameterCount"));
 
-		String filepath = "E:\\VSCode\\SimpleOpen\\ScrumBan\\Excel\\ExcelBDD.xlsx";
+		String filepath = "src/test/java/kata/excel/ExcelBDD.xlsx";
 		int nHeaderRow = Double.valueOf(mapParams.get("HeaderRow")).intValue();
 		char charParameterNameColumn = mapParams.get("ParameterNameColumn").charAt(0);
 		System.out.println("ParameterNameColumn " + charParameterNameColumn);
@@ -66,8 +66,8 @@ public class ZMExcelTest {
 		System.out.println(list.get(1).toString());
 		System.out.println(list.get(2).toString());
 		System.out.println(list.get(3).toString());
-
-		assertEquals(list.toArray().length, 4);
+		assertEquals(4, list.size());
+		
 		assertEquals("V1.1", list.get(0).get("ParamName1"));
 		assertEquals("V1.2", list.get(1).get("ParamName1"));
 		assertEquals("V1.3", list.get(2).get("ParamName1"));

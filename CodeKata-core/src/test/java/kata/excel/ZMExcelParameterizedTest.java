@@ -3,20 +3,14 @@ package kata.excel;
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.io.InputStream;
-import java.net.URL;
-import java.util.Arrays;
+
 import java.util.Collection;
 import java.util.Map;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-
-import kata.flowmeter.DataPlan;
 
 @RunWith(Parameterized.class)
 public class ZMExcelParameterizedTest {
@@ -36,7 +30,7 @@ public class ZMExcelParameterizedTest {
 
 
 	@Test
-	public void testMeter2calcFlow() {
+	public void testZMExcelParameterizedTest() {
 		
 		System.out.println("Header " + mapParams.get("Header"));
 		System.out.println("SheetName " + mapParams.get("SheetName"));
